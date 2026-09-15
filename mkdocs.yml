@@ -1,0 +1,113 @@
+site_name: APUNTES DIW - Diseño de Interfaces Web
+
+theme:
+  name: material
+  language: es
+  
+  # Iconos de la interfaz y del logo
+  icon:
+    logo: material/palette-swatch
+    repo: fontawesome/brands/github
+
+  # Características visuales y de navegación
+  features:
+    - navigation.sections      # Secciones estructuradas en el menú lateral
+    - navigation.expand        # Mantiene las secciones abiertas para ver todo de un vistazo
+    - navigation.indexes       # Permite que las páginas principales actúen como directorio
+    - navigation.top           # Botón flotante para volver arriba
+    - navigation.instant       # Carga instantánea tipo SPA
+    - search.suggest           # Sugerencias visuales en la búsqueda
+    - search.highlight         # Resaltado en color de las palabras buscadas
+    - content.code.copy        # Botón para copiar bloques de código
+
+  # Configuración de colores y selector Claro / Oscuro
+  palette:
+    # Opción 1: Modo Claro
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Pasar a modo oscuro
+
+    # Opción 2: Modo Oscuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Pasar a modo claro
+
+markdown_extensions:
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  # Cargar MathJax para fórmulas
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search
+
+nav:
+  - Inicio: index.md
+  - Planificación Docente: planificacion.md
+  - 1.ª Evaluación (Bloque I - UI/UX, Design Systems, HTML5, CSS Moderno y Multimedia):
+      - "UD 1: Diseño de Interfaces, Comunicación Visual y Figma Base (RA1)": ud1.md
+      - "UD 2: Figma Avanzado, Design Systems y Design Tokens (RA1)": ud2.md
+      - "UD 3: HTML5 Semántico, Estructura Accesible y Formularios (RA2)": ud3.md
+      # - "UD 4: CSS3 Moderno, Layout (Flexbox/Grid), Container Queries y Responsive (RA2)": ud4.md
+      # - "UD 5: Arquitectura CSS (BEM) y Utility-First con Tailwind CSS (RA2)": ud5.md
+      # - "UD 6: Optimización Multimedia (WebP/AVIF), SVG e Introducción a Performance (RA3)": ud6.md
+  # - 2.ª Evaluación (Bloque II - Componentes, Interactive UI, WCAG 2.2 y Audits):
+  #     - "UD 7: Componentes UI, Atomic Design y Catálogo con Storybook (RA4)":
+  #         - "Visión General": ud7.md
+  #         - "7.1 Arquitectura de Componentes y Atomic Design": ud7-1-atomic-design.md
+  #         - "7.2 Desarrollo y Documentación Aislada con Storybook": ud7-2-storybook.md
+  #     - "UD 8: Interactividad UI, DOM, Validaciones y Testing Responsive (RA4)":
+  #         - "Visión General": ud8.md
+  #         - "8.1 Manipulación del DOM, Eventos e Interacción": ud8-1-interacciones-dom.md
+  #         - "8.2 DevTools, Testing Responsive y Compatibilidad Cross-Browser": ud8-2-cross-browser.md
+  #     - "UD 9: Fundamentos de Accesibilidad Web, WCAG 2.2 y WAI-ARIA (RA5)":
+  #         - "Visión General": ud9.md
+  #         - "9.1 Principios POUR, Niveles A/AA/AAA y Semántica ARIA": ud9-1-principios-wcag.md
+  #         - "9.2 Navegación por Teclado, Lectores de Pantalla y Contraste": ud9-2-a11y-practica.md
+  #     - "UD 10: Auditorías de Accesibilidad Profesional (Lighthouse, axe, WAVE) (RA5)":
+  #         - "Visión General": ud10.md
+  #         - "10.1 Herramientas Automáticas de Diagnóstico": ud10-1-auditorias-a11y.md
+  #         - "10.2 Evaluación Manual y Corrección de Errores por Prioridad": ud10-2-test-conformidad.md
+  #     - "UD 11: Usabilidad, UX, Heurísticas de Nielsen y Rediseño de Interfaces (RA5/RA6)":
+  #         - "Visión General": ud11.md
+  #         - "11.1 Análisis de Usabilidad y Metodología Antes/Después": ud11-1-analisis-usabilidad.md
+  #         - "11.2 Estándares, Carga Cognitiva y Patrones UX": ud11-2-patrones-ux.md
+  #     - "UD 12: Performance Web, Core Web Vitals y Pruebas Integrales en Aula (RA5)":
+  #         - "Visión General": ud12.md
+  #         - "12.1 Métricas de Rendimiento (LCP, INP, CLS) y Optimización": ud12-1-core-web-vitals.md
+  #         - "12.2 Proyecto Integrador: Auditoría Final de Interfaz, A11y y UX": ud12-2-pruebas-rendimiento-ux.md
+  # - Formación en Empresa (3.er Trimestre - 18,18% CEs):
+  #     - "FP Dual: Verificación, Accesibilidad, Usabilidad y Rendimiento en Producción":
+  #         - "Visión General": empresa.md
+  #         - "E.1 Tests de Accesibilidad y Tecnologías Asistivas (RA5.f, RA5.g)": empresa-1-conformidad-accesibilidad.md
+  #         - "E.2 Evaluación de Usabilidad y Rediseño en Producción (RA6.a, RA6.b, RA6.c)": empresa-2-rediseno-usabilidad.md
+  #         - "E.3 Navegación por Periféricos, Pruebas Cross-Browser y Performance (RA6.d, RA6.e, RA6.f)": empresa-3-pruebas-crossbrowser.md

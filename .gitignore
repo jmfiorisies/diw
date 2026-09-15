@@ -1,0 +1,15 @@
+venv/
+.venv/
+site/
+
+# Ignorar de la UD 4 en adelante y Formación en Empresa
+docs/ud4*
+docs/ud5*
+docs/ud6*
+docs/ud7*
+docs/ud8*
+docs/ud9*
+docs/ud10*
+docs/ud11*
+docs/ud12*
+docs/empresa*
