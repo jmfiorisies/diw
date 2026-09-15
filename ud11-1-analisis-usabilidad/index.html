@@ -1,0 +1,906 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>11.1 · Análisis de Usabilidad y Metodología Antes/Después - APUNTES DIW - Diseño de Interfaces Web</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#111-analisis-de-usabilidad-y-metodologia-antesdespues" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="APUNTES DIW - Diseño de Interfaces Web" class="md-header__button md-logo" aria-label="APUNTES DIW - Diseño de Interfaces Web" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m2.53 19.65 1.34.56v-9.03l-2.43 5.86c-.41 1.02.06 2.19 1.09 2.61m19.5-3.7L17.07 4a2 2 0 0 0-1.81-1.25c-.26 0-.53.04-.79.15L7.1 5.95a2.02 2.02 0 0 0-1.23 1.8c-.01.25.04.54.13.8l5 11.95c.29.78 1.03 1.24 1.81 1.25.26 0 .52-.05.77-.15l7.36-3.05a1.994 1.994 0 0 0 1.09-2.6M7.88 8.75a1 1 0 0 1-1-1 1 1 0 0 1 1-1c.55 0 1 .45 1 1s-.45 1-1 1m-2 11a2 2 0 0 0 2 2h1.45l-3.45-8.34z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            APUNTES DIW - Diseño de Interfaces Web
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              11.1 · Análisis de Usabilidad y Metodología Antes/Después
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Pasar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Pasar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Pasar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Pasar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="APUNTES DIW - Diseño de Interfaces Web" class="md-nav__button md-logo" aria-label="APUNTES DIW - Diseño de Interfaces Web" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m2.53 19.65 1.34.56v-9.03l-2.43 5.86c-.41 1.02.06 2.19 1.09 2.61m19.5-3.7L17.07 4a2 2 0 0 0-1.81-1.25c-.26 0-.53.04-.79.15L7.1 5.95a2.02 2.02 0 0 0-1.23 1.8c-.01.25.04.54.13.8l5 11.95c.29.78 1.03 1.24 1.81 1.25.26 0 .52-.05.77-.15l7.36-3.05a1.994 1.994 0 0 0 1.09-2.6M7.88 8.75a1 1 0 0 1-1-1 1 1 0 0 1 1-1c.55 0 1 .45 1 1s-.45 1-1 1m-2 11a2 2 0 0 0 2 2h1.45l-3.45-8.34z"/></svg>
+
+    </a>
+    APUNTES DIW - Diseño de Interfaces Web
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../planificacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Planificación Docente
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.ª Evaluación (Bloque I - UI/UX, Design Systems, HTML5, CSS Moderno y Multimedia)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1.ª Evaluación (Bloque I - UI/UX, Design Systems, HTML5, CSS Moderno y Multimedia)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 1: Diseño de Interfaces, Comunicación Visual y Figma Base (RA1)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 2: Figma Avanzado, Design Systems y Design Tokens (RA1)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 3: HTML5 Semántico, Estructura Accesible y Formularios (RA2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#nota-de-evaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nota de evaluación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-accesibilidad-vs-usabilidad-diferencias-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Accesibilidad vs. Usabilidad: diferencias clave
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-las-10-heuristicas-de-usabilidad-de-nielsen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Las 10 heurísticas de usabilidad de Nielsen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-metodologia-para-la-evaluacion-heuristica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Metodología para la evaluación heurística
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Metodología para la evaluación heurística">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#escala-de-severidad-de-nielsen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Escala de severidad de Nielsen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-metodologia-de-rediseno-antesdespues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Metodología de rediseño Antes/Después
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Metodología de rediseño Antes/Después">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estructura-del-informe-de-rediseno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estructura del informe de rediseño
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-ejercicio-practico-guiado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Ejercicio práctico guiado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-conexion-con-la-siguiente-seccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Conexión con la siguiente sección
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-referencias-y-fuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Referencias y fuentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="111-analisis-de-usabilidad-y-metodologia-antesdespues">11.1 · Análisis de Usabilidad y Metodología Antes/Después <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.93l-3.75-3.75zm19.61 1.11-4.25 4.25-5.2-5.2 1.77-1.77 1 1 2.47-2.48 1.42 1.42L18.36 17l1.06 1 1.42-1.4zm-16-7.53L1.39 5.64l4.25-4.25L7.4 3.16 4.93 5.64 6 6.7l2.46-2.48 1.42 1.42-1.42 1.41 1 1zM20.71 7c.39-.39.39-1 0-1.41l-2.34-2.3c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75z"/></svg></span></h1>
+<h2 id="nota-de-evaluacion">Nota de evaluación <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg></span></h2>
+<div class="admonition info">
+<p class="admonition-title">Orientación sobre la evaluación</p>
+<p>Esta sección <strong>prepara</strong> el criterio <strong>RA5.e</strong> (que se evalúa formalmente en la <strong>UD12</strong>) y el bloque de análisis de usabilidad del <strong>RA6</strong> (que se evalúa en el módulo de FCT / Empresa).</p>
+</div>
+<hr />
+<h2 id="1-accesibilidad-vs-usabilidad-diferencias-clave">1. Accesibilidad vs. Usabilidad: diferencias clave <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 1c0 2.7 1.56 5.16 4 6.32V22h2v-7h2v7h2V7.31C17.44 6.16 19 3.7 19 1h-2a5 5 0 0 1-5 5 5 5 0 0 1-5-5m5 0c-1.11 0-2 .89-2 2s.89 2 2 2 2-.89 2-2-.89-2-2-2"/></svg></span></h2>
+<table>
+<thead>
+<tr>
+<th>Dimensión</th>
+<th>Accesibilidad (<strong>RA5</strong>)</th>
+<th>Usabilidad (<strong>RA6</strong>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pregunta principal</strong></td>
+<td>¿Puede el usuario <strong>acceder y operar</strong> la interfaz, independientemente de sus capacidades?</td>
+<td>¿Es la interfaz <strong>intuitiva, eficiente y satisfactoria</strong> de usar para su público objetivo?</td>
+</tr>
+<tr>
+<td><strong>Ejemplo de fallo</strong></td>
+<td>Un botón sin soporte para teclado <em>(barrera de acceso)</em>.</td>
+<td>Un botón navegable por teclado, pero etiquetado genéricamente como <em>"Enviar"</em> sin contexto <em>(fricción de usabilidad)</em>.</td>
+</tr>
+<tr>
+<td><strong>Medición</strong></td>
+<td>Altamente objetiva y determinista <em>(basada en pautas normativas WCAG)</em>.</td>
+<td>Basada en metodologías de evaluación heurística y pruebas con usuarios.</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart TD
+    A["&lt;b&gt;Accesible pero no usable&lt;/b&gt;&lt;br/&gt;Formulario navegable por teclado, pero con 15 campos continuos sin agrupar ni instrucciones."] --&gt; C["&lt;b&gt;Objetivo del diseño&lt;/b&gt;&lt;br/&gt;Garantizar ambas dimensiones de forma simultánea."]
+    B["&lt;b&gt;Usable pero no accesible&lt;/b&gt;&lt;br/&gt;Componente visualmente intuitivo, pero inoperable mediante tecnologías asistivas."] --&gt; C
+</code></pre>
+<hr />
+<h2 id="2-las-10-heuristicas-de-usabilidad-de-nielsen">2. Las 10 heurísticas de usabilidad de Nielsen <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 5v16h16v2H3a2 2 0 0 1-2-2V5zm13 8h2V7h-2zm5-12H7c-1.1 0-2 .9-2 2v14a2 2 0 0 0 2 2h14c1.11 0 2-.89 2-2V3a2 2 0 0 0-2-2m-9 14h-2V7H8V5h4zm8-2c0 1.11-.89 2-2 2h-2a2 2 0 0 1-2-2V7c0-1.1.9-2 2-2h2a2 2 0 0 1 2 2z"/></svg></span></h2>
+<p>Jakob Nielsen (1994) definió diez principios generales para el diseño de interfaces interactivas, los cuales se mantienen como el estándar de referencia en la evaluación heurística.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Heurística</th>
+<th>Principio</th>
+<th>Ejemplo de violación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td><strong>Visibilidad del estado del sistema</strong></td>
+<td>El sistema debe mantener informados a los usuarios de lo que está sucediendo.</td>
+<td>Un botón de guardado que no muestra un indicador de carga tras hacer clic.</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td><strong>Correspondencia con el mundo real</strong></td>
+<td>Uso del lenguaje y conceptos familiares para el usuario.</td>
+<td>Utilizar jerga técnica o códigos internos en lugar de términos comunes.</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td><strong>Control y libertad del usuario</strong></td>
+<td>Presencia de "salidas de emergencia" para deshacer acciones no deseadas.</td>
+<td>Un flujo multi-paso en el que no es posible volver al paso anterior para editar.</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td><strong>Consistencia y estándares</strong></td>
+<td>Los mismos elementos deben comportarse de forma idéntica en toda la app.</td>
+<td>Un botón <em>"Cancelar"</em> que en unas pantallas cierra la vista y en otras borra los datos.</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td><strong>Prevención de errores</strong></td>
+<td>Diseñar para evitar que el problema ocurra antes de que suceda.</td>
+<td>Permitir la eliminación definitiva de un registro sin solicitar confirmación.</td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td><strong>Reconocimiento antes que recuerdo</strong></td>
+<td>Minimizar la carga de memoria del usuario mostrando opciones visibles.</td>
+<td>Solicitar un código introducido tres pantallas atrás sin volver a mostrarlo.</td>
+</tr>
+<tr>
+<td><strong>7</strong></td>
+<td><strong>Flexibilidad y eficiencia de uso</strong></td>
+<td>Atajos e interacciones avanzadas para usuarios expertos.</td>
+<td>Carecer de atajos de teclado o búsquedas rápidas en herramientas de uso intensivo.</td>
+</tr>
+<tr>
+<td><strong>8</strong></td>
+<td><strong>Diseño estético y minimalista</strong></td>
+<td>Mostrar solo la información relevante sin sobrecargar la vista.</td>
+<td>Interfaces saturadas de paneles, enlaces e información secundaria redundante.</td>
+</tr>
+<tr>
+<td><strong>9</strong></td>
+<td><strong>Recuperación ante errores</strong></td>
+<td>Mensajes de error claros, en lenguaje humano y con soluciones.</td>
+<td>Mostrar únicamente el texto <em>"Error 500"</em> sin instrucciones de recuperación.</td>
+</tr>
+<tr>
+<td><strong>10</strong></td>
+<td><strong>Ayuda y documentación</strong></td>
+<td>Información de soporte fácil de buscar y orientada a tareas.</td>
+<td>Un manual extenso en formato PDF sin buscador interno ni índice interactivo.</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart TD
+    N["&lt;b&gt;10 Heurísticas de Nielsen&lt;/b&gt;"] --&gt; G1["&lt;b&gt;Comunicación con el usuario&lt;/b&gt;&lt;br/&gt;(Heurísticas 1, 2, 6 y 9)"]
+    N --&gt; G2["&lt;b&gt;Control y eficiencia&lt;/b&gt;&lt;br/&gt;(Heurísticas 3, 5 y 7)"]
+    N --&gt; G3["&lt;b&gt;Consistencia y claridad&lt;/b&gt;&lt;br/&gt;(Heurísticas 4, 8 y 10)"]
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Relación con los principios de diseño visual</p>
+<p>La heurística <strong>4 (Consistencia)</strong> equivale al principio de <strong>Repetición</strong> de las reglas C.R.A.P. (<strong>UD1</strong>), escalado a la arquitectura general del sistema en lugar de a una sola pantalla.</p>
+</div>
+<hr />
+<h2 id="3-metodologia-para-la-evaluacion-heuristica">3. Metodología para la evaluación heurística <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.03 19H5V5h2v2h10V5h2v4.5c.72.3 1.4.74 2 1.32V5a2 2 0 0 0-2-2h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14a2 2 0 0 0 2 2h8.06c-.41-.26-.8-.55-1.16-.9-.33-.34-.63-.71-.87-1.1M12 3c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1m8.31 14.9c.44-.69.69-1.52.69-2.4 0-2.5-2-4.5-4.5-4.5S12 13 12 15.5s2 4.5 4.5 4.5c.87 0 1.69-.25 2.38-.68L22 22.39 23.39 21zm-3.81.1a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5"/></svg></span></h2>
+<pre class="mermaid"><code>flowchart TD
+    A["Seleccionar evaluadores"] --&gt; B["Revisión independiente de la interfaz"]
+    B --&gt; C["Registro de violaciones según las 10 heurísticas"]
+    C --&gt; D["Consolidación de hallazgos"]
+    D --&gt; E["Priorización de problemas (Impacto vs. Esfuerzo)"]
+</code></pre>
+<h3 id="escala-de-severidad-de-nielsen">Escala de severidad de Nielsen</h3>
+<table>
+<thead>
+<tr>
+<th>Nivel</th>
+<th>Clasificación</th>
+<th>Descripción técnica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>0</strong></td>
+<td><strong>Sin impacto</strong></td>
+<td>No se considera un problema de usabilidad.</td>
+</tr>
+<tr>
+<td><strong>1</strong></td>
+<td><strong>Cosmético</strong></td>
+<td>Incidencia menor; solo debe corregirse si hay disponibilidad de tiempo.</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td><strong>Menor</strong></td>
+<td>Problema de baja prioridad con bajo impacto en la tarea.</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td><strong>Mayor</strong></td>
+<td>Problema de usabilidad relevante; debe corregirse con alta prioridad.</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td><strong>Catástrofe</strong></td>
+<td>Impide al usuario completar la tarea; corrección obligatoria antes del despliegue.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-metodologia-de-rediseno-antesdespues">4. Metodología de rediseño Antes/Después <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m21 9-4-4v3h-7v2h7v3M7 11l-4 4 4 4v-3h7v-2H7z"/></svg></span></h2>
+<p>Esta estructura metodológica se aplicará en el proyecto integrador de la <strong>UD12</strong> para justificar los cambios en la interfaz:</p>
+<pre class="mermaid"><code>flowchart TD
+    A["&lt;b&gt;1. Estado Inicial&lt;/b&gt;&lt;br/&gt;Capturas e identificación de problemas"] --&gt; B["&lt;b&gt;2. Priorización&lt;/b&gt;&lt;br/&gt;Clasificación según la escala de severidad"]
+    B --&gt; C["&lt;b&gt;3. Propuesta de Rediseño&lt;/b&gt;&lt;br/&gt;Justificación basada en heurísticas"]
+    C --&gt; D["&lt;b&gt;4. Implementación&lt;/b&gt;&lt;br/&gt;Aplicación de cambios en el código"]
+    D --&gt; E["&lt;b&gt;5. Estado Final&lt;/b&gt;&lt;br/&gt;Capturas tras la corrección"]
+    E --&gt; F["&lt;b&gt;6. Comparativa&lt;/b&gt;&lt;br/&gt;Informe de evaluación Antes / Después"]
+</code></pre>
+<hr />
+<h3 id="estructura-del-informe-de-rediseno">Estructura del informe de rediseño</h3>
+<table>
+<thead>
+<tr>
+<th>Sección</th>
+<th>Contenido requerido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Estado inicial</strong></td>
+<td>Capturas de pantalla e inventario numerado de las violaciones heurísticas.</td>
+</tr>
+<tr>
+<td><strong>Priorización</strong></td>
+<td>Clasificación de los hallazgos en la escala de severidad de Nielsen (0 a 4).</td>
+</tr>
+<tr>
+<td><strong>Propuesta técnica</strong></td>
+<td>Explicación detallada de la solución indicando la heurística que la respalda.</td>
+</tr>
+<tr>
+<td><strong>Estado final</strong></td>
+<td>Muestra de la interfaz tras implementar las correcciones.</td>
+</tr>
+<tr>
+<td><strong>Comparativa</strong></td>
+<td>Tabla comparativa "Antes / Después" analizando los cambios aplicados.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Alcance de las propuestas de rediseño</p>
+<p>En un entorno profesional, es preferible documentar y resolver <strong>3 o 4 problemas críticos de usabilidad</strong> con su correspondiente fundamentación heurística, en lugar de realizar cambios cosméticos globales sin justificación técnica.</p>
+</div>
+<hr />
+<h2 id="5-ejercicio-practico-guiado">5. Ejercicio práctico guiado <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m10 17-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9m-6-6a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"/></svg></span></h2>
+<div class="admonition info">
+<p class="admonition-title">Actividad de consolidación (no evaluable)</p>
+<p><strong>Objetivo:</strong> Aplicar las 10 heurísticas de Nielsen sobre la interfaz desarrollada en el curso como preparación para el proyecto integrador de la <strong>UD12</strong>.</p>
+</div>
+<p><strong>Pasos recomendados para practicar:</strong></p>
+<ol>
+<li><strong>Evaluación de la interfaz:</strong> Audita tu proyecto identificando al menos un aspecto positivo o una infracción para cada una de las 10 heurísticas de Nielsen.</li>
+<li><strong>Clasificación:</strong> Asigna una severidad (del 0 al 4) a cada error detectado.</li>
+<li><strong>Priorización:</strong> Selecciona las 5 violaciones de mayor impacto para planificar su corrección.</li>
+<li><strong>Propuesta de diseño:</strong> Redacta el plan de rediseño justificando cómo cada cambio soluciona la heurística afectada.</li>
+</ol>
+<hr />
+<h2 id="6-conexion-con-la-siguiente-seccion">6. Conexión con la siguiente sección <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.98 2.98 0 0 0 0-4.24 2.98 2.98 0 0 0-4.24 0l-3.53 3.53a2.98 2.98 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.98 2.98 0 0 0 0 4.24 2.98 2.98 0 0 0 4.24 0l3.53-3.53a2.98 2.98 0 0 0 0-4.24.973.973 0 0 1 0-1.42"/></svg></span></h2>
+<p>Las heurísticas de Nielsen ofrecen principios de carácter general. En la <strong>Sección 11.2</strong> se estudiará cómo traducirlos a <strong>patrones UX estandarizados</strong> y cómo gestionar la <strong>carga cognitiva</strong> del usuario.</p>
+<pre class="mermaid"><code>flowchart LR
+    A["&lt;b&gt;11.1 Heurísticas y metodología&lt;/b&gt;&lt;br/&gt;(Principios de evaluación)"] --&gt; B["&lt;b&gt;11.2 Patrones UX y carga cognitiva&lt;/b&gt;&lt;br/&gt;(Estándares y diseño de interacción)"]
+</code></pre>
+<hr />
+<h2 id="7-referencias-y-fuentes">7. Referencias y fuentes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg></span></h2>
+<ul>
+<li>Nielsen Norman Group — <a href="https://www.nngroup.com/articles/ten-usability-heuristics/">10 Usability Heuristics for User Interface Design</a>.</li>
+<li>Nielsen Norman Group — <a href="https://www.nngroup.com/articles/how-to-rate-the-severity-of-usability-problems/">Severity Ratings for Usability Problems</a>.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.instant", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

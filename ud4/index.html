@@ -1,0 +1,1233 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>UD4 · CSS3 Moderno, Layout (Flexbox/Grid), Container Queries y Responsive - APUNTES DIW - Diseño de Interfaces Web</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ud4-css3-moderno-layout-flexboxgrid-container-queries-y-responsive" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="APUNTES DIW - Diseño de Interfaces Web" class="md-header__button md-logo" aria-label="APUNTES DIW - Diseño de Interfaces Web" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m2.53 19.65 1.34.56v-9.03l-2.43 5.86c-.41 1.02.06 2.19 1.09 2.61m19.5-3.7L17.07 4a2 2 0 0 0-1.81-1.25c-.26 0-.53.04-.79.15L7.1 5.95a2.02 2.02 0 0 0-1.23 1.8c-.01.25.04.54.13.8l5 11.95c.29.78 1.03 1.24 1.81 1.25.26 0 .52-.05.77-.15l7.36-3.05a1.994 1.994 0 0 0 1.09-2.6M7.88 8.75a1 1 0 0 1-1-1 1 1 0 0 1 1-1c.55 0 1 .45 1 1s-.45 1-1 1m-2 11a2 2 0 0 0 2 2h1.45l-3.45-8.34z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            APUNTES DIW - Diseño de Interfaces Web
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              UD4 · CSS3 Moderno, Layout (Flexbox/Grid), Container Queries y Responsive
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Pasar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Pasar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Pasar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Pasar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="APUNTES DIW - Diseño de Interfaces Web" class="md-nav__button md-logo" aria-label="APUNTES DIW - Diseño de Interfaces Web" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m2.53 19.65 1.34.56v-9.03l-2.43 5.86c-.41 1.02.06 2.19 1.09 2.61m19.5-3.7L17.07 4a2 2 0 0 0-1.81-1.25c-.26 0-.53.04-.79.15L7.1 5.95a2.02 2.02 0 0 0-1.23 1.8c-.01.25.04.54.13.8l5 11.95c.29.78 1.03 1.24 1.81 1.25.26 0 .52-.05.77-.15l7.36-3.05a1.994 1.994 0 0 0 1.09-2.6M7.88 8.75a1 1 0 0 1-1-1 1 1 0 0 1 1-1c.55 0 1 .45 1 1s-.45 1-1 1m-2 11a2 2 0 0 0 2 2h1.45l-3.45-8.34z"/></svg>
+
+    </a>
+    APUNTES DIW - Diseño de Interfaces Web
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../planificacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Planificación Docente
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.ª Evaluación (Bloque I - UI/UX, Design Systems, HTML5, CSS Moderno y Multimedia)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1.ª Evaluación (Bloque I - UI/UX, Design Systems, HTML5, CSS Moderno y Multimedia)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 1: Diseño de Interfaces, Comunicación Visual y Figma Base (RA1)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 2: Figma Avanzado, Design Systems y Design Tokens (RA1)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 3: HTML5 Semántico, Estructura Accesible y Formularios (RA2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resultado-de-aprendizaje-y-criterios-cubiertos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultado de aprendizaje y criterios cubiertos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-formas-de-aplicar-css-ra2b-ra2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Formas de aplicar CSS (RA2.b, RA2.c)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-cascada-especificidad-y-herencia-ra2e" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Cascada, especificidad y herencia (RA2.e)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Cascada, especificidad y herencia (RA2.e)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-orden-de-la-cascada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Orden de la cascada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-calculo-de-especificidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Cálculo de especificidad
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-herencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Herencia
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-el-modelo-de-caja-box-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. El modelo de caja (Box Model)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-flexbox-layout-en-una-dimension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Flexbox: layout en una dimensión
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-css-grid-layout-en-dos-dimensiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. CSS Grid: layout en dos dimensiones
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. CSS Grid: layout en dos dimensiones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-flexbox-o-grid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 ¿Flexbox o Grid?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-responsive-design-y-container-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Responsive design y Container Queries
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Responsive design y Container Queries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-media-queries-por-viewport" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Media Queries (Por Viewport)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-container-queries-receptividad-por-contenedor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Container Queries (Receptividad por Contenedor)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-hojas-de-estilo-alternativas-ra2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Hojas de estilo alternativas (RA2.d)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-ejercicio-practico-guiado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Ejercicio práctico guiado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-resumen-y-conexion-con-la-siguiente-unidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Resumen y conexión con la siguiente unidad
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-referencias-y-fuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Referencias y fuentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ud4-css3-moderno-layout-flexboxgrid-container-queries-y-responsive">UD4 · CSS3 Moderno, Layout (Flexbox/Grid), Container Queries y Responsive <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="m0 32 34.9 395.8L192 480l157.1-52.2L384 32zm313.1 80-4.8 47.3L193 208.6l-.3.1h111.5l-12.8 146.6-98.2 28.7-98.8-29.2-6.4-73.9h48.9l3.2 38.3 52.6 13.3 54.7-15.4 3.7-61.6-166.3-.5v-.1l-.2.1-3.6-46.3L193.1 162l6.5-2.7H76.7L70.9 112z"/></svg></span></h1>
+<h2 id="resultado-de-aprendizaje-y-criterios-cubiertos">Resultado de aprendizaje y criterios cubiertos <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg></span></h2>
+<p>Esta unidad continúa <strong>RA2 — Crea interfaces Web homogéneas definiendo y aplicando estilos</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Criterio</th>
+<th>Enunciado</th>
+<th>Cobertura</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RA2.b</strong></td>
+<td>Se han definido estilos de forma directa.</td>
+<td>✅ Completa</td>
+</tr>
+<tr>
+<td><strong>RA2.c</strong></td>
+<td>Se han definido y asociado estilos globales en hojas externas.</td>
+<td>✅ Completa</td>
+</tr>
+<tr>
+<td><strong>RA2.d</strong></td>
+<td>Se han definido hojas de estilos alternativas.</td>
+<td>✅ Completa (equivalente actual: <code>prefers-color-scheme</code>)</td>
+</tr>
+<tr>
+<td><strong>RA2.e</strong></td>
+<td>Se han redefinido estilos.</td>
+<td>✅ Completa (cascada y especificidad)</td>
+</tr>
+<tr>
+<td><strong>RA2.f</strong></td>
+<td>Se han identificado las distintas propiedades de cada elemento.</td>
+<td>✅ Se cierra aquí</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="1-formas-de-aplicar-css-ra2b-ra2c">1. Formas de aplicar CSS (RA2.b, RA2.c) <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3h2v2H5v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5h2v2H5c-1.07-.27-2-.9-2-2v-4a2 2 0 0 0-2-2H0v-2h1a2 2 0 0 0 2-2V5a2 2 0 0 1 2-2m14 0a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1v2h-1a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2v-2h2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5h-2V3zm-7 12a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m8 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1"/></svg></span></h2>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Sintaxis</th>
+<th>Cuándo usarlo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>En línea (inline)</strong></td>
+<td><code>&lt;p style="color: red;"&gt;</code></td>
+<td>Casi nunca en producción — máxima especificidad, muy difícil de mantener</td>
+</tr>
+<tr>
+<td><strong>Interno</strong></td>
+<td><code>&lt;style&gt;</code> dentro del <code>&lt;head&gt;</code></td>
+<td>Prototipos rápidos o componentes aislados en algunos entornos</td>
+</tr>
+<tr>
+<td><strong>Externo</strong></td>
+<td><code>&lt;link rel="stylesheet" href="styles.css"&gt;</code></td>
+<td>El estándar en proyectos reales — cacheable, reutilizable y escalable</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart TD
+    subgraph Metodos_CSS ["Métodos de Aplicación de Estilos"]
+        A["&lt;b&gt;Estilo en línea&lt;/b&gt;&lt;br/&gt;style='...'"] --&gt;|Especificidad máxima| B["Difícil de mantener y sobrescribir"]
+        C["&lt;b&gt;Hoja Externa&lt;/b&gt;&lt;br/&gt;link rel='stylesheet'"] --&gt;|Recomendado| D["Cacheable, reutilizable,&lt;br/&gt;separación de responsabilidades"]
+    end
+</code></pre>
+<hr />
+<h2 id="2-cascada-especificidad-y-herencia-ra2e">2. Cascada, especificidad y herencia (RA2.e) <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.31 18.9c.44-.69.69-1.52.69-2.4 0-2.5-2-4.5-4.5-4.5S11 14 11 16.5s2 4.5 4.5 4.5c.87 0 1.69-.25 2.38-.68L21 23.39 22.39 22zm-3.81.1a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5m-5.91.2L3 14.07l1.62-1.26L9 16.22v.28c0 .96.22 1.88.59 2.7m-.09-5.16L3 9l9-7 9 7-2.34 1.82a6.6 6.6 0 0 0-2.29-.75L17.74 9 12 4.53 6.26 9l4.27 3.32c-.43.52-.79 1.1-1.03 1.72"/></svg></span></h2>
+<h3 id="21-orden-de-la-cascada">2.1 Orden de la cascada</h3>
+<pre class="mermaid"><code>flowchart TD
+    A["&lt;b&gt;1. Origen y Prioridad&lt;/b&gt;&lt;br/&gt;(user-agent &lt; autor &lt; !important autor)"] --&gt; B["&lt;b&gt;2. Especificidad del Selector&lt;/b&gt;&lt;br/&gt;(Cálculo de peso de la regla)"]
+    B --&gt; C["&lt;b&gt;3. Orden de Aparición&lt;/b&gt;&lt;br/&gt;(En caso de empate, el último código prevalece)"]
+</code></pre>
+<hr />
+<h3 id="22-calculo-de-especificidad">2.2 Cálculo de especificidad</h3>
+<table>
+<thead>
+<tr>
+<th>Tipo de selector</th>
+<th>Peso</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Estilo en línea</strong></td>
+<td>1000</td>
+<td><code>style="color: red"</code></td>
+</tr>
+<tr>
+<td><strong>ID</strong></td>
+<td>100</td>
+<td><code>#header</code></td>
+</tr>
+<tr>
+<td><strong>Clase, atributo, pseudo-clase</strong></td>
+<td>10</td>
+<td><code>.btn</code>, <code>[type="submit"]</code>, <code>:hover</code></td>
+</tr>
+<tr>
+<td><strong>Elemento, pseudo-elemento</strong></td>
+<td>1</td>
+<td><code>div</code>, <code>::before</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Selector</th>
+<th>Cálculo</th>
+<th>Especificidad total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>div</code></td>
+<td>1</td>
+<td><code>(0, 0, 0, 1)</code></td>
+</tr>
+<tr>
+<td><code>.btn</code></td>
+<td>10</td>
+<td><code>(0, 0, 1, 0)</code></td>
+</tr>
+<tr>
+<td><code>#nav .btn</code></td>
+<td>100 + 10</td>
+<td><code>(0, 1, 1, 0)</code></td>
+</tr>
+<tr>
+<td><code>div#nav .btn:hover</code></td>
+<td>1 + 100 + 10 + 10</td>
+<td><code>(0, 1, 2, 1)</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Cuidado con el abuso de !important</p>
+<p>Abusar de <code>!important</code> para ganar a la especificidad es una deuda técnica importante, no una solución. Cada <code>!important</code> añadido obliga al equipo a usar otro más fuerte en el futuro. La arquitectura correcta de CSS (metodología BEM, que veremos en la <strong>UD5</strong>) se utiliza para no necesitar nunca <code>!important</code>.</p>
+</div>
+<hr />
+<h3 id="23-herencia">2.3 Herencia</h3>
+<table>
+<thead>
+<tr>
+<th>Propiedades que SÍ heredan por defecto</th>
+<th>Propiedades que NO heredan por defecto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>color</code>, <code>font-family</code>, <code>font-size</code>, <code>line-height</code></td>
+<td><code>margin</code>, <code>padding</code>, <code>border</code>, <code>width</code>, <code>height</code></td>
+</tr>
+<tr>
+<td><code>text-align</code>, <code>visibility</code></td>
+<td><code>background</code>, <code>display</code>, <code>position</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-el-modelo-de-caja-box-model">3. El modelo de caja (Box Model) <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 2h6v2h8V2h6v6h-2v8h2v6h-6v-2H8v2H2v-6h2V8H2zm14 6V6H8v2H6v8h2v2h8v-2h2V8zM4 4v2h2V4zm14 0v2h2V4zM4 18v2h2v-2zm14 0v2h2v-2z"/></svg></span></h2>
+<pre class="mermaid"><code>flowchart TD
+    subgraph BoxModel ["Caja CSS (Modelo de Caja)"]
+        M["&lt;b&gt;Margin&lt;/b&gt; (Espacio externo)"] --&gt; B["&lt;b&gt;Border&lt;/b&gt; (Borde del contenedor)"]
+        B --&gt; P["&lt;b&gt;Padding&lt;/b&gt; (Espaciado interno)"]
+        P --&gt; C["&lt;b&gt;Content&lt;/b&gt; (Área de contenido)"]
+    end
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Propiedad <code>box-sizing</code></th>
+<th>Qué incluye <code>width</code> / <code>height</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content-box</code> (Por defecto)</td>
+<td>Solo el contenido — padding y border se suman aparte alterando el tamaño final</td>
+</tr>
+<tr>
+<td><code>border-box</code> (Recomendado)</td>
+<td>Contenido + padding + border, todo encajado dentro del valor declarado</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Resets globales recomendados</p>
+<p>La práctica recomendada en el desarrollo web moderno es aplicar <code>*, *::before, *::after { box-sizing: border-box; }</code> al inicio de la hoja de estilos. Esto evita discrepancias de tamaño al añadir padding o bordes a los elementos.</p>
+</div>
+<hr />
+<h2 id="4-flexbox-layout-en-una-dimension">4. Flexbox: layout en una dimensión <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5v18h14zm-2 16h-2V5h2zm-4 0h-2V5h2zM7 5h2v14H7z"/></svg></span></h2>
+<pre class="mermaid"><code>flowchart TD
+    subgraph FlexContainer ["Contenedor Flex (flex-direction: row)"]
+        I1["Item 1"] --&gt; I2["Item 2"] --&gt; I3["Item 3"]
+    end
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Propiedad (en el contenedor)</th>
+<th>Efecto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>display: flex</code></td>
+<td>Activa el comportamiento Flexbox en los hijos directos</td>
+</tr>
+<tr>
+<td><code>flex-direction</code></td>
+<td>Define el eje principal: <code>row</code></td>
+</tr>
+<tr>
+<td><code>justify-content</code></td>
+<td>Alineación de elementos a lo largo del eje principal</td>
+</tr>
+<tr>
+<td><code>align-items</code></td>
+<td>Alineación de elementos a lo largo del eje secundario</td>
+</tr>
+<tr>
+<td><code>gap</code></td>
+<td>Espaciado entre elementos sin recurrir a márgenes manuales</td>
+</tr>
+<tr>
+<td><code>flex-wrap</code></td>
+<td>Permite que los elementos salten de línea si no caben</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Propiedad (en los elementos hijos)</th>
+<th>Efecto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>flex-grow</code></td>
+<td>Proporción de crecimiento del elemento respecto a los demás</td>
+</tr>
+<tr>
+<td><code>flex-shrink</code></td>
+<td>Capacidad de encogimiento cuando falta espacio en el contenedor</td>
+</tr>
+<tr>
+<td><code>flex-basis</code></td>
+<td>Tamaño de partida antes de repartir el espacio disponible</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Relación con Figma</p>
+<p>Tal como vimos en la UD2, la combinación <code>flex-direction: row</code> + <code>gap</code> + <code>padding</code> en CSS equivale exactamente al <strong>Auto Layout</strong> horizontal de Figma.</p>
+</div>
+<hr />
+<h2 id="5-css-grid-layout-en-dos-dimensiones">5. CSS Grid: layout en dos dimensiones <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 4v4h4V4zm6 0v4h4V4zm0 6v4h4v-4zm0 6v4h4v-4zm-2 4v-4h-4v4zm-6 0v-4H4v4zm0-6v-4H4v4zm0-6V4H4v4zm2 6h4v-4h-4zM4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4c-1.08 0-2-.9-2-2V4a2 2 0 0 1 2-2"/></svg></span></h2>
+<pre class="mermaid"><code>flowchart TD
+    subgraph GridContainer ["Estructura Grid (Filas x Columnas)"]
+        direction LR
+        subgraph Fila1 ["Fila 1"]
+            A1["Celda 1,1"] --- A2["Celda 1,2"] --- A3["Celda 1,3"]
+        end
+        subgraph Fila2 ["Fila 2"]
+            B1["Celda 2,1"] --- B2["Celda 2,2"] --- B3["Celda 2,3"]
+        end
+    end
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Propiedad</th>
+<th>Efecto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>display: grid</code></td>
+<td>Activa el motor CSS Grid en los hijos directos</td>
+</tr>
+<tr>
+<td><code>grid-template-columns</code></td>
+<td>Define número y proporción de columnas (<code>1fr 1fr 1fr</code>, <code>repeat(3, 1fr)</code>)</td>
+</tr>
+<tr>
+<td><code>grid-template-rows</code></td>
+<td>Define número y tamaño de filas</td>
+</tr>
+<tr>
+<td><code>gap</code></td>
+<td>Espaciado interno entre celdas (filas y columnas)</td>
+</tr>
+<tr>
+<td><code>grid-column</code> / <code>grid-row</code></td>
+<td>Permite expandir un elemento a lo largo de varias celdas</td>
+</tr>
+<tr>
+<td><code>grid-template-areas</code></td>
+<td>Maquetación visual mediante nombres de áreas (<code>"header header" "sidebar main"</code>)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="51-flexbox-o-grid">5.1 ¿Flexbox o Grid?</h3>
+<table>
+<thead>
+<tr>
+<th>Necesidad de maquetación</th>
+<th>Herramienta recomendada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alinear elementos en una sola fila o columna</td>
+<td><strong>Flexbox</strong></td>
+</tr>
+<tr>
+<td>Definir el layout general de la página (header, sidebar, main, footer)</td>
+<td><strong>CSS Grid</strong></td>
+</tr>
+<tr>
+<td>Que el contenido dicte el tamaño dinámico de los elementos</td>
+<td><strong>Flexbox</strong></td>
+</tr>
+<tr>
+<td>Que una rejilla fija controle la posición de cada bloque</td>
+<td><strong>CSS Grid</strong></td>
+</tr>
+<tr>
+<td>Estructuras complejas de aplicación web</td>
+<td><strong>Ambos</strong> (Grid para la estructura general, Flexbox en el interior de cada componente)</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart TD
+    Q{"¿Necesito controlar&lt;br/&gt;filas Y columnas a la vez?"}
+    Q --&gt;|Sí| GRID["&lt;b&gt;CSS Grid&lt;/b&gt;&lt;br/&gt;(Layout bidimensional)"]
+    Q --&gt;|No, solo un eje| FLEX["&lt;b&gt;Flexbox&lt;/b&gt;&lt;br/&gt;(Layout unidimensional)"]
+</code></pre>
+<hr />
+<h2 id="6-responsive-design-y-container-queries">6. Responsive design y Container Queries <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18V4H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4v-2H3zm10 6H9v1.78c-.61.55-1 1.33-1 2.22s.39 1.67 1 2.22V20h4v-1.78c.61-.55 1-1.34 1-2.22s-.39-1.67-1-2.22zm-2 5.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5M22 8h-6c-.5 0-1 .5-1 1v10c0 .5.5 1 1 1h6c.5 0 1-.5 1-1V9c0-.5-.5-1-1-1m-1 10h-4v-8h4z"/></svg></span></h2>
+<h3 id="61-media-queries-por-viewport">6.1 Media Queries (Por Viewport)</h3>
+<div class="highlight"><pre><span></span><code><span class="c">/* Estrategia Mobile-First: estilos base para móviles, ampliados hacia arriba */</span>
+<span class="p">.</span><span class="nc">card</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">  </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="p">;</span><span class="w"> </span>
+<span class="p">}</span>
+
+<span class="p">@</span><span class="k">media</span><span class="w"> </span><span class="o">(</span><span class="nt">min-width</span><span class="o">:</span><span class="w"> </span><span class="nt">768px</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">.</span><span class="nc">card</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="nf">repeat</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="p">);</span><span class="w"> </span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">@</span><span class="k">media</span><span class="w"> </span><span class="o">(</span><span class="nt">min-width</span><span class="o">:</span><span class="w"> </span><span class="nt">1200px</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">.</span><span class="nc">card</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="nf">repeat</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="p">);</span><span class="w"> </span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Enfoque</th>
+<th>Ventaja técnica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mobile-First</strong> (<code>min-width</code>)</td>
+<td>El código base es más ligero y añade complejidad conforme crece la pantalla</td>
+</tr>
+<tr>
+<td><strong>Desktop-First</strong> (<code>max-width</code>)</td>
+<td>Práctico al refactorizar o mantener proyectos heredados diseñados para escritorio</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="62-container-queries-receptividad-por-contenedor">6.2 Container Queries (Receptividad por Contenedor)</h3>
+<p>Las <strong>Media Queries</strong> reaccionan al ancho de la pantalla global (<em>viewport</em>). Las <strong>Container Queries</strong> reaccionan al ancho del <strong>propio contenedor padre</strong>, permitiendo crear componentes verdaderamente modulares que cambian su aspecto según la zona donde se ubiquen.</p>
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">card-container</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">container-type</span><span class="p">:</span><span class="w"> </span><span class="kc">inline</span><span class="o">-</span><span class="n">size</span><span class="p">;</span>
+<span class="w">  </span><span class="k">container-name</span><span class="p">:</span><span class="w"> </span><span class="n">card</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">@</span><span class="k">container</span><span class="w"> </span><span class="nt">card</span><span class="w"> </span><span class="o">(</span><span class="nt">min-width</span><span class="o">:</span><span class="w"> </span><span class="nt">400px</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">.</span><span class="nc">card</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="w"> </span><span class="mi">2</span><span class="n">fr</span><span class="p">;</span><span class="w"> </span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<pre class="mermaid"><code>flowchart TD
+    MQ["&lt;b&gt;Media Query&lt;/b&gt;&lt;br/&gt;Reacciona al tamaño total del viewport"] --&gt;|Limitación| L["No permite adaptar un componente según la columna donde esté ubicado"]
+    CQ["&lt;b&gt;Container Query&lt;/b&gt;&lt;br/&gt;Reacciona al tamaño de su contenedor directo"] --&gt; S["El componente se adapta autónomamente según el espacio disponible"]
+</code></pre>
+<hr />
+<h3 id="63-hojas-de-estilo-alternativas-ra2d">6.3 Hojas de estilo alternativas (RA2.d)</h3>
+<p>Evolución de las hojas de estilo alternativas hacia el uso moderno de custom properties y preferencias del sistema:</p>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="nd">root</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nv">--bg-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#ffffff</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--text-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#1a1a1a</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">@</span><span class="k">media</span><span class="w"> </span><span class="o">(</span><span class="nt">prefers-color-scheme</span><span class="o">:</span><span class="w"> </span><span class="nt">dark</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">:</span><span class="nd">root</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">--bg-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#121212</span><span class="p">;</span>
+<span class="w">    </span><span class="nv">--text-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#f0f0f0</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nt">body</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--bg-color</span><span class="p">);</span>
+<span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--text-color</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Enfoque histórico</th>
+<th>Solución actual equivalente</th>
+<th>Objetivo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;link rel="alternate stylesheet"&gt;</code> mediante JS</td>
+<td><code>prefers-color-scheme</code> + CSS Custom Properties</td>
+<td>Ofrecer un esquema de color alternativo (Modo Oscuro/Claro) nativo</td>
+</tr>
+<tr>
+<td>Hoja de impresión (<code>media="print"</code>)</td>
+<td>Regla <code>@media print</code></td>
+<td>Aplicar estilos específicos al imprimir el documento</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-ejercicio-practico-guiado">7. Ejercicio práctico guiado <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m10 17-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9m-6-6a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"/></svg></span></h2>
+<div class="admonition info">
+<p class="admonition-title">Actividad de consolidación (no evaluable)</p>
+<p><strong>Objetivo:</strong> Maquetar mediante CSS3 moderno la estructura semántica construida en la unidad anterior (UD3).</p>
+</div>
+<p><strong>Pasos recomendados para practicar:</strong></p>
+<ol>
+<li><strong>Reset Inicial:</strong> Aplica <code>box-sizing: border-box</code> de forma universal en tu hoja de estilos.</li>
+<li><strong>Estructura General:</strong> Implementa el layout principal de la página usando <strong>CSS Grid</strong> (<code>grid-template-areas</code>) asociando <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code> y <code>&lt;footer&gt;</code>.</li>
+<li><strong>Componentes:</strong> Maqueta las tarjetas de producto interiores usando <strong>Flexbox</strong> para alinear sus elementos (imagen, título, descripción, precio y botón).</li>
+<li><strong>Diseño Adaptable:</strong> Configura al menos 2 puntos de ruptura (<em>breakpoints</em>) siguiendo la metodología <em>Mobile-First</em>.</li>
+<li><strong>Tema Oscuro:</strong> Añade variables CSS y la regla <code>@media (prefers-color-scheme: dark)</code> para dar soporte a modo oscuro.</li>
+<li><strong>Container Queries (Avanzado):</strong> Transforma la tarjeta de producto para que use <code>@container</code> en lugar de una media query global.</li>
+</ol>
+<hr />
+<h2 id="8-resumen-y-conexion-con-la-siguiente-unidad">8. Resumen y conexión con la siguiente unidad <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.98 2.98 0 0 0 0-4.24 2.98 2.98 0 0 0-4.24 0l-3.53 3.53a2.98 2.98 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.98 2.98 0 0 0 0 4.24 2.98 2.98 0 0 0 4.24 0l3.53-3.53a2.98 2.98 0 0 0 0-4.24.973.973 0 0 1 0-1.42"/></svg></span></h2>
+<ul>
+<li>La cascada sigue un orden estricto: origen <span class="arithmatex">\(\rightarrow\)</span> especificidad <span class="arithmatex">\(\rightarrow\)</span> orden de aparición.</li>
+<li>Flexbox administra un eje unidimensional; CSS Grid administra dos ejes a la vez. Se complementan en producción.</li>
+<li>Las Container Queries permiten que los componentes sean 100% independientes del viewport.</li>
+<li>En la <strong>UD5</strong> estructuraremos estos estilos aplicando arquitecturas escalables como la metodología <strong>BEM</strong> y frameworks <strong>Utility-First</strong> como Tailwind CSS.</li>
+</ul>
+<pre class="mermaid"><code>flowchart LR
+    UD4["UD4&lt;br/&gt;CSS3 moderno&lt;br/&gt;Flexbox/Grid"] --&gt; UD5["UD5&lt;br/&gt;BEM +&lt;br/&gt;Tailwind CSS"]
+</code></pre>
+<hr />
+<h2 id="9-referencias-y-fuentes">9. Referencias y fuentes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg></span></h2>
+<ul>
+<li>MDN Web Docs — <a href="https://developer.mozilla.org/es/docs/Web/CSS/CSS_flexible_box_layout">CSS Flexible Box Layout</a>.</li>
+<li>MDN Web Docs — <a href="https://developer.mozilla.org/es/docs/Web/CSS/CSS_grid_layout">CSS Grid Layout</a>.</li>
+<li>MDN Web Docs — <a href="https://developer.mozilla.org/es/docs/Web/CSS/CSS_containment/Container_queries">CSS Container Queries</a>.</li>
+<li>web.dev — <a href="https://web.dev/articles/prefers-color-scheme">prefers-color-scheme</a>.</li>
+<li>Ruiz, M. — <em>Diseño de Interfaces Web</em>.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.instant", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

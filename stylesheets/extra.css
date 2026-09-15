@@ -1,0 +1,11 @@
+/* Estilo para las cabeceras de todas las tablas */
+.md-typeset table:not([class]) th {
+    background-color: #0d9488; /* Color Teal de acento */
+    color: #ffffff !important;   /* Texto blanco */
+    font-weight: 700;
+}
+
+/* Efecto hover suave en las filas */
+.md-typeset table:not([class]) tr:hover {
+    background-color: rgba(13, 148, 136, 0.05);
+}

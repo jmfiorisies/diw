@@ -1,0 +1,998 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>8.2 · DevTools, Testing Responsive y Compatibilidad Cross-Browser - APUNTES DIW - Diseño de Interfaces Web</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#82-devtools-testing-responsive-y-compatibilidad-cross-browser" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="APUNTES DIW - Diseño de Interfaces Web" class="md-header__button md-logo" aria-label="APUNTES DIW - Diseño de Interfaces Web" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m2.53 19.65 1.34.56v-9.03l-2.43 5.86c-.41 1.02.06 2.19 1.09 2.61m19.5-3.7L17.07 4a2 2 0 0 0-1.81-1.25c-.26 0-.53.04-.79.15L7.1 5.95a2.02 2.02 0 0 0-1.23 1.8c-.01.25.04.54.13.8l5 11.95c.29.78 1.03 1.24 1.81 1.25.26 0 .52-.05.77-.15l7.36-3.05a1.994 1.994 0 0 0 1.09-2.6M7.88 8.75a1 1 0 0 1-1-1 1 1 0 0 1 1-1c.55 0 1 .45 1 1s-.45 1-1 1m-2 11a2 2 0 0 0 2 2h1.45l-3.45-8.34z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            APUNTES DIW - Diseño de Interfaces Web
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              8.2 · DevTools, Testing Responsive y Compatibilidad Cross-Browser
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Pasar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Pasar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Pasar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Pasar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="APUNTES DIW - Diseño de Interfaces Web" class="md-nav__button md-logo" aria-label="APUNTES DIW - Diseño de Interfaces Web" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m2.53 19.65 1.34.56v-9.03l-2.43 5.86c-.41 1.02.06 2.19 1.09 2.61m19.5-3.7L17.07 4a2 2 0 0 0-1.81-1.25c-.26 0-.53.04-.79.15L7.1 5.95a2.02 2.02 0 0 0-1.23 1.8c-.01.25.04.54.13.8l5 11.95c.29.78 1.03 1.24 1.81 1.25.26 0 .52-.05.77-.15l7.36-3.05a1.994 1.994 0 0 0 1.09-2.6M7.88 8.75a1 1 0 0 1-1-1 1 1 0 0 1 1-1c.55 0 1 .45 1 1s-.45 1-1 1m-2 11a2 2 0 0 0 2 2h1.45l-3.45-8.34z"/></svg>
+
+    </a>
+    APUNTES DIW - Diseño de Interfaces Web
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../planificacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Planificación Docente
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.ª Evaluación (Bloque I - UI/UX, Design Systems, HTML5, CSS Moderno y Multimedia)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1.ª Evaluación (Bloque I - UI/UX, Design Systems, HTML5, CSS Moderno y Multimedia)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 1: Diseño de Interfaces, Comunicación Visual y Figma Base (RA1)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 2: Figma Avanzado, Design Systems y Design Tokens (RA1)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 3: HTML5 Semántico, Estructura Accesible y Formularios (RA2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#criterios-trabajados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Criterios trabajados
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-por-que-funciona-en-mi-maquina-no-es-suficiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Por qué "funciona en mi máquina" no es suficiente
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-chrome-devtools-panel-por-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Chrome DevTools: Panel por panel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-pruebas-de-diseno-adaptable-testing-responsive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Pruebas de diseño adaptable (Testing Responsive)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Pruebas de diseño adaptable (Testing Responsive)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-device-toolbar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Device Toolbar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-limitaciones-de-la-emulacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Limitaciones de la emulación
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-compatibilidad-cross-browser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Compatibilidad Cross-Browser
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Compatibilidad Cross-Browser">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-motores-de-renderizado-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Motores de renderizado principal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-evaluacion-de-caracteristicas-mediante-caniusecom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Evaluación de características mediante caniuse.com
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-consultas-de-soporte-en-css-supports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Consultas de soporte en CSS (@supports)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-mejora-progresiva-vs-degradacion-elegante" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Mejora Progresiva vs. Degradación Elegante
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-ajustes-de-navegadores-para-contenidos-multimedia-e-interactividad-ra4b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 Ajustes de navegadores para contenidos multimedia e interactividad (RA4.b)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-ejercicio-practico-guiado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Ejercicio práctico guiado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-resumen-del-bloque-ud8-y-conexion-posterior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Resumen del bloque UD8 y conexión posterior
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-referencias-y-fuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Referencias y fuentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="82-devtools-testing-responsive-y-compatibilidad-cross-browser">8.2 · DevTools, Testing Responsive y Compatibilidad Cross-Browser <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23 11h-5a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1m0 9h-5v-7h5zM20 2H2C.89 2 0 2.89 0 4v12a2 2 0 0 0 2 2h7v2H7v2h8v-2h-2v-2h2v-2H2V4h18v5h2V4a2 2 0 0 0-2-2"/></svg></span></h1>
+<h2 id="criterios-trabajados">Criterios trabajados <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg></span></h2>
+<table>
+<thead>
+<tr>
+<th>Criterio</th>
+<th>Cobertura</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RA4.b</strong> — Necesidades de configuración de navegadores para soportar contenido multimedia e interactivo</td>
+<td>✅ Completa</td>
+</tr>
+<tr>
+<td><strong>RA4.g</strong> — Verificar el funcionamiento en distintos navegadores</td>
+<td>✅ Completa</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="1-por-que-funciona-en-mi-maquina-no-es-suficiente">1. Por qué "funciona en mi máquina" no es suficiente <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 15h2v2h-2zm0-8h2v6h-2zm1-5C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 18a8 8 0 0 1-8-8 8 8 0 0 1 8-8 8 8 0 0 1 8 8 8 8 0 0 1-8 8"/></svg></span></h2>
+<pre class="mermaid"><code>flowchart TD
+    A["Desarrollo local en&lt;br/&gt;Chrome + macOS"] --&gt; B{"¿Se comporta igual en...?"}
+    B --&gt; C["Firefox (Gecko)"]
+    B --&gt; D["Safari (WebKit)"]
+    B --&gt; E["Edge (Blink)"]
+    B --&gt; F["Chrome Android"]
+    B --&gt; G["Safari iOS (WebKit)"]
+</code></pre>
+<p>Cada navegador implementa los estándares web a diferentes ritmos y con matices propios en sus motores de renderizado. Por este motivo, el uso de características modernas (<em>Container Queries</em> en UD4 o formatos como <em>AVIF</em> en UD6) requiere estrategias de verificación cross-browser.</p>
+<hr />
+<h2 id="2-chrome-devtools-panel-por-panel">2. Chrome DevTools: Panel por panel <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 20 3.46-6h-.01c.34-.6.55-1.27.55-2 0-1.2-.54-2.27-1.38-3h4.79c.38.93.59 1.94.59 3a8 8 0 0 1-8 8m-8-8c0-1.46.39-2.82 1.07-4l3.47 6h.01c.69 1.19 1.95 2 3.45 2 .45 0 .88-.09 1.29-.23l-2.4 4.14C7 19.37 4 16.04 4 12m11 0a3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3m-3-8a7.98 7.98 0 0 1 6.92 4H12c-1.94 0-3.55 1.38-3.92 3.21L5.7 7.08A7.98 7.98 0 0 1 12 4m0-2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg></span></h2>
+<table>
+<thead>
+<tr>
+<th>Panel</th>
+<th>Utilidad principal</th>
+<th>Conexión con unidades previas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Elements</strong></td>
+<td>Inspección y edición del DOM / CSS en tiempo real.</td>
+<td>Verificación de especificidad y cascada aplicada (<strong>UD4</strong>).</td>
+</tr>
+<tr>
+<td><strong>Console</strong></td>
+<td>Ejecución de scripts, diagnóstico de errores y <code>console.log</code>.</td>
+<td>Depuración del flujo de eventos e interactividad (<strong>UD8.1</strong>).</td>
+</tr>
+<tr>
+<td><strong>Network</strong></td>
+<td>Inspección de peticiones HTTP, tamaños de transferencia y tiempos.</td>
+<td>Verificación de carga de formatos WebP/AVIF (<strong>UD6</strong>).</td>
+</tr>
+<tr>
+<td><strong>Application</strong></td>
+<td>Gestión del almacenamiento local, <em>cookies</em> y <em>Service Workers</em>.</td>
+<td>Inspección de persistencia de datos en el cliente.</td>
+</tr>
+<tr>
+<td><strong>Lighthouse</strong></td>
+<td>Auditorías automatizadas de rendimiento, accesibilidad y SEO.</td>
+<td>Introducción a las auditorías técnicas de la <strong>UD10</strong> y <strong>UD12</strong>.</td>
+</tr>
+<tr>
+<td><strong>Device Toolbar</strong></td>
+<td>Emulación de diferentes resoluciones y <em>viewports</em>.</td>
+<td>Diagnóstico del diseño adaptable (<em>Responsive Design</em>).</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart TD
+    A["Atajo de teclado: F12 / Cmd+Option+I"] --&gt; B["Elements (DOM/CSS)"]
+    A --&gt; C["Console (JS/Errores)"]
+    A --&gt; D["Network (Rendimiento/Assets)"]
+    A --&gt; E["Device Toolbar (Resoluciones)"]
+</code></pre>
+<hr />
+<h2 id="3-pruebas-de-diseno-adaptable-testing-responsive">3. Pruebas de diseño adaptable (Testing Responsive) <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 6v10h5v-4a2 2 0 0 1 2-2h5a2 2 0 0 1 2 2v4h2V6zM0 20v-2h4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h4v2h-6a2 2 0 0 1-2 2h-5a2 2 0 0 1-2-2zm11.5 0a.5.5 0 0 0-.5.5.5.5 0 0 0 .5.5.5.5 0 0 0 .5-.5.5.5 0 0 0-.5-.5m4 0a.5.5 0 0 0-.5.5.5.5 0 0 0 .5.5.5.5 0 0 0 .5-.5.5.5 0 0 0-.5-.5M13 20v1h1v-1zm-2-8v7h5v-7z"/></svg></span></h2>
+<h3 id="31-device-toolbar">3.1 Device Toolbar</h3>
+<p>El panel de emulación permite simular <em>viewports</em> de dispositivos específicos (iPhone, iPad, Pixel) así como ajustar dimensiones personalizadas arrastrando los márgenes de la vista previa.</p>
+<table>
+<thead>
+<tr>
+<th>Punto de verificación</th>
+<th>Procedimiento de comprobación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Desbordamiento horizontal</strong></td>
+<td>Verificar que no aparezca barra de desplazamiento lateral revisando el ancho de <code>body</code>.</td>
+</tr>
+<tr>
+<td><strong>Legibilidad del texto</strong></td>
+<td>Confirmar escalas tipográficas legibles manteniendo el zoom del navegador al 100%.</td>
+</tr>
+<tr>
+<td><strong>Áreas táctiles (Touch targets)</strong></td>
+<td>Asegurar un tamaño mínimo de <strong>44×44px</strong> en elementos interactivos mediante la regla de DevTools.</td>
+</tr>
+<tr>
+<td><strong>Imágenes adaptativas</strong></td>
+<td>Inspeccionar el panel <em>Network</em> (columna <em>Size</em>) para confirmar que <code>&lt;picture&gt;</code> o <code>srcset</code> cargan el archivo óptimo.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="32-limitaciones-de-la-emulacion">3.2 Limitaciones de la emulación</h3>
+<div class="admonition warning">
+<p class="admonition-title">Diferencia entre emulación y dispositivo real</p>
+<p>El <em>Device Toolbar</em> simula las dimensiones del <em>viewport</em>, pero <strong>no sustituye el motor de renderizado real</strong>. Una interfaz probada en la emulación de iPhone dentro de Chrome está utilizando el motor Blink, no el motor WebKit nativo de iOS. Las pruebas en dispositivos o motores reales son imprescindibles.</p>
+</div>
+<hr />
+<h2 id="4-compatibilidad-cross-browser">4. Compatibilidad Cross-Browser <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg></span></h2>
+<h3 id="41-motores-de-renderizado-principal">4.1 Motores de renderizado principal</h3>
+<table>
+<thead>
+<tr>
+<th>Motor de renderizado</th>
+<th>Navegadores que lo utilizan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Blink</strong></td>
+<td>Google Chrome, Microsoft Edge, Opera, Brave</td>
+</tr>
+<tr>
+<td><strong>Gecko</strong></td>
+<td>Mozilla Firefox</td>
+</tr>
+<tr>
+<td><strong>WebKit</strong></td>
+<td>Apple Safari (macOS / iOS) — <em>Por normativa de Apple, todos los navegadores en iOS ejecutan WebKit.</em></td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart TD
+    subgraph MotorBlink ["Motor Blink"]
+        Chrome["Chrome"] --- Edge["Edge"] --- Opera["Opera"]
+    end
+
+    subgraph MotorGecko ["Motor Gecko"]
+        Firefox["Firefox"]
+    end
+
+    subgraph MotorWebKit ["Motor WebKit"]
+        Safari["Safari"] --- ChromeIOS["Chrome en iOS&lt;br/&gt;(Motor WebKit subyacente)"]
+    end
+</code></pre>
+<hr />
+<h3 id="42-evaluacion-de-caracteristicas-mediante-caniusecom">4.2 Evaluación de características mediante caniuse.com</h3>
+<p>Antes de integrar características CSS o APIs de JavaScript recientes, es necesario verificar su porcentaje de adopción global en <a href="https://caniuse.com/">caniuse.com</a>:</p>
+<pre class="mermaid"><code>flowchart TD
+    A["¿Se desea integrar una&lt;br/&gt;característica CSS/JS reciente?"] --&gt; B["Consultar nivel de soporte en caniuse.com"]
+    B --&gt; C{"¿Existe soporte suficiente&lt;br/&gt;en los navegadores objetivo?"}
+    C --&gt;|Sí| D["Implementar directamente"]
+    C --&gt;|Soporte parcial| E["Implementar con alternativas&lt;br/&gt;usando @supports o fallbacks"]
+    C --&gt;|No| F["Utilizar una alternativa compatible"]
+</code></pre>
+<hr />
+<h3 id="43-consultas-de-soporte-en-css-supports">4.3 Consultas de soporte en CSS (<code>@supports</code>)</h3>
+<p>Las reglas <code>@supports</code> (<em>Feature Queries</em>) permiten aplicar estilos avanzados solo si el navegador soporta dicha propiedad:</p>
+<div class="highlight"><pre><span></span><code><span class="c">/* Configuración base compatible */</span>
+<span class="p">.</span><span class="nc">grid-productos</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span>
+<span class="w">  </span><span class="k">flex-wrap</span><span class="p">:</span><span class="w"> </span><span class="kc">wrap</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* Mejora progresiva para navegadores con soporte de Subgrid */</span>
+<span class="p">@</span><span class="k">supports</span><span class="w"> </span><span class="o">(</span><span class="nt">grid-template-columns</span><span class="o">:</span><span class="w"> </span><span class="nt">subgrid</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">.</span><span class="nc">grid-productos</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="k">grid</span><span class="p">;</span>
+<span class="w">    </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="n">subgrid</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h3 id="44-mejora-progresiva-vs-degradacion-elegante">4.4 Mejora Progresiva vs. Degradación Elegante</h3>
+<table>
+<thead>
+<tr>
+<th>Estrategia</th>
+<th>Punto de partida</th>
+<th>Principio de diseño</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Progressive Enhancement</strong> <em>(Recomendado)</em></td>
+<td>Estructura funcional básica en HTML/CSS semántico.</td>
+<td>Se añaden capas de interacción avanzadas según las capacidades del navegador.</td>
+</tr>
+<tr>
+<td><strong>Graceful Degradation</strong></td>
+<td>Construcción orientada a navegadores de última generación.</td>
+<td>Se aplican parches y <em>polyfills</em> cuando el código falla en navegadores antiguos.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Estrategia de Mejora Progresiva</p>
+<p>La <em>Mejora Progresiva</em> constituye la estrategia más sólida en el desarrollo frontend: la base en HTML semántico (<strong>UD3</strong>) garantiza la usabilidad del contenido independientemente de si los scripts de JavaScript se ejecutan o son bloqueados.</p>
+</div>
+<hr />
+<h3 id="45-ajustes-de-navegadores-para-contenidos-multimedia-e-interactividad-ra4b">4.5 Ajustes de navegadores para contenidos multimedia e interactividad (RA4.b)</h3>
+<table>
+<thead>
+<tr>
+<th>Factor de configuración</th>
+<th>Causa del comportamiento</th>
+<th>Estrategia de diagnóstico / Solución</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Soporte de códecs</strong></td>
+<td>Ausencia de decodificación por licencias de software (ej. H.265).</td>
+<td>Inspeccionar en el panel <em>Network</em> qué elemento <code>&lt;source&gt;</code> es seleccionado.</td>
+</tr>
+<tr>
+<td><strong>Políticas de Autoplay</strong></td>
+<td>Restricciones de reproducción automática con audio en Chrome/Safari.</td>
+<td>Confirmar el aviso contextual en la consola de JavaScript y añadir el atributo <code>muted</code>.</td>
+</tr>
+<tr>
+<td><strong>Restricción de JavaScript</strong></td>
+<td>Extensión de bloqueo de scripts o navegación en modo estricto.</td>
+<td>Probar la aplicación en modo incógnito desactivando extensiones del usuario.</td>
+</tr>
+<tr>
+<td><strong>Formatos de imagen recientes</strong></td>
+<td>Incompatibilidad con formatos como AVIF en versiones desactualizadas.</td>
+<td>Implementar la etiqueta <code>&lt;picture&gt;</code> con fallbacks a WebP o JPEG (<strong>UD6</strong>).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-ejercicio-practico-guiado">5. Ejercicio práctico guiado <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m10 17-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9m-6-6a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"/></svg></span></h2>
+<div class="admonition info">
+<p class="admonition-title">Actividad de consolidación (no evaluable)</p>
+<p><strong>Objetivo:</strong> Elaborar una evaluación sistemática del comportamiento de la interfaz en diferentes entornos y resoluciones.</p>
+</div>
+<p><strong>Pasos recomendados para practicar:</strong></p>
+<ol>
+<li><strong>Tabla de compatibilidad:</strong> Evalúa el proyecto en al menos 3 navegadores con motores distintos (Blink, Gecko, WebKit) y 3 resoluciones (móvil, tablet, escritorio).</li>
+<li><strong>Registro de observaciones:</strong> Verifica la correcta renderización visual, el funcionamiento de los eventos de la <strong>Sección 8.1</strong> y los formatos entregados por la red (panel <em>Network</em>).</li>
+<li><strong>Resolución de discrepancias:</strong> Identifica un punto de incompatibilidad y resuélvelo mediante una regla <code>@supports</code> o un recurso de reserva (<em>fallback</em>).</li>
+<li><strong>Documentación:</strong> Describe brevemente en el archivo <code>README.md</code> del proyecto la estrategia de <em>Mejora Progresiva</em> aplicada.</li>
+</ol>
+<hr />
+<h2 id="6-resumen-del-bloque-ud8-y-conexion-posterior">6. Resumen del bloque UD8 y conexión posterior <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M.41 13.41 6 19l1.41-1.42L1.83 12m20.41-6.42L11.66 16.17 7.5 12l-1.43 1.41L11.66 19l12-12M18 7l-1.41-1.42-6.35 6.35 1.42 1.41z"/></svg></span></h2>
+<ul>
+<li>El DOM representa la estructura activa del documento, mientras que los eventos gestionan la respuesta interactiva de la interfaz.</li>
+<li>La delegación de eventos y el diseño de formularios con feedback accesible (<code>aria-invalid</code>) garantizan aplicaciones eficientes y accesibles.</li>
+<li>Las pruebas de compatibilidad en múltiples motores de renderizado garantizan una experiencia homogénea para todos los usuarios.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Cierre del Bloque II</p>
+<p>Con la finalización de la <strong>UD8</strong> queda completado el <strong>RA4</strong>. En la <strong>UD9</strong> comienza el estudio del <strong>RA5 — Accesibilidad Web (WCAG y WAI-ARIA)</strong>.</p>
+</div>
+<pre class="mermaid"><code>flowchart LR
+    UD8["&lt;b&gt;UD8&lt;/b&gt;&lt;br/&gt;DOM + Cross-browser"] --&gt; UD9["&lt;b&gt;UD9&lt;/b&gt;&lt;br/&gt;Fundamentos WCAG + WAI-ARIA"]
+</code></pre>
+<hr />
+<h2 id="7-referencias-y-fuentes">7. Referencias y fuentes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg></span></h2>
+<ul>
+<li><a href="https://caniuse.com/">Can I use...</a> — Tablas de compatibilidad para tecnologías web.</li>
+<li>MDN Web Docs — <a href="https://www.google.com/search?q=https://developer.mozilla.org/es/docs/Web/CSS/%40supports">At-rule @supports</a>.</li>
+<li>Chrome DevTools — <a href="https://developer.chrome.com/docs/devtools/">Documentación oficial de herramientas de desarrollo</a>.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.instant", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

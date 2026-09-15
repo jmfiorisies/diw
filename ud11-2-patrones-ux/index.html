@@ -1,0 +1,921 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>11.2 · Estándares, Carga Cognitiva y Patrones UX - APUNTES DIW - Diseño de Interfaces Web</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#112-estandares-carga-cognitiva-y-patrones-ux" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="APUNTES DIW - Diseño de Interfaces Web" class="md-header__button md-logo" aria-label="APUNTES DIW - Diseño de Interfaces Web" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m2.53 19.65 1.34.56v-9.03l-2.43 5.86c-.41 1.02.06 2.19 1.09 2.61m19.5-3.7L17.07 4a2 2 0 0 0-1.81-1.25c-.26 0-.53.04-.79.15L7.1 5.95a2.02 2.02 0 0 0-1.23 1.8c-.01.25.04.54.13.8l5 11.95c.29.78 1.03 1.24 1.81 1.25.26 0 .52-.05.77-.15l7.36-3.05a1.994 1.994 0 0 0 1.09-2.6M7.88 8.75a1 1 0 0 1-1-1 1 1 0 0 1 1-1c.55 0 1 .45 1 1s-.45 1-1 1m-2 11a2 2 0 0 0 2 2h1.45l-3.45-8.34z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            APUNTES DIW - Diseño de Interfaces Web
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              11.2 · Estándares, Carga Cognitiva y Patrones UX
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Pasar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Pasar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Pasar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Pasar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="APUNTES DIW - Diseño de Interfaces Web" class="md-nav__button md-logo" aria-label="APUNTES DIW - Diseño de Interfaces Web" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m2.53 19.65 1.34.56v-9.03l-2.43 5.86c-.41 1.02.06 2.19 1.09 2.61m19.5-3.7L17.07 4a2 2 0 0 0-1.81-1.25c-.26 0-.53.04-.79.15L7.1 5.95a2.02 2.02 0 0 0-1.23 1.8c-.01.25.04.54.13.8l5 11.95c.29.78 1.03 1.24 1.81 1.25.26 0 .52-.05.77-.15l7.36-3.05a1.994 1.994 0 0 0 1.09-2.6M7.88 8.75a1 1 0 0 1-1-1 1 1 0 0 1 1-1c.55 0 1 .45 1 1s-.45 1-1 1m-2 11a2 2 0 0 0 2 2h1.45l-3.45-8.34z"/></svg>
+
+    </a>
+    APUNTES DIW - Diseño de Interfaces Web
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../planificacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Planificación Docente
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.ª Evaluación (Bloque I - UI/UX, Design Systems, HTML5, CSS Moderno y Multimedia)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1.ª Evaluación (Bloque I - UI/UX, Design Systems, HTML5, CSS Moderno y Multimedia)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 1: Diseño de Interfaces, Comunicación Visual y Figma Base (RA1)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 2: Figma Avanzado, Design Systems y Design Tokens (RA1)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 3: HTML5 Semántico, Estructura Accesible y Formularios (RA2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#nota-de-evaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nota de evaluación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-carga-cognitiva-y-leyes-de-ux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Carga cognitiva y leyes de UX
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Carga cognitiva y leyes de UX">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-concepto-de-carga-cognitiva" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Concepto de carga cognitiva
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-ley-de-hick" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Ley de Hick
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-ley-de-fitts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Ley de Fitts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-patrones-de-interaccion-estandarizados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Patrones de interacción estandarizados
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Patrones de interacción estandarizados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-principio-de-menor-sorpresa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Principio de menor sorpresa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-catalogo-de-patrones-y-convenciones-habituales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Catálogo de patrones y convenciones habituales
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-integracion-de-estandares-ra6b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Integración de Estándares (RA6.b)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-ejercicio-practico-guiado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Ejercicio práctico guiado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-resumen-del-bloque-ud11-y-conexion-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Resumen del bloque UD11 y conexión final
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-referencias-y-fuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Referencias y fuentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="112-estandares-carga-cognitiva-y-patrones-ux">11.2 · Estándares, Carga Cognitiva y Patrones UX <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.33 12.91c.09 1.55-.62 3.04-1.89 3.95l.77 1.49c.23.45.26.98.06 1.45-.19.47-.58.84-1.06 1l-.79.25a1.687 1.687 0 0 1-1.86-.55L14.44 18c-.89-.15-1.73-.53-2.44-1.1-.5.15-1 .23-1.5.23-.88 0-1.76-.27-2.5-.79-.53.16-1.07.23-1.62.22-.79.01-1.57-.15-2.3-.45a4.1 4.1 0 0 1-2.43-3.61c-.08-.72.04-1.45.35-2.11-.29-.75-.32-1.57-.07-2.33C2.3 7.11 3 6.32 3.87 5.82c.58-1.69 2.21-2.82 4-2.7 1.6-1.5 4.05-1.66 5.83-.37.42-.11.86-.17 1.3-.17 1.36-.03 2.65.57 3.5 1.64 2.04.53 3.5 2.35 3.58 4.47.05 1.11-.25 2.2-.86 3.13.07.36.11.72.11 1.09m-5-1.41c.57.07 1.02.5 1.02 1.07a1 1 0 0 1-1 1h-.63c-.32.9-.88 1.69-1.62 2.29.25.09.51.14.77.21 5.13-.07 4.53-3.2 4.53-3.25a2.59 2.59 0 0 0-2.69-2.49 1 1 0 0 1-1-1 1 1 0 0 1 1-1c1.23.03 2.41.49 3.33 1.3.05-.29.08-.59.08-.89-.06-1.24-.62-2.32-2.87-2.53-1.25-2.96-4.4-1.32-4.4-.4-.03.23.21.72.25.75a1 1 0 0 1 1 1c0 .55-.45 1-1 1-.53-.02-1.03-.22-1.43-.56-.48.31-1.03.5-1.6.56-.57.05-1.04-.35-1.07-.9a.97.97 0 0 1 .88-1.1c.16-.02.94-.14.94-.77 0-.66.25-1.29.68-1.79-.92-.25-1.91.08-2.91 1.29C6.75 5 6 5.25 5.45 7.2 4.5 7.67 4 8 3.78 9c1.08-.22 2.19-.13 3.22.25.5.19.78.75.59 1.29-.19.52-.77.78-1.29.59-.73-.32-1.55-.34-2.3-.06-.32.27-.32.83-.32 1.27 0 .74.37 1.43 1 1.83.53.27 1.12.41 1.71.4q-.225-.39-.39-.81a1.038 1.038 0 0 1 1.96-.68c.4 1.14 1.42 1.92 2.62 2.05 1.37-.07 2.59-.88 3.19-2.13.23-1.38 1.34-1.5 2.56-1.5m2 7.47-.62-1.3-.71.16 1 1.25zm-4.65-8.61a1 1 0 0 0-.91-1.03c-.71-.04-1.4.2-1.93.67-.57.58-.87 1.38-.84 2.19a1 1 0 0 0 1 1c.57 0 1-.45 1-1 0-.27.07-.54.23-.76.12-.1.27-.15.43-.15.55.03 1.02-.38 1.02-.92"/></svg></span></h1>
+<h2 id="nota-de-evaluacion">Nota de evaluación <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg></span></h2>
+<div class="admonition info">
+<p class="admonition-title">Orientación sobre la evaluación</p>
+<p>Esta sección <strong>prepara</strong> el bloque de estándares y patrones de interacción del <strong>RA6</strong>, el cual se evalúa íntegramente en el módulo de Formación en Centros de Trabajo (FCT / Empresa).</p>
+</div>
+<hr />
+<h2 id="1-carga-cognitiva-y-leyes-de-ux">1. Carga cognitiva y leyes de UX <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3c3.88 0 7 3.14 7 7 0 2.8-1.63 5.19-4 6.31V21H9v-3H8c-1.11 0-2-.89-2-2v-3H4.5c-.42 0-.66-.5-.42-.81L6 9.66A7.003 7.003 0 0 1 13 3m0-2C8.42 1 4.61 4.43 4.06 8.91L2.5 11c-.58.72-.68 1.72-.26 2.59.36.72 1 1.21 1.76 1.36V16c0 1.86 1.28 3.43 3 3.87V23h11v-5.53c2.5-1.64 4-4.41 4-7.47 0-4.96-4.04-9-9-9m3.1 8.42V9c0-.15 0-.24-.06-.38l.89-.66c.07-.04.07-.18.07-.28l-.82-1.36c-.05-.09-.18-.14-.28-.09l-.99.42c-.18-.19-.41-.33-.65-.42L14.1 5.2c-.03-.14-.1-.2-.22-.2h-1.59c-.1 0-.19.06-.19.2l-.14 1.03c-.23.09-.46.23-.66.42l-1.03-.42c-.09-.05-.17 0-.23.09l-.8 1.36c-.05.14-.05.24.05.28l.84.66c0 .14-.03.28-.03.38 0 .14.03.28.03.42l-.84.65c-.1.05-.1.14-.05.24l.8 1.4c.06.1.14.1.23.1l.99-.43c.24.19.42.29.7.38l.14 1.08c0 .09.09.16.19.16h1.59c.12 0 .19-.07.22-.16l.16-1.08c.24-.09.47-.19.65-.37l.99.42c.1 0 .23 0 .28-.1l.82-1.4c0-.1 0-.19-.07-.24zm-3 1.03c-.78 0-1.42-.66-1.42-1.45s.61-1.41 1.42-1.41c.78 0 1.44.61 1.44 1.41s-.66 1.45-1.44 1.45"/></svg></span></h2>
+<h3 id="11-concepto-de-carga-cognitiva">1.1 Concepto de carga cognitiva</h3>
+<p>La <strong>carga cognitiva</strong> representa el esfuerzo mental requerido para procesar información e interactuar con una interfaz. Un diseño deficiente impone una sobrecarga que dificulta al usuario completar sus tareas.</p>
+<pre class="mermaid"><code>flowchart TD
+    A["&lt;b&gt;Carga cognitiva total&lt;/b&gt;"] --&gt; B["&lt;b&gt;Carga intrínseca&lt;/b&gt;&lt;br/&gt;Complejidad propia de la tarea&lt;br/&gt;&lt;i&gt;(Inevitable)&lt;/i&gt;"]
+    A --&gt; C["&lt;b&gt;Carga extraña&lt;/b&gt;&lt;br/&gt;Complejidad añadida por mal diseño&lt;br/&gt;&lt;i&gt;(Evitable)&lt;/i&gt;"]
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Tipo de carga</th>
+<th>Descripción</th>
+<th>Ejemplo práctico</th>
+<th>¿Es reducible mediante diseño?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Intrínseca</strong></td>
+<td>Complejidad propia del dominio de la tarea.</td>
+<td>Cumplimentar una declaración tributaria compleja.</td>
+<td><strong>Parcialmente</strong> <em>(Dividiendo el proceso en pasos)</em>.</td>
+</tr>
+<tr>
+<td><strong>Extraña</strong> <em>(Extraneous)</em></td>
+<td>Fricción provocada por una interfaz confusa o mal estructurada.</td>
+<td>Un formulario con campos obligatorios no señalizados que obligan al error.</td>
+<td><strong>Sí</strong> <em>(Es responsabilidad del diseñador eliminarla)</em>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="12-ley-de-hick">1.2 Ley de Hick</h3>
+<blockquote>
+<p><em>"El tiempo que se tarda en tomar una decisión aumenta logarítmicamente con el número y la complejidad de las opciones disponibles."</em>
+</p>
+</blockquote>
+<pre class="mermaid"><code>flowchart LR
+    A["&lt;b&gt;3 Opciones claras&lt;/b&gt;"] --&gt; T1["Decisión rápida"]
+    B["&lt;b&gt;15 Opciones sin clasificar&lt;/b&gt;"] --&gt; T2["Decisión lenta / Fatiga de elección"]
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Estrategia de diseño</th>
+<th>Aplicación técnica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Categorización</strong></td>
+<td>Agrupar opciones en menús desplegables o secciones lógicas en lugar de desplegar listas extensas.</td>
+</tr>
+<tr>
+<td><strong>Divulgación Progresiva</strong> <em>(Progressive Disclosure)</em></td>
+<td>Mostrar únicamente los campos básicos y ocultar opciones avanzadas tras un control interactivo.</td>
+</tr>
+<tr>
+<td><strong>Valores predeterminados sensatos</strong></td>
+<td>Preseleccionar la opción más frecuente para ahorrar clics al usuario.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="13-ley-de-fitts">1.3 Ley de Fitts</h3>
+<blockquote>
+<p><em>"El tiempo necesario para alcanzar un objetivo es una función de la distancia hasta él y el tamaño del objetivo."</em>
+</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Aplicación práctica</th>
+<th>Ejemplo en diseño de interfaces</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Jerarquía visual de acciones</strong></td>
+<td>Botones de llamadas a la acción (<em>CTA</em>) primarios con mayor superficie gráfica que los secundarios.</td>
+</tr>
+<tr>
+<td><strong>Zonas de contacto táctil</strong></td>
+<td>Dimensiones mínimas recomendadas para áreas interactivas (~44×44px, conforme a <strong>UD8.2</strong>).</td>
+</tr>
+<tr>
+<td><strong>Ubicación al alcance del usuario</strong></td>
+<td>Barras de navegación fijas en el borde inferior para facilitar el acceso con el pulgar en dispositivos móviles.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-patrones-de-interaccion-estandarizados">2. Patrones de interacción estandarizados <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 13.5v8H3v-8zm-2 2H5v4h4zM12 2l5.5 9h-11zm0 3.86L10.08 9h3.84zM17.5 13c2.5 0 4.5 2 4.5 4.5S20 22 17.5 22 13 20 13 17.5s2-4.5 4.5-4.5m0 2a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg></span></h2>
+<h3 id="21-principio-de-menor-sorpresa">2.1 Principio de menor sorpresa</h3>
+<pre class="mermaid"><code>flowchart TD
+    A["&lt;b&gt;Patrón estandarizado&lt;/b&gt;&lt;br/&gt;(Ej. Icono de lupa = Búsqueda)"] --&gt; B["El usuario lo reconoce instantáneamente"]
+    B --&gt; C["Carga cognitiva mínima"]
+    D["&lt;b&gt;Patrón no convencional&lt;/b&gt;&lt;br/&gt;(Ej. Símbolo abstracto para buscar)"] --&gt; E["El usuario debe aprender la interacción"]
+    E --&gt; F["Alta fricción / Carga cognitiva extraña"]
+</code></pre>
+<h3 id="22-catalogo-de-patrones-y-convenciones-habituales">2.2 Catálogo de patrones y convenciones habituales</h3>
+<table>
+<thead>
+<tr>
+<th>Elemento / Patrón</th>
+<th>Convención esperada por el usuario</th>
+<th>Riesgo de romper el patrón</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Icono de lupa</strong></td>
+<td>Función de búsqueda en el sitio.</td>
+<td>Utilizarlo para funciones de zoom genera confusión.</td>
+</tr>
+<tr>
+<td><strong>Icono de carrito / bolsa</strong></td>
+<td>Acceso a la cesta de compra o pedido.</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Logotipo superior izquierdo</strong></td>
+<td>Enlace directo a la página de inicio (<em>Home</em>).</td>
+<td>Romper esta expectativa impide una navegación fluida.</td>
+</tr>
+<tr>
+<td><strong>Distribución de botones en diálogos</strong></td>
+<td>Botón primario de confirmación a la derecha (en lecturas LTR).</td>
+<td>Invertir la posición provoca errores de clic por hábito conductual.</td>
+</tr>
+<tr>
+<td><strong>Desplazamiento infinito</strong> <em>(Infinite Scroll)</em></td>
+<td>Carga dinámica de listas continuas tipo feed.</td>
+<td>Impide al usuario alcanzar el pie de página (<em>footer</em>).</td>
+</tr>
+<tr>
+<td><strong>Migas de pan</strong> <em>(Breadcrumbs)</em></td>
+<td>Indicador de la ruta jerárquica actual.</td>
+<td>Innecesario en arquitecturas con baja profundidad.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Innovación gráfica vs. Fricción en la interfaz</p>
+<p>Reinventar la funcionalidad de patrones universales no aporta valor a la experiencia de usuario. La innovación efectiva en UX reside en optimizar la resolución del problema del usuario, no en alterar las formas de interacción comunes.</p>
+</div>
+<hr />
+<h2 id="3-integracion-de-estandares-ra6b">3. Integración de Estándares (RA6.b) <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 7h3a3 3 0 0 1 3 3v4a3 3 0 0 1-3 3h-3zm3 8a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-1v6zM7 7h4v2H7v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H5v-2h4v-2H7a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2"/></svg></span></h2>
+<p>El cumplimiento de estándares (<strong>RA6.b</strong>) no es un criterio aislado, sino la suma de las buenas prácticas trabajadas a lo largo del módulo:</p>
+<pre class="mermaid"><code>flowchart TD
+    STD["&lt;b&gt;Estándares en Desarrollo Web&lt;/b&gt;"] --&gt; W3C["&lt;b&gt;W3C&lt;/b&gt;&lt;br/&gt;Estructura HTML semántica (UD3)"]
+    STD --&gt; WCAG["&lt;b&gt;WCAG 2.2&lt;/b&gt;&lt;br/&gt;Pautas de accesibilidad (UD9-UD10)"]
+    STD --&gt; UX["&lt;b&gt;Patrones UX&lt;/b&gt;&lt;br/&gt;Convenios de interacción (UD11)"]
+    STD --&gt; BEM["&lt;b&gt;Arquitectura CSS&lt;/b&gt;&lt;br/&gt;Nomenclatura y metodologías (UD5)"]
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Capa de estándar</th>
+<th>Módulo de aplicación previa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>HTML Semántico</strong> <em>(W3C)</em></td>
+<td><strong>UD3</strong> — Estructuración de documentos web.</td>
+</tr>
+<tr>
+<td><strong>WCAG 2.2</strong> <em>(Accesibilidad)</em></td>
+<td><strong>UD9</strong> y <strong>UD10</strong> — Criterios de conformidad A/AA.</td>
+</tr>
+<tr>
+<td><strong>Patrones UX / Leyes de Interacción</strong></td>
+<td><strong>UD11</strong> — Reducción de carga cognitiva y usabilidad.</td>
+</tr>
+<tr>
+<td><strong>Metodologías de Estilos</strong> <em>(BEM / CSS)</em></td>
+<td><strong>UD5</strong> — Arquitectura y escalabilidad de código.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-ejercicio-practico-guiado">4. Ejercicio práctico guiado <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m10 17-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9m-6-6a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"/></svg></span></h2>
+<div class="admonition info">
+<p class="admonition-title">Actividad de consolidación (no evaluable)</p>
+<p><strong>Objetivo:</strong> Identificar patrones de interacción estandarizados y analizar la carga cognitiva en la interfaz desarrollada.</p>
+</div>
+<p><strong>Pasos recomendados para practicar:</strong></p>
+<ol>
+<li><strong>Auditoría de patrones:</strong> Documenta al menos 3 convenciones de interacción que tu interfaz cumpla de forma adecuada (ej. logotipo enlazado al inicio, buscador identificable).</li>
+<li><strong>Detección de fricciones:</strong> Localiza algún componente interactivo que no siga un estándar claro y redacta una propuesta para adaptarlo a la convención habitual.</li>
+<li><strong>Aplicación de la Ley de Hick:</strong> Revisa los menús de navegación principales y aplica técnicas de agrupamiento o divulgación progresiva para reducir opciones innecesarias.</li>
+<li><strong>Aplicación de la Ley de Fitts:</strong> Evalúa los botones de acción principal (<em>CTA</em>) para asegurar que su tamaño y área de contacto son adecuados respecto a las acciones secundarias.</li>
+</ol>
+<hr />
+<h2 id="5-resumen-del-bloque-ud11-y-conexion-final">5. Resumen del bloque UD11 y conexión final <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.98 2.98 0 0 0 0-4.24 2.98 2.98 0 0 0-4.24 0l-3.53 3.53a2.98 2.98 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.98 2.98 0 0 0 0 4.24 2.98 2.98 0 0 0 4.24 0l3.53-3.53a2.98 2.98 0 0 0 0-4.24.973.973 0 0 1 0-1.42"/></svg></span></h2>
+<ul>
+<li>
+<p><strong>Accesibilidad y usabilidad</strong> actúan de forma complementaria: una interfaz puede ser accesible pero presentar fricciones de uso, y viceversa.</p>
+</li>
+<li>
+<p><strong>Las heurísticas de Nielsen</strong> proporcionan el marco teórico de evaluación, mientras que las <strong>Leyes de Hick y Fitts</strong> explican el comportamiento del usuario.</p>
+</li>
+<li>
+<p><strong>El respeto por las convenciones UX</strong> minimiza la carga cognitiva y mejora la curva de aprendizaje de la aplicación.</p>
+</li>
+</ul>
+<p>Con este bloque completado, en la <strong>UD12</strong> aplicaremos toda la metodología en un proyecto integrador que abarcará auditoría de accesibilidad, optimización de rendimiento (<em>Performance</em>) y métricas <em>Core Web Vitals</em>.</p>
+<pre class="mermaid"><code>flowchart LR
+    UD11["&lt;b&gt;UD11 Usabilidad&lt;/b&gt;&lt;br/&gt;Metodología y Patrones UX"] --&gt; UD12["&lt;b&gt;UD12 Performance + Proyecto Integrador&lt;/b&gt;&lt;br/&gt;Cierre formal de RA5"]
+</code></pre>
+<hr />
+<h2 id="6-referencias-y-fuentes">6. Referencias y fuentes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg></span></h2>
+<ul>
+<li>
+<p>Nielsen Norman Group — <a href="https://www.nngroup.com/articles/minimize-cognitive-load/">Minimize Cognitive Load</a>.</p>
+</li>
+<li>
+<p>Jon Yablonski — <a href="https://lawsofux.com/hicks-law/">Laws of UX: Hick's Law</a>.</p>
+</li>
+<li>
+<p>Jon Yablonski — <a href="https://lawsofux.com/fittss-law/">Laws of UX: Fitts's Law</a>.</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.instant", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

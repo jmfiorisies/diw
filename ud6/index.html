@@ -1,0 +1,1359 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>UD6 · Optimización Multimedia (WebP/AVIF), SVG e Introducción a Performance - APUNTES DIW - Diseño de Interfaces Web</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ud6-optimizacion-multimedia-webpavif-svg-e-introduccion-a-performance" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="APUNTES DIW - Diseño de Interfaces Web" class="md-header__button md-logo" aria-label="APUNTES DIW - Diseño de Interfaces Web" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m2.53 19.65 1.34.56v-9.03l-2.43 5.86c-.41 1.02.06 2.19 1.09 2.61m19.5-3.7L17.07 4a2 2 0 0 0-1.81-1.25c-.26 0-.53.04-.79.15L7.1 5.95a2.02 2.02 0 0 0-1.23 1.8c-.01.25.04.54.13.8l5 11.95c.29.78 1.03 1.24 1.81 1.25.26 0 .52-.05.77-.15l7.36-3.05a1.994 1.994 0 0 0 1.09-2.6M7.88 8.75a1 1 0 0 1-1-1 1 1 0 0 1 1-1c.55 0 1 .45 1 1s-.45 1-1 1m-2 11a2 2 0 0 0 2 2h1.45l-3.45-8.34z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            APUNTES DIW - Diseño de Interfaces Web
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              UD6 · Optimización Multimedia (WebP/AVIF), SVG e Introducción a Performance
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Pasar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Pasar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Pasar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Pasar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="APUNTES DIW - Diseño de Interfaces Web" class="md-nav__button md-logo" aria-label="APUNTES DIW - Diseño de Interfaces Web" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m2.53 19.65 1.34.56v-9.03l-2.43 5.86c-.41 1.02.06 2.19 1.09 2.61m19.5-3.7L17.07 4a2 2 0 0 0-1.81-1.25c-.26 0-.53.04-.79.15L7.1 5.95a2.02 2.02 0 0 0-1.23 1.8c-.01.25.04.54.13.8l5 11.95c.29.78 1.03 1.24 1.81 1.25.26 0 .52-.05.77-.15l7.36-3.05a1.994 1.994 0 0 0 1.09-2.6M7.88 8.75a1 1 0 0 1-1-1 1 1 0 0 1 1-1c.55 0 1 .45 1 1s-.45 1-1 1m-2 11a2 2 0 0 0 2 2h1.45l-3.45-8.34z"/></svg>
+
+    </a>
+    APUNTES DIW - Diseño de Interfaces Web
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../planificacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Planificación Docente
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.ª Evaluación (Bloque I - UI/UX, Design Systems, HTML5, CSS Moderno y Multimedia)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1.ª Evaluación (Bloque I - UI/UX, Design Systems, HTML5, CSS Moderno y Multimedia)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 1: Diseño de Interfaces, Comunicación Visual y Figma Base (RA1)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 2: Figma Avanzado, Design Systems y Design Tokens (RA1)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 3: HTML5 Semántico, Estructura Accesible y Formularios (RA2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resultado-de-aprendizaje-y-criterios-cubiertos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultado de aprendizaje y criterios cubiertos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-derechos-de-autor-y-licencias-ra3a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Derechos de autor y licencias (RA3.a)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-formatos-de-imagen-ra3b-ra3c-ra3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Formatos de imagen (RA3.b, RA3.c, RA3.d)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Formatos de imagen (RA3.b, RA3.c, RA3.d)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-imagenes-rasterizadas-vs-vectoriales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Imágenes rasterizadas vs. vectoriales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-comparativa-de-formatos-rasterizados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Comparativa de formatos rasterizados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-seleccion-de-formatos-mediante-picture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Selección de formatos mediante &lt;picture&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-responsive-images-con-srcset-y-sizes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Responsive images con srcset y sizes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-graficos-vectoriales-svg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Gráficos vectoriales (SVG)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-tratamiento-de-imagen-y-optimizacion-ra3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Tratamiento de imagen y optimización (RA3.d)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-audio-y-video-en-la-web-ra3e-material-video-film" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Audio y vídeo en la web (RA3.e) :material-video-film:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Audio y vídeo en la web (RA3.e) :material-video-film:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-formatos-de-audio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Formatos de audio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-formatos-de-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Formatos de vídeo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-elementos-nativos-de-html5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Elementos nativos de HTML5
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-herramientas-para-la-conversion-de-medios-ra3g" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Herramientas para la conversión de medios (RA3.g)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-animaciones-desde-imagenes-fijas-ra3f" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Animaciones desde imágenes fijas (RA3.f)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Animaciones desde imágenes fijas (RA3.f)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-sprite-sheets-con-css" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Sprite Sheets con CSS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-css-keyframes-sobre-imagenes-vectoriales-o-fijas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 CSS @keyframes sobre imágenes vectoriales o fijas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-webp-animado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 WebP Animado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-introduccion-a-performance-multimedia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Introducción a Performance Multimedia
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-ejercicio-practico-guiado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Ejercicio práctico guiado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-resumen-y-conexion-con-la-siguiente-unidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Resumen y conexión con la siguiente unidad
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-referencias-y-fuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Referencias y fuentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ud6-optimizacion-multimedia-webpavif-svg-e-introduccion-a-performance">UD6 · Optimización Multimedia (WebP/AVIF), SVG e Introducción a Performance <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11z"/></svg></span></h1>
+<h2 id="resultado-de-aprendizaje-y-criterios-cubiertos">Resultado de aprendizaje y criterios cubiertos <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg></span></h2>
+<p>Esta unidad aborda de forma integral el <strong>RA3 — Integra elementos multimedia en páginas Web analizando su interactividad y usabilidad</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Criterio</th>
+<th>Enunciado</th>
+<th>Cobertura</th>
+<th>Evaluación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RA3.a</strong></td>
+<td>Licencias y derechos de autor en material multimedia.</td>
+<td>UD6</td>
+<td><strong>UD6 (1.ª Ev.)</strong></td>
+</tr>
+<tr>
+<td><strong>RA3.b</strong></td>
+<td>Formatos de imagen, audio y vídeo a utilizar.</td>
+<td>UD6</td>
+<td><strong>UD6 (1.ª Ev.)</strong></td>
+</tr>
+<tr>
+<td><strong>RA3.c</strong></td>
+<td>Herramientas disponibles para generar contenido multimedia.</td>
+<td>UD6</td>
+<td><strong>UD6 (1.ª Ev.)</strong></td>
+</tr>
+<tr>
+<td><strong>RA3.d</strong></td>
+<td>Herramientas para el tratamiento digital de la imagen.</td>
+<td>UD6</td>
+<td>UD7 (2.ª Ev.)</td>
+</tr>
+<tr>
+<td><strong>RA3.e</strong></td>
+<td>Herramientas para manipular audio y vídeo.</td>
+<td>UD6 (§4)</td>
+<td>UD7 (2.ª Ev.)</td>
+</tr>
+<tr>
+<td><strong>RA3.f</strong></td>
+<td>Animaciones a partir de imágenes fijas.</td>
+<td>UD6 (§5)</td>
+<td>UD7 (2.ª Ev.)</td>
+</tr>
+<tr>
+<td><strong>RA3.g</strong></td>
+<td>Importar/exportar imagen, audio, vídeo en diversos formatos.</td>
+<td>UD6</td>
+<td>UD7 (2.ª Ev.)</td>
+</tr>
+<tr>
+<td><strong>RA3.h</strong></td>
+<td>Aplicación de la guía de estilo a contenido multimedia.</td>
+<td>UD6</td>
+<td>UD7 (2.ª Ev.)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Planificación de evaluación</p>
+<p>Aunque los criterios <strong>RA3.d</strong> a <strong>RA3.h</strong> se evalúan formalmente en la UD7 mediante componentes reales, el contenido teórico-práctico completo (tratamiento de imagen, vídeo, audio y animación) se imparte íntegramente en esta unidad.</p>
+</div>
+<hr />
+<h2 id="1-derechos-de-autor-y-licencias-ra3a">1. Derechos de autor y licencias (RA3.a) <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.08 10.86c.05-.33.16-.62.3-.86.3-.56.81-.85 1.5-.86.45 0 .86.2 1.15.49.28.31.47.74.47 1.17h1.8c-.02-.47-.11-.9-.3-1.3-.15-.38-.38-.72-.68-1-1.45-1.34-4.14-1.15-5.37.37-1.29 1.67-1.32 4.59-.01 6.26 1.21 1.49 3.86 1.7 5.3.37.31-.25.56-.56.76-.92.16-.36.27-.74.28-1.15H13.5c0 .21-.07.4-.16.57-.09.19-.21.34-.34.47-.33.26-.72.4-1.14.4-.36-.01-.66-.08-.89-.23a1.4 1.4 0 0 1-.59-.64c-.5-.9-.42-2.15-.3-3.14M12 2C6.5 2 2 6.5 2 12c.53 13.27 19.5 13.26 20 0 0-5.5-4.5-10-10-10m0 18c-4.41 0-8-3.59-8-8 .44-10.61 15.56-10.61 16 0 0 4.41-3.59 8-8 8"/></svg></span></h2>
+<table>
+<thead>
+<tr>
+<th>Tipo de licencia</th>
+<th>Qué permite</th>
+<th>Ejemplo de uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Copyright estándar (©)</strong></td>
+<td>Reservados todos los derechos. Sin permiso explícito no se puede reutilizar.</td>
+<td>Fotografías de stock de pago o bancos privados.</td>
+</tr>
+<tr>
+<td><strong>Creative Commons — CC BY</strong></td>
+<td>Uso libre, modificación y distribución citando expresamente al autor.</td>
+<td>Iconografía, fotografías de bancos de recursos abiertos.</td>
+</tr>
+<tr>
+<td><strong>CC BY-SA</strong></td>
+<td>Igual que CC BY + obras derivadas deben distribuirse bajo la misma licencia.</td>
+<td>Wikipedia y proyectos colaborativos.</td>
+</tr>
+<tr>
+<td><strong>CC BY-NC</strong></td>
+<td>Uso libre salvo para fines comerciales o con ánimo de lucro.</td>
+<td>Recurso de fines educativos o de investigación.</td>
+</tr>
+<tr>
+<td><strong>CC0 / Dominio público</strong></td>
+<td>Libre uso sin restricciones ni obligación de atribución.</td>
+<td>Unsplash, Pexels, Pixabay.</td>
+</tr>
+<tr>
+<td><strong>SIL Open Font License (OFL)</strong></td>
+<td>Específica para tipografías. Permite uso, modificación y redistribución.</td>
+<td>Google Fonts.</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart TD
+    Q1{"¿El recurso especifica&lt;br/&gt;su licencia de uso?"}
+    Q1 --&gt;|No| STOP["No utilizar sin verificar&lt;br/&gt;origen y derechos de autor"]
+    Q1 --&gt;|Sí| Q2{"¿Es para uso comercial?"}
+    Q2 --&gt;|Sí| Q3{"¿La licencia permite uso comercial?&lt;br/&gt;(CC BY, CC0)"}
+    Q2 --&gt;|No, solo educativo| OK1["Válidos también CC BY-NC"]
+    Q3 --&gt;|Sí| OK2["Utilizar citando autoría&lt;br/&gt;si lo exige la licencia"]
+    Q3 --&gt;|No| STOP
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Uso indebido de motores de búsqueda</p>
+<p>Encontrar un archivo mediante un buscador de imágenes no equivale a tener permiso legal para su uso. El origen del recurso define las condiciones de uso real.</p>
+</div>
+<hr />
+<h2 id="2-formatos-de-imagen-ra3b-ra3c-ra3d">2. Formatos de imagen (RA3.b, RA3.c, RA3.d) <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11z"/></svg></span></h2>
+<h3 id="21-imagenes-rasterizadas-vs-vectoriales">2.1 Imágenes rasterizadas vs. vectoriales</h3>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Cómo se almacena</th>
+<th>Comportamiento al escalar</th>
+<th>Formatos típicos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Raster (Mapa de bits)</strong></td>
+<td>Rejilla fija de píxeles con valor de color</td>
+<td>Se pixela al aumentar su tamaño original</td>
+<td>JPEG, PNG, WebP, AVIF</td>
+</tr>
+<tr>
+<td><strong>Vectorial</strong></td>
+<td>Fórmulas matemáticas (puntos, vectores, curvas)</td>
+<td>Escala infinita sin pérdida de definición</td>
+<td>SVG</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="22-comparativa-de-formatos-rasterizados">2.2 Comparativa de formatos rasterizados</h3>
+<table>
+<thead>
+<tr>
+<th>Formato</th>
+<th>Compresión</th>
+<th>Transparencia</th>
+<th>Compatibilidad</th>
+<th>Cuándo utilizarlo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>JPEG</strong></td>
+<td>Con pérdida</td>
+<td>No</td>
+<td>Universal</td>
+<td>Fotografías y complejas sin necesidad de canal alfa.</td>
+</tr>
+<tr>
+<td><strong>PNG</strong></td>
+<td>Sin pérdida</td>
+<td>Sí</td>
+<td>Universal</td>
+<td>Capturas, ilustraciones o imágenes que exijan transparencia nítida.</td>
+</tr>
+<tr>
+<td><strong>WebP</strong></td>
+<td>Con/sin pérdida</td>
+<td>Sí</td>
+<td>&gt; 96% navegadores</td>
+<td>Sustituto estándar para JPEG/PNG. 25-35% más ligero.</td>
+</tr>
+<tr>
+<td><strong>AVIF</strong></td>
+<td>Con/sin pérdida</td>
+<td>Sí</td>
+<td>Creciente</td>
+<td>Máxima eficiencia de compresión actual. Ideal para imágenes pesadas.</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart TD
+    A{"¿Es un icono, logo o gráfico&lt;br/&gt;con formas geométricas?"}
+    A --&gt;|Sí| SVG["&lt;b&gt;Formato SVG&lt;/b&gt;&lt;br/&gt;(Vectorial escalable)"]
+    A --&gt;|No, es una fotografía| B{"¿Requiere canal&lt;br/&gt;de transparencia?"}
+    B --&gt;|Sí| C{"¿Prioridad del proyecto?"}
+    B --&gt;|No| C
+    C --&gt;|Máxima compresión| AVIF["&lt;b&gt;AVIF&lt;/b&gt;&lt;br/&gt;(Formato de última generación)"]
+    C --&gt;|Compatibilidad global| WEBP["&lt;b&gt;WebP&lt;/b&gt;&lt;br/&gt;(Con fallback a JPEG/PNG)"]
+</code></pre>
+<hr />
+<h3 id="23-seleccion-de-formatos-mediante-picture">2.3 Selección de formatos mediante <code>&lt;picture&gt;</code></h3>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">picture</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">source</span> <span class="na">srcset</span><span class="o">=</span><span class="s">&quot;producto.avif&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/avif&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">source</span> <span class="na">srcset</span><span class="o">=</span><span class="s">&quot;producto.webp&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/webp&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;producto.jpg&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Zapatillas running&quot;</span> <span class="na">loading</span><span class="o">=</span><span class="s">&quot;lazy&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">picture</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>El navegador procesa en orden descendente y selecciona el primer formato compatible, manteniendo <code>JPEG</code> como red de seguridad universal.</p>
+<hr />
+<h3 id="24-responsive-images-con-srcset-y-sizes">2.4 Responsive images con <code>srcset</code> y <code>sizes</code></h3>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">img</span>
+  <span class="na">src</span><span class="o">=</span><span class="s">&quot;producto-800.jpg&quot;</span>
+  <span class="na">srcset</span><span class="o">=</span><span class="s">&quot;producto-400.jpg 400w, producto-800.jpg 800w, producto-1200.jpg 1200w&quot;</span>
+  <span class="na">sizes</span><span class="o">=</span><span class="s">&quot;(max-width: 600px) 100vw, 50vw&quot;</span>
+  <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Zapatillas running&quot;</span>
+  <span class="na">loading</span><span class="o">=</span><span class="s">&quot;lazy&quot;</span><span class="p">&gt;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>srcset</code></td>
+<td>Ofrece diferentes resoluciones del recurso junto a su ancho real expresado en <code>w</code>.</td>
+</tr>
+<tr>
+<td><code>sizes</code></td>
+<td>Indica al motor del navegador qué porcentaje del viewport ocupará la imagen.</td>
+</tr>
+<tr>
+<td><code>loading="lazy"</code></td>
+<td>Retrasa la petición hasta que el elemento se aproxima al viewport visible.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="25-graficos-vectoriales-svg">2.5 Gráficos vectoriales (SVG)</h3>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">svg</span> <span class="na">viewBox</span><span class="o">=</span><span class="s">&quot;0 0 24 24&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;24&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;24&quot;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&quot;currentColor&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">path</span> <span class="na">d</span><span class="o">=</span><span class="s">&quot;M12 2L2 7l10 5 10-5-10-5z&quot;</span><span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Ventaja del uso de SVG Inline</th>
+<th>Motivo técnico</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Estilización mediante CSS</strong></td>
+<td>Permite usar <code>fill: currentColor</code> para adoptar el color del texto contenedor (útil en temas claro/oscuro).</td>
+</tr>
+<tr>
+<td><strong>Manipulación del DOM</strong></td>
+<td>Cada nodo o trazado (<code>&lt;path&gt;</code>) se puede animar individualmente con CSS/JS.</td>
+</tr>
+<tr>
+<td><strong>Reducción de peticiones HTTP</strong></td>
+<td>Al integrarse directo en el HTML, evita una solicitud de red adicional.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-tratamiento-de-imagen-y-optimizacion-ra3d">3. Tratamiento de imagen y optimización (RA3.d) <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 13c-1.86 0-3.41 1.28-3.86 3H2v2h2.14c.45 1.72 2 3 3.86 3s3.41-1.28 3.86-3H22v-2H11.86c-.45-1.72-2-3-3.86-3m0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2M19.86 6c-.45-1.72-2-3-3.86-3s-3.41 1.28-3.86 3H2v2h10.14c.45 1.72 2 3 3.86 3s3.41-1.28 3.86-3H22V6zM16 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2"/></svg></span></h2>
+<table>
+<thead>
+<tr>
+<th>Herramienta</th>
+<th>Tipo de software</th>
+<th>Utilidad principal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Figma</strong></td>
+<td>Vectorial y UI Design</td>
+<td>Diseño y exportación de assets gráficos procesados en UD1-UD2.</td>
+</tr>
+<tr>
+<td><strong>GIMP / Photopea</strong></td>
+<td>Edición rasterizada</td>
+<td>Retoque, recorte y ajuste directo de capas o imágenes.</td>
+</tr>
+<tr>
+<td><strong>Squoosh (Google)</strong></td>
+<td>Optimización web</td>
+<td>Comparativa visual e interactiva entre JPEG, WebP y AVIF.</td>
+</tr>
+<tr>
+<td><strong>SVGO</strong></td>
+<td>Optimización SVG</td>
+<td>Limpieza de código innecesario, metadatos y precisión en SVG exportados.</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart TD
+    A["Recurso original&lt;br/&gt;(Cámara / Exportación Figma)"] --&gt; B["&lt;b&gt;Squoosh&lt;/b&gt;&lt;br/&gt;(Ajuste de parámetros y compresión)"]
+    B --&gt; C["Exportación en formato&lt;br/&gt;AVIF / WebP"]
+    C --&gt; D["Optimización del SVG con &lt;b&gt;SVGO&lt;/b&gt;&lt;br/&gt;si el recurso es vectorial"]
+    D --&gt; E["Maquetación semántica&lt;br/&gt;con picture + srcset"]
+</code></pre>
+<hr />
+<h2 id="4-audio-y-video-en-la-web-ra3e-material-video-film">4. Audio y vídeo en la web (RA3.e) :material-video-film:</h2>
+<h3 id="41-formatos-de-audio">4.1 Formatos de audio</h3>
+<table>
+<thead>
+<tr>
+<th>Formato</th>
+<th>Compresión</th>
+<th>Compatibilidad</th>
+<th>Ámbito de uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MP3</strong></td>
+<td>Con pérdida</td>
+<td>Universal</td>
+<td>Estándar histórico para compatibilidad universal.</td>
+</tr>
+<tr>
+<td><strong>AAC</strong></td>
+<td>Con pérdida</td>
+<td>Muy alta</td>
+<td>Ajustado para streaming y plataformas multimedia.</td>
+</tr>
+<tr>
+<td><strong>Opus</strong></td>
+<td>Con pérdida</td>
+<td>Alta (Navegadores modernos)</td>
+<td>Máxima eficiencia de compresión en voz y música.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="42-formatos-de-video">4.2 Formatos de vídeo</h3>
+<table>
+<thead>
+<tr>
+<th>Formato / Códec</th>
+<th>Compresión</th>
+<th>Compatibilidad</th>
+<th>Ámbito de uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MP4 (H.264)</strong></td>
+<td>Con pérdida</td>
+<td>Universal</td>
+<td>Estándar de reproducción global sin fallos de soporte.</td>
+</tr>
+<tr>
+<td><strong>WebM (VP9)</strong></td>
+<td>Con pérdida</td>
+<td>Alta</td>
+<td>Alta eficiencia de compresión para desarrollo web moderno.</td>
+</tr>
+<tr>
+<td><strong>AV1</strong></td>
+<td>Con pérdida</td>
+<td>En expansión</td>
+<td>Mayor ratio de compresión actual sin pérdida apreciable de calidad.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="43-elementos-nativos-de-html5">4.3 Elementos nativos de HTML5</h3>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">audio</span> <span class="na">controls</span> <span class="na">preload</span><span class="o">=</span><span class="s">&quot;none&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">source</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;podcast.opus&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;audio/opus&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">source</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;podcast.mp3&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;audio/mpeg&quot;</span><span class="p">&gt;</span>
+  Tu navegador no admite el elemento de audio HTML5.
+<span class="p">&lt;/</span><span class="nt">audio</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">video</span> <span class="na">controls</span> <span class="na">poster</span><span class="o">=</span><span class="s">&quot;miniatura.jpg&quot;</span> <span class="na">preload</span><span class="o">=</span><span class="s">&quot;metadata&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">source</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;demo.webm&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;video/webm&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">source</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;demo.mp4&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;video/mp4&quot;</span><span class="p">&gt;</span>
+  Tu navegador no admite el elemento de vídeo HTML5.
+<span class="p">&lt;/</span><span class="nt">video</span><span class="p">&gt;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>controls</code></td>
+<td>Habilita la interfaz de reproducción predeterminada del navegador.</td>
+</tr>
+<tr>
+<td><code>preload="none" / "metadata"</code></td>
+<td>Evita la descarga del archivo pesado hasta que el usuario activa la reproducción.</td>
+</tr>
+<tr>
+<td><code>poster</code></td>
+<td>Define una imagen de portada previa a la reproducción del vídeo.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="44-herramientas-para-la-conversion-de-medios-ra3g">4.4 Herramientas para la conversión de medios (RA3.g)</h3>
+<table>
+<thead>
+<tr>
+<th>Herramienta</th>
+<th>Tipo</th>
+<th>Uso principal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Audacity</strong></td>
+<td>Editor de audio libre</td>
+<td>Recorte, normalización de sonido y conversión entre formatos.</td>
+</tr>
+<tr>
+<td><strong>HandBrake</strong></td>
+<td>Conversor de vídeo</td>
+<td>Codificación de vídeo a formatos WebM/MP4 optimizados para web.</td>
+</tr>
+<tr>
+<td><strong>FFmpeg</strong></td>
+<td>Herramienta CLI</td>
+<td>Procesamiento por lotes y automatización en scripts.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="c1"># Ejemplo de conversión de vídeo MP4 a WebM con el códec VP9 usando FFmpeg</span>
+ffmpeg<span class="w"> </span>-i<span class="w"> </span>demo.mp4<span class="w"> </span>-c:v<span class="w"> </span>libvpx-vp9<span class="w"> </span>-crf<span class="w"> </span><span class="m">30</span><span class="w"> </span>-b:v<span class="w"> </span><span class="m">0</span><span class="w"> </span>demo.webm
+</code></pre></div>
+<hr />
+<h2 id="5-animaciones-desde-imagenes-fijas-ra3f">5. Animaciones desde imágenes fijas (RA3.f) <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 2c-1.11 0-2 .89-2 2v10h2V4h10V2zm4 4c-1.11 0-2 .89-2 2v10h2V8h10V6zm4 4c-1.11 0-2 .89-2 2v8c0 1.11.89 2 2 2h8c1.11 0 2-.89 2-2v-8c0-1.11-.89-2-2-2z"/></svg></span></h2>
+<p>Técnicas habituales para aportar dinamismo a la interfaz sin incurrir en el peso de un archivo de vídeo:</p>
+<h3 id="51-sprite-sheets-con-css">5.1 Sprite Sheets con CSS</h3>
+<p>Consiste en usar una imagen única que agrupa los fotogramas en secuencia y cambiar el <code>background-position</code> con CSS:</p>
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">sprite-animado</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">64</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">64</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="k">background-image</span><span class="p">:</span><span class="w"> </span><span class="nb">url</span><span class="p">(</span><span class="s1">&#39;sprite-8-frames.png&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">background-size</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="kt">%</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="w">  </span><span class="k">animation</span><span class="p">:</span><span class="w"> </span><span class="n">reproducir</span><span class="w"> </span><span class="mf">0.8</span><span class="kt">s</span><span class="w"> </span><span class="nb">steps</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kc">infinite</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">@</span><span class="k">keyframes</span><span class="w"> </span><span class="nt">reproducir</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">from</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">background-position</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="kt">%</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="nt">to</span><span class="w">   </span><span class="p">{</span><span class="w"> </span><span class="k">background-position</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h3 id="52-css-keyframes-sobre-imagenes-vectoriales-o-fijas">5.2 CSS <code>@keyframes</code> sobre imágenes vectoriales o fijas</h3>
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">logo-flotante</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">animation</span><span class="p">:</span><span class="w"> </span><span class="n">flotar</span><span class="w"> </span><span class="mi">3</span><span class="kt">s</span><span class="w"> </span><span class="kc">ease-in-out</span><span class="w"> </span><span class="kc">infinite</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">@</span><span class="k">keyframes</span><span class="w"> </span><span class="nt">flotar</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">0</span><span class="o">%,</span><span class="w"> </span><span class="nt">100</span><span class="o">%</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">transform</span><span class="p">:</span><span class="w"> </span><span class="nb">translateY</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="nt">50</span><span class="o">%</span><span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="k">transform</span><span class="p">:</span><span class="w"> </span><span class="nb">translateY</span><span class="p">(</span><span class="mi">-10</span><span class="kt">px</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h3 id="53-webp-animado">5.3 WebP Animado</h3>
+<p>Sustituye al formato <code>GIF</code> tradicional ofreciendo transparencia real, colores de 24 bits y mayor tasa de compresión.</p>
+<pre class="mermaid"><code>flowchart TD
+    A["¿Qué tipo de animación se requiere?"] --&gt; B{"Transformaciones simples&lt;br/&gt;(desplazamiento, rotación, escala)"}
+    B --&gt;|Sí| CSS["&lt;b&gt;CSS @keyframes&lt;/b&gt;&lt;br/&gt;sobre el recurso individual"]
+    B --&gt;|No, animación fotograma a fotograma| C{"¿Es un icono o recurso&lt;br/&gt;que se repite en bucle?"}
+    C --&gt;|Sí| SPRITE["&lt;b&gt;Sprite Sheet + CSS&lt;/b&gt;"]
+    C --&gt;|No, es una ilustración compleja| WEBP["&lt;b&gt;WebP Animado&lt;/b&gt;&lt;br/&gt;(Exportado de software de diseño)"]
+</code></pre>
+<hr />
+<h2 id="6-introduccion-a-performance-multimedia">6. Introducción a Performance Multimedia <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16a3 3 0 0 1-3-3c0-1.12.61-2.1 1.5-2.61l9.71-5.62-5.53 9.58c-.5.98-1.51 1.65-2.68 1.65m0-13c1.81 0 3.5.5 4.97 1.32l-2.1 1.21C14 5.19 13 5 12 5a8 8 0 0 0-8 8c0 2.21.89 4.21 2.34 5.65h.01c.39.39.39 1.02 0 1.41s-1.03.39-1.42.01A9.97 9.97 0 0 1 2 13 10 10 0 0 1 12 3m10 10c0 2.76-1.12 5.26-2.93 7.07-.39.38-1.02.38-1.41-.01a.996.996 0 0 1 0-1.41A7.95 7.95 0 0 0 20 13c0-1-.19-2-.54-2.9L20.67 8C21.5 9.5 22 11.18 22 13"/></svg></span></h2>
+<p>Optimizar el rendimiento desde la capa multimedia es la primera fase para garantizar métricas óptimas de experiencia de usuario:</p>
+<table>
+<thead>
+<tr>
+<th>Estrategia de optimización</th>
+<th>Impacto en rendimiento</th>
+<th>Implementación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Carga diferida (<code>loading="lazy"</code>)</strong></td>
+<td>Evita peticiones iniciales innecesarias fuera de la vista.</td>
+<td>§2.4</td>
+</tr>
+<tr>
+<td><strong>Estrategia <code>preload</code> adecuada</strong></td>
+<td>Reduce el consumo de datos inicial en elementos de audio/vídeo.</td>
+<td>§4.3</td>
+</tr>
+<tr>
+<td><strong>Adopción de WebP/AVIF</strong></td>
+<td>Disminuye el peso transferido sin pérdidas visuales de calidad.</td>
+<td>§2.2</td>
+</tr>
+<tr>
+<td>**Dimensionamiento con <code>srcset**</code></td>
+<td>Sirve recursos escalados a la resolución exacta del dispositivo.</td>
+<td>§2.4</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart LR
+    UD6["&lt;b&gt;UD6: Optimización Multimedia&lt;/b&gt;&lt;br/&gt;Reducción del peso de recursos"] --&gt; UD12["&lt;b&gt;UD12: Performance Web&lt;/b&gt;&lt;br/&gt;Medición de Core Web Vitals (LCP, CLS)"]
+</code></pre>
+<hr />
+<h2 id="7-ejercicio-practico-guiado">7. Ejercicio práctico guiado <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m10 17-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9m-6-6a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"/></svg></span></h2>
+<div class="admonition info">
+<p class="admonition-title">Actividad de consolidación (no evaluable)</p>
+<p><strong>Objetivo:</strong> Desarrollar un paquete optimizado de recursos multimedia para la interfaz maquetada en las unidades anteriores.</p>
+</div>
+<p><strong>Pasos recomendados para practicar:</strong></p>
+<ol>
+<li><strong>Licencias:</strong> Selecciona 3 recursos fotográficos en bancos con licencia CC0 o CC BY y registra los datos de atribución en un documento.</li>
+<li><strong>Compresión:</strong> Procesa una imagen con Squoosh para exportarla en JPEG, WebP y AVIF; evalúa las diferencias de peso respecto a la calidad visual.</li>
+<li><strong>Implementación Responsive:</strong> Elabora un bloque <code>&lt;picture&gt;</code> que combine las versiones exportadas con fallback y carga diferida (<code>loading="lazy"</code>).</li>
+<li><strong>Limpieza SVG:</strong> Exporta un icono desde Figma, optimiza su estructura mediante SVGO e intégralo en el HTML como SVG inline manipulable con CSS.</li>
+<li><strong>Elementos Multimedia:</strong> Configura un reproductor de audio <code>&lt;audio&gt;</code> y uno de vídeo <code>&lt;video&gt;</code> integrando opciones de formato secundarias y atributos <code>preload</code> optimizados.</li>
+<li><strong>Micro-animación:</strong> Diseña una animación con CSS <code>@keyframes</code> aplicada sobre un elemento gráfico de la página.</li>
+</ol>
+<hr />
+<h2 id="8-resumen-y-conexion-con-la-siguiente-unidad">8. Resumen y conexión con la siguiente unidad <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.98 2.98 0 0 0 0-4.24 2.98 2.98 0 0 0-4.24 0l-3.53 3.53a2.98 2.98 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.98 2.98 0 0 0 0 4.24 2.98 2.98 0 0 0 4.24 0l3.53-3.53a2.98 2.98 0 0 0 0-4.24.973.973 0 0 1 0-1.42"/></svg></span></h2>
+<ul>
+<li>Toda elección de recurso multimedia debe responder a criterios de licencia, formato y peso.</li>
+<li>Los formatos <code>WebP</code> y <code>AVIF</code> son el estándar preferente para mapas de bits, mientras que <code>SVG</code> lidera en iconografía.</li>
+<li>Los reproductores HTML5 deben ofrecer alternativas de formato mediante múltiples nodos <code>&lt;source&gt;</code>.</li>
+<li>Con el <strong>RA3 explicado conceptualmente</strong>, en la <strong>UD7</strong> aplicaremos estos recursos multimedia en componentes reutilizables utilizando <strong>Storybook</strong>.</li>
+</ul>
+<pre class="mermaid"><code>flowchart LR
+    UD6["UD6&lt;br/&gt;Multimedia optimizado"] --&gt; UD7["UD7&lt;br/&gt;Componentes UI + Storybook"]
+</code></pre>
+<hr />
+<h2 id="9-referencias-y-fuentes">9. Referencias y fuentes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg></span></h2>
+<ul>
+<li>MDN Web Docs — <a href="https://www.google.com/search?q=https://developer.mozilla.org/es/docs/Web/Media/Formats/Image_types">Guía de formatos de imagen en la Web</a>.</li>
+<li>web.dev — <a href="https://www.google.com/search?q=https://web.dev/uses-webp-images/">Serve images in modern formats</a>.</li>
+<li>Squoosh App — <a href="https://squoosh.app/">Optimizador gráfico de Google</a>.</li>
+<li>FFmpeg — <a href="https://ffmpeg.org/documentation.html">Documentación oficial de procesamiento CLI</a>.</li>
+<li>Creative Commons — <a href="https://creativecommons.org/share-your-work/cclicenses/">Tipos de licencias legales</a>.</li>
+<li>Ruiz, M. — <em>Diseño de Interfaces Web</em>.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.instant", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

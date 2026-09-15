@@ -1,0 +1,875 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="next" href="planificacion/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>APUNTES DIW - Diseño de Interfaces Web</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#diseno-de-interfaces-web-diw" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="." title="APUNTES DIW - Diseño de Interfaces Web" class="md-header__button md-logo" aria-label="APUNTES DIW - Diseño de Interfaces Web" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m2.53 19.65 1.34.56v-9.03l-2.43 5.86c-.41 1.02.06 2.19 1.09 2.61m19.5-3.7L17.07 4a2 2 0 0 0-1.81-1.25c-.26 0-.53.04-.79.15L7.1 5.95a2.02 2.02 0 0 0-1.23 1.8c-.01.25.04.54.13.8l5 11.95c.29.78 1.03 1.24 1.81 1.25.26 0 .52-.05.77-.15l7.36-3.05a1.994 1.994 0 0 0 1.09-2.6M7.88 8.75a1 1 0 0 1-1-1 1 1 0 0 1 1-1c.55 0 1 .45 1 1s-.45 1-1 1m-2 11a2 2 0 0 0 2 2h1.45l-3.45-8.34z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            APUNTES DIW - Diseño de Interfaces Web
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Inicio
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Pasar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Pasar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Pasar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Pasar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="APUNTES DIW - Diseño de Interfaces Web" class="md-nav__button md-logo" aria-label="APUNTES DIW - Diseño de Interfaces Web" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m2.53 19.65 1.34.56v-9.03l-2.43 5.86c-.41 1.02.06 2.19 1.09 2.61m19.5-3.7L17.07 4a2 2 0 0 0-1.81-1.25c-.26 0-.53.04-.79.15L7.1 5.95a2.02 2.02 0 0 0-1.23 1.8c-.01.25.04.54.13.8l5 11.95c.29.78 1.03 1.24 1.81 1.25.26 0 .52-.05.77-.15l7.36-3.05a1.994 1.994 0 0 0 1.09-2.6M7.88 8.75a1 1 0 0 1-1-1 1 1 0 0 1 1-1c.55 0 1 .45 1 1s-.45 1-1 1m-2 11a2 2 0 0 0 2 2h1.45l-3.45-8.34z"/></svg>
+
+    </a>
+    APUNTES DIW - Diseño de Interfaces Web
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-historia-y-evolucion-del-diseno-e-interfaz-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📜 1. Historia y Evolución del Diseño e Interfaz Web
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-justificacion-de-la-pila-tecnologica-seleccionada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ 2. Justificación de la Pila Tecnológica Seleccionada
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-articulacion-con-dwec-y-proyecto-transversal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🤝 3. Articulación con DWEC y Proyecto Transversal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estructura-detallada-del-plan-de-estudios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 Estructura Detallada del Plan de Estudios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 Estructura Detallada del Plan de Estudios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bloque-i-diseno-uiux-html-semantico-css-moderno-y-assets-1a-evaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🟢 Bloque I: Diseño UI/UX, HTML Semántico, CSS Moderno y Assets (1.ª Evaluación)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bloque-ii-componentes-ui-dynamic-ui-wcag-22-y-audits-2a-evaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🟡 Bloque II: Componentes UI, Dynamic UI, WCAG 2.2 y Audits (2.ª Evaluación)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bloque-iii-formacion-en-empresa-fp-dual-3er-trimestre-1818-ces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔵 Bloque III: Formación en Empresa - FP Dual (3.er Trimestre - 18,18% CEs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="planificacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Planificación Docente
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.ª Evaluación (Bloque I - UI/UX, Design Systems, HTML5, CSS Moderno y Multimedia)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1.ª Evaluación (Bloque I - UI/UX, Design Systems, HTML5, CSS Moderno y Multimedia)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ud1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 1: Diseño de Interfaces, Comunicación Visual y Figma Base (RA1)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ud2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 2: Figma Avanzado, Design Systems y Design Tokens (RA1)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ud3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 3: HTML5 Semántico, Estructura Accesible y Formularios (RA2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-historia-y-evolucion-del-diseno-e-interfaz-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📜 1. Historia y Evolución del Diseño e Interfaz Web
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-justificacion-de-la-pila-tecnologica-seleccionada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ 2. Justificación de la Pila Tecnológica Seleccionada
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-articulacion-con-dwec-y-proyecto-transversal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🤝 3. Articulación con DWEC y Proyecto Transversal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estructura-detallada-del-plan-de-estudios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 Estructura Detallada del Plan de Estudios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 Estructura Detallada del Plan de Estudios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bloque-i-diseno-uiux-html-semantico-css-moderno-y-assets-1a-evaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🟢 Bloque I: Diseño UI/UX, HTML Semántico, CSS Moderno y Assets (1.ª Evaluación)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bloque-ii-componentes-ui-dynamic-ui-wcag-22-y-audits-2a-evaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🟡 Bloque II: Componentes UI, Dynamic UI, WCAG 2.2 y Audits (2.ª Evaluación)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bloque-iii-formacion-en-empresa-fp-dual-3er-trimestre-1818-ces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔵 Bloque III: Formación en Empresa - FP Dual (3.er Trimestre - 18,18% CEs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="diseno-de-interfaces-web-diw">🎨 Diseño de Interfaces Web (DIW)</h1>
+<p>Bienvenido a la guía docente y cuerpo de apuntes del módulo <strong>Diseño de Interfaces Web (DIW)</strong>, correspondiente al 2.º curso del Ciclo Formativo de Grado Superior en <strong>Desarrollo de Aplicaciones Web (DAW)</strong>.</p>
+<hr />
+<h2 id="1-historia-y-evolucion-del-diseno-e-interfaz-web">📜 1. Historia y Evolución del Diseño e Interfaz Web</h2>
+<p>Para entender cómo maquetamos y diseñamos en la actualidad, es imprescindible analizar cómo ha evolucionado la web en las últimas décadas:</p>
+<pre class="mermaid"><code>graph TD
+    A["1990s: Era Tabular&lt;br/&gt;HTML Tables, spacer gifs e inline styles"] --&gt; B["2000s: CSS1/2 &amp; Floats&lt;br/&gt;Separación estructura/estilo, layouts rígidos"]
+    B --&gt; C["2010s: Responsive Web Design&lt;br/&gt;Media Queries, Grids de 12 col y Bootstrap"]
+    C --&gt; D["2020s: CSS Grid, Flexbox &amp; Tailwind&lt;br/&gt;Utility-First CSS, Design Tokens y Figma"]
+    D --&gt; E["Presente: Component-Driven &amp; A11y&lt;br/&gt;Storybook, WCAG 2.2 y Core Web Vitals"]
+</code></pre>
+<ol>
+<li><strong>La Era Tabular y la Web Estática (Años 90):</strong> La maquetación se realizaba mediante etiquetas <code>&lt;table&gt;</code>, bordes invisibles e imágenes transparentes para forzar espacios. El diseño era completamente rígido y enfocado a monitores CRT de <strong>800 × 600 px</strong>.</li>
+<li><strong>La Revolución del CSS y el Diseño Fluid (Años 2000):</strong> La llegada de CSS2 permitió separar la estructura (<code>HTML</code>) de la presentación (<code>CSS</code>). Se utilizaban <em>floats</em> y posicionamiento absoluto, lo que requería trucos complejos como el famoso <em>clearfix</em>.</li>
+<li><strong>El Smartphone y la Era Responsive (Años 2010):</strong> En 2010, Ethan Marcotte acuña el término <em>Responsive Web Design</em>. Surgen las <em>Media Queries</em> y frameworks monolíticos como <strong>Bootstrap</strong>, que democratizan el diseño basado en grillas de 12 columnas.</li>
+<li><strong>La Era del Componente y la Maquetación Moderna (Presente):</strong> El diseño se entiende como un <strong>Sistema de Componentes Reutilizables</strong>. Las herramientas de prototipado como <strong>Figma</strong> dominan el mercado de UI/UX, mientras que en código <strong>Flexbox</strong>, <strong>CSS Grid</strong> y <strong>Tailwind CSS</strong> reemplazan los viejos frameworks pesados.</li>
+</ol>
+<hr />
+<h2 id="2-justificacion-de-la-pila-tecnologica-seleccionada">🛠️ 2. Justificación de la Pila Tecnológica Seleccionada</h2>
+<p>En este curso se ha rechazado intencionadamente el aprendizaje de herramientas obsoletas o de baja demanda laboral. La selección tecnológica responde al estándar actual del perfil <strong>Frontend Developer / UI Engineer</strong>:</p>
+<pre class="mermaid"><code>graph LR
+    A[Figma UI/UX] --&gt; B[HTML5 Semántico]
+    B --&gt; C[CSS3 Moderno &amp; BEM]
+    C --&gt; D[Tailwind CSS]
+    D --&gt; E[Storybook]
+    E --&gt; F[WCAG 2.2 &amp; Performance]
+</code></pre>
+<ul>
+<li><strong>Figma (Diseño UI &amp; Design Systems):</strong> Es la herramienta estándar de la industria para diseño vectorial, prototipado colaborativo y creación de <em>Design Tokens</em>. Facilita el <em>handoff</em> (traspaso) impecable entre el equipo de diseño y el desarrollador.</li>
+<li><strong>HTML5 Semántico:</strong> La base de la web moderna, la accesibilidad nativa y el posicionamiento SEO. Un HTML bien estructurado es el 50 % del trabajo de accesibilidad resuelto.</li>
+<li><strong>CSS3 Moderno (Flexbox, Grid, Custom Properties):</strong> Antes de usar cualquier framework, es imprescindible dominar el <em>Box Model</em>, la especificidad, la cascada y los motores de layout nativos.</li>
+<li><strong>Tailwind CSS (Utility-First CSS):</strong> Se ha consolidado como el motor CSS dominante en proyectos modernos (React, Next.js, Vue). Permite construir interfaces a gran velocidad sin salir del HTML/componente, manteniendo un sistema de diseño estricto y sin generar CSS redundante.</li>
+<li><strong>Storybook (Catálogo de Componentes):</strong> Permite desarrollar, probar y documentar componentes UI de forma aislada (<em>Component-Driven Development</em>), replicando la forma real de trabajar en equipos profesionales.</li>
+<li><strong>WCAG 2.2 y Google Core Web Vitals:</strong> La interfaz no solo debe ser atractiva, debe ser <strong>accesible</strong> para personas con diversidad funcional y <strong>rápida</strong> (optimización de fuentes, imágenes WebP/AVIF y rendimiento de renderizado).</li>
+</ul>
+<hr />
+<h2 id="3-articulacion-con-dwec-y-proyecto-transversal">🤝 3. Articulación con DWEC y Proyecto Transversal</h2>
+<p>Este módulo se imparte en estrecha coordinación con <strong>Desarrollo Web en Entorno Cliente (DWEC)</strong>. Ambos módulos alimentan un <strong>Proyecto Transversal Único</strong>:</p>
+<blockquote>
+<p><strong>Proyecto Web Integrador</strong> = <strong>DIW</strong> (Interfaz, Diseño, CSS, Accesibilidad y Performance) + <strong>DWEC</strong> (Lógica, JavaScript/TypeScript, React y Estado)</p>
+</blockquote>
+<hr />
+<h2 id="estructura-detallada-del-plan-de-estudios">📚 Estructura Detallada del Plan de Estudios</h2>
+<hr />
+<h3 id="bloque-i-diseno-uiux-html-semantico-css-moderno-y-assets-1a-evaluacion">🟢 Bloque I: Diseño UI/UX, HTML Semántico, CSS Moderno y Assets (1.ª Evaluación)</h3>
+<ul>
+<li><strong>UD 1: Diseño de Interfaces, Comunicación Visual y Figma Base (RA1)</strong>
+Principios de comunicación visual, jerarquía, teoría del color, escala tipográfica y primeros pasos con Figma (Frames y Grillas).</li>
+<li><strong>UD 2: Figma Avanzado, Design Systems y Design Tokens (RA1)</strong>
+Auto Layout moderno, Componentes, Variantes, Variables y diseño de un <em>Design System</em> completo exportable a código.</li>
+<li><strong>UD 3: HTML5 Semántico, Estructura Accesible y Formularios (RA2)</strong>
+Etiquetado semántico (<code>header</code>, <code>main</code>, <code>nav</code>, <code>article</code>), formularios modernos y estructura base para tecnologías asistivas.</li>
+<li><strong>UD 4: CSS3 Moderno, Layout (Flexbox/Grid), Container Queries y Responsive (RA2)</strong>
+Cascada, especificidad, modelo de caja, arquitecturas <em>Flexbox</em> y <em>CSS Grid</em>, unidades fluidas (<code>clamp()</code>) y <em>Container Queries</em>.</li>
+<li><strong>UD 5: Arquitectura CSS (BEM) y Utility-First con Tailwind CSS (RA2)</strong>
+Estrategias de organización CSS, metodología BEM y maquetación ágil mediante clases de utilidad con Tailwind CSS.</li>
+<li><strong>UD 6: Optimización Multimedia (WebP/AVIF), SVG e Introducción a Performance (RA3)</strong>
+Tratamiento digital de imagen, formatos de última generación, compresión, manipulación de SVG vectorial e imágenes responsive (<code>picture</code>, <code>srcset</code>).</li>
+</ul>
+<hr />
+<h3 id="bloque-ii-componentes-ui-dynamic-ui-wcag-22-y-audits-2a-evaluacion">🟡 Bloque II: Componentes UI, Dynamic UI, WCAG 2.2 y Audits (2.ª Evaluación)</h3>
+<table>
+<thead>
+<tr>
+<th>Unidad Didáctica</th>
+<th>Subunidades y Bloques Temáticos</th>
+<th>Competencias y Entregables Prácticos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>UD 7: Componentes UI, Atomic Design y Storybook (RA4)</strong></td>
+<td>• <strong>7.1:</strong> Arquitectura Atomic Design y Tokens<br><br><br>• <strong>7.2:</strong> Catálogo y Documentación con Storybook</td>
+<td>• Diseñar una librería de componentes (átomos, moléculas, organismos).<br><br><br>• Publicar un catálogo interactivo de componentes aislado en Storybook.</td>
+</tr>
+<tr>
+<td><strong>UD 8: Interactividad UI, DOM y Cross-Browser (RA4)</strong></td>
+<td>• <strong>8.1:</strong> Eventos UI, Manipulación DOM y Validaciones<br><br><br>• <strong>8.2:</strong> Pruebas Responsive y DevTools Cross-Browser</td>
+<td>• Componentes interactivos nativos (modales, acordeones, menús móviles).<br><br><br>• Auditoría de compatibilidad en múltiples navegadores (Chrome, Firefox, Safari).</td>
+</tr>
+<tr>
+<td><strong>UD 9: Fundamentos de Accesibilidad Web y WCAG 2.2 (RA5)</strong></td>
+<td>• <strong>9.1:</strong> Principios POUR, Niveles A/AA/AAA y WAI-ARIA<br><br><br>• <strong>9.2:</strong> Navegación por Teclado, Contraste y Lectores</td>
+<td>• Implementación de roles ARIA y gestión del foco (<code>focus-visible</code>).<br><br><br>• Verificación de interfaces con lectores de pantalla (NVDA / VoiceOver).</td>
+</tr>
+<tr>
+<td><strong>UD 10: Auditorías de Accesibilidad Profesional (RA5)</strong></td>
+<td>• <strong>10.1:</strong> Herramientas Automáticas (Lighthouse, axe, WAVE)<br><br><br>• <strong>10.2:</strong> Evaluación Manual y Corrección de Errores</td>
+<td>• Auditoría completa de un sitio web real con emisión de informe de fallos.<br><br><br>• Refactorización de código no accesible para alcanzar nivel AA.</td>
+</tr>
+<tr>
+<td><strong>UD 11: Usabilidad, UX y Heurísticas de Nielsen (RA5/RA6)</strong></td>
+<td>• <strong>11.1:</strong> Heurísticas de Nielsen y Rediseño (Antes/Después)<br><br><br>• <strong>11.2:</strong> Carga Cognitiva, Architecture Info y UX</td>
+<td>• Evaluación heurística de una interfaz deficiente.<br><br><br>• Propuesta de rediseño en Figma e implementación maquetada.</td>
+</tr>
+<tr>
+<td><strong>UD 12: Performance Web, Core Web Vitals y Proyecto Final (RA5)</strong></td>
+<td>• <strong>12.1:</strong> Métricas de Rendimiento (LCP, INP, CLS)<br><br><br>• <strong>12.2:</strong> Proyecto Integrador: Auditoría Final de Interfaz</td>
+<td>• Optimización de métricas Core Web Vitals con Google Lighthouse.<br><br><br>• Entrega y defensa del Proyecto Web Integrador de Aula.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="bloque-iii-formacion-en-empresa-fp-dual-3er-trimestre-1818-ces">🔵 Bloque III: Formación en Empresa - FP Dual (3.er Trimestre - 18,18% CEs)</h3>
+<p>El tercer trimestre traslada el aprendizaje al entorno laboral real, cubriendo los criterios del <strong>RA6 completo</strong> y el bloque final del <strong>RA5 (<code>5.f</code>, <code>5.g</code>)</strong>:</p>
+<ul>
+<li><strong>E.1: Tests de Accesibilidad y Tecnologías Asistivas en Producción (<code>RA5.f</code>, <code>RA5.g</code>)</strong>
+Auditoría externa en aplicaciones en producción de la empresa utilizando herramientas profesionales de análisis y tecnología asistiva real.</li>
+<li><strong>E.2: Evaluación de Usabilidad y Rediseño de Interfaces Reales (<code>RA6.a</code>, <code>RA6.b</code>, <code>RA6.c</code>)</strong>
+Análisis de la usabilidad de sitios comerciales, adaptación a usuarios reales de la empresa y aplicación de estándares web.</li>
+<li><strong>E.3: Navegación por Periféricos, Pruebas Cross-Browser y Performance (<code>RA6.d</code>, <code>RA6.e</code>, <code>RA6.f</code>)</strong>
+Verificación de la usabilidad mediante múltiples periféricos, pruebas en diversidad de navegadores/dispositivos móviles y optimización final de rendimiento en entornos de producción.</li>
+</ul>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.instant", "search.suggest", "search.highlight", "content.code.copy"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

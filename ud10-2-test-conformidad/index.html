@@ -1,0 +1,901 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>10.2 · Evaluación Manual y Corrección de Errores por Prioridad - APUNTES DIW - Diseño de Interfaces Web</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#102-evaluacion-manual-y-correccion-de-errores-por-prioridad" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="APUNTES DIW - Diseño de Interfaces Web" class="md-header__button md-logo" aria-label="APUNTES DIW - Diseño de Interfaces Web" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m2.53 19.65 1.34.56v-9.03l-2.43 5.86c-.41 1.02.06 2.19 1.09 2.61m19.5-3.7L17.07 4a2 2 0 0 0-1.81-1.25c-.26 0-.53.04-.79.15L7.1 5.95a2.02 2.02 0 0 0-1.23 1.8c-.01.25.04.54.13.8l5 11.95c.29.78 1.03 1.24 1.81 1.25.26 0 .52-.05.77-.15l7.36-3.05a1.994 1.994 0 0 0 1.09-2.6M7.88 8.75a1 1 0 0 1-1-1 1 1 0 0 1 1-1c.55 0 1 .45 1 1s-.45 1-1 1m-2 11a2 2 0 0 0 2 2h1.45l-3.45-8.34z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            APUNTES DIW - Diseño de Interfaces Web
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              10.2 · Evaluación Manual y Corrección de Errores por Prioridad
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Pasar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Pasar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Pasar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Pasar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="APUNTES DIW - Diseño de Interfaces Web" class="md-nav__button md-logo" aria-label="APUNTES DIW - Diseño de Interfaces Web" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m2.53 19.65 1.34.56v-9.03l-2.43 5.86c-.41 1.02.06 2.19 1.09 2.61m19.5-3.7L17.07 4a2 2 0 0 0-1.81-1.25c-.26 0-.53.04-.79.15L7.1 5.95a2.02 2.02 0 0 0-1.23 1.8c-.01.25.04.54.13.8l5 11.95c.29.78 1.03 1.24 1.81 1.25.26 0 .52-.05.77-.15l7.36-3.05a1.994 1.994 0 0 0 1.09-2.6M7.88 8.75a1 1 0 0 1-1-1 1 1 0 0 1 1-1c.55 0 1 .45 1 1s-.45 1-1 1m-2 11a2 2 0 0 0 2 2h1.45l-3.45-8.34z"/></svg>
+
+    </a>
+    APUNTES DIW - Diseño de Interfaces Web
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../planificacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Planificación Docente
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.ª Evaluación (Bloque I - UI/UX, Design Systems, HTML5, CSS Moderno y Multimedia)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1.ª Evaluación (Bloque I - UI/UX, Design Systems, HTML5, CSS Moderno y Multimedia)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 1: Diseño de Interfaces, Comunicación Visual y Figma Base (RA1)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 2: Figma Avanzado, Design Systems y Design Tokens (RA1)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 3: HTML5 Semántico, Estructura Accesible y Formularios (RA2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#criterio-trabajado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Criterio trabajado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-de-la-lista-de-hallazgos-a-un-plan-de-correccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. De la lista de hallazgos a un plan de corrección
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-matriz-de-priorizacion-impacto-vs-esfuerzo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Matriz de priorización: impacto vs. esfuerzo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Matriz de priorización: impacto vs. esfuerzo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos-practicos-de-priorizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplos prácticos de priorización
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-remediacion-de-incidencias-automaticas-a-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Remediación de incidencias automáticas a código
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Remediación de incidencias automáticas a código">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-correccion-de-contraste-color-contrast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Corrección de contraste (color-contrast)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-correccion-de-imagenes-sin-alternativa-textual-image-alt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Corrección de imágenes sin alternativa textual (image-alt)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-orden-de-navegacion-por-teclado-inconsistente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Orden de navegación por teclado inconsistente
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-documentacion-del-proceso-de-auditoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Documentación del proceso de auditoría
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-ejercicio-practico-guiado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Ejercicio práctico guiado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-cierre-del-bloque-ud10-y-conexion-posterior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Cierre del bloque UD10 y conexión posterior
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-referencias-y-fuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Referencias y fuentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="102-evaluacion-manual-y-correccion-de-errores-por-prioridad">10.2 · Evaluación Manual y Corrección de Errores por Prioridad <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 5h6v6H3zm2 2v2h2V7zm6 0h10v2H11zm0 8h10v2H11zm-6 5-3.5-3.5 1.41-1.41L5 17.17l4.59-4.58L11 14z"/></svg></span></h1>
+<h2 id="criterio-trabajado">Criterio trabajado <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg></span></h2>
+<table>
+<thead>
+<tr>
+<th>Criterio</th>
+<th>Cobertura</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RA5.d</strong> — Se han analizado los posibles errores según los puntos de verificación de prioridad</td>
+<td>✅ Completa</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="1-de-la-lista-de-hallazgos-a-un-plan-de-correccion">1. De la lista de hallazgos a un plan de corrección <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16v-3c0-1.11-.89-2-2-2h-6V8h2V2H9v6h2v3H5c-1.11 0-2 .89-2 2v3H1v6h6v-6H5v-3h6v3H9v6h6v-6h-2v-3h6v3h-2v6h6v-6zM11 4h2v2h-2zM5 20H3v-2h2zm8 0h-2v-2h2zm8 0h-2v-2h2z"/></svg></span></h2>
+<p>Tras la fase de detección automatizada (<strong>Sección 10.1</strong>), se obtiene un listado extenso de incidencias. El error común durante el desarrollo es resolver los fallos en el orden aleatorio en el que los expone la herramienta, en lugar de clasificarlos y priorizarlos con criterio técnico.</p>
+<pre class="mermaid"><code>flowchart TD
+    A["Lista de hallazgos sin ordenar"] --&gt; B{"Matriz de priorización"}
+    B --&gt; C["&lt;b&gt;Impacto&lt;/b&gt;&lt;br/&gt;Severidad en el usuario"]
+    B --&gt; D["&lt;b&gt;Esfuerzo&lt;/b&gt;&lt;br/&gt;Complejidad de remediación"]
+    C --&gt; E["Plan de corrección priorizado"]
+    D --&gt; E
+</code></pre>
+<hr />
+<h2 id="2-matriz-de-priorizacion-impacto-vs-esfuerzo">2. Matriz de priorización: impacto vs. esfuerzo <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 2h4v2H4v16h2v2H2zm18 2h-2V2h4v20h-4v-2h2zM9 5h1v5h1v1H8v-1h1V6l-1 .5v-1zm6 8h1v5h1v1h-3v-1h1v-4l-1 .5v-1zm-6 0c1.1 0 2 1.34 2 3s-.9 3-2 3-2-1.34-2-3 .9-3 2-3m0 1c-.55 0-1 .9-1 2s.45 2 1 2 1-.9 1-2-.45-2-1-2m6-9c1.1 0 2 1.34 2 3s-.9 3-2 3-2-1.34-2-3 .9-3 2-3m0 1c-.55 0-1 .9-1 2s.45 2 1 2 1-.9 1-2-.45-2-1-2"/></svg></span></h2>
+<table>
+<thead>
+<tr>
+<th>Impacto / Esfuerzo</th>
+<th>Esfuerzo Bajo</th>
+<th>Esfuerzo Alto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Impacto Alto</strong></td>
+<td>🔴 <strong>Prioridad 1:</strong> Resolver de forma inmediata.</td>
+<td>🟠 <strong>Prioridad 2:</strong> Planificar e integrar en el sprint.</td>
+</tr>
+<tr>
+<td><strong>Impacto Bajo</strong></td>
+<td>🟡 <strong>Prioridad 3:</strong> Corregir en fases de ajuste menor.</td>
+<td>⚪ <strong>Prioridad 4:</strong> Registrar en backlog o evaluar sustitución.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="ejemplos-practicos-de-priorizacion">Ejemplos prácticos de priorización</h3>
+<table>
+<thead>
+<tr>
+<th>Incidencia detectada</th>
+<th>Impacto</th>
+<th>Esfuerzo</th>
+<th>Prioridad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Atributo <code>alt</code> ausente en imágenes descriptivas principales</td>
+<td>Alto <em>(Bloquea la comprensión)</em></td>
+<td>Bajo <em>(Añadir el texto en el HTML)</em></td>
+<td>🔴 <strong>P1</strong></td>
+</tr>
+<tr>
+<td>Contraste insuficiente en la paleta global de colores</td>
+<td>Alto <em>(Afecta la lectura)</em></td>
+<td>Alto <em>(Rediseño de tokens de color)</em></td>
+<td>🟠 <strong>P2</strong></td>
+</tr>
+<tr>
+<td>Atributo <code>aria-label</code> redundante en un elemento visual accesorio</td>
+<td>Bajo <em>(Ligera confusión)</em></td>
+<td>Bajo <em>(Eliminar atributo)</em></td>
+<td>🟡 <strong>P3</strong></td>
+</tr>
+<tr>
+<td>Reestructurar el árbol de focos de un componente complejo de terceros</td>
+<td>Medio</td>
+<td>Muy alto</td>
+<td>⚪ <strong>P4</strong> <em>(Valorar sustitución)</em></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-remediacion-de-incidencias-automaticas-a-codigo">3. Remediación de incidencias automáticas a código <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 4v2h3v12h-3v2h5V4M4 4v16h5v-2H6V6h3V4z"/></svg></span></h2>
+<h3 id="31-correccion-de-contraste-color-contrast">3.1 Corrección de contraste (<code>color-contrast</code>)</h3>
+<pre class="mermaid"><code>flowchart TD
+    A["Incidencia: Contraste insuficiente en .card__price"] --&gt; B["Calcular relación de contraste real en WebAIM"]
+    B --&gt; C{"¿Cumple ratio mínimo AA (4.5:1)?"}
+    C --&gt;|"No (Ej. 2.8:1)"| D["Ajustar luminosidad de texto o fondo"]
+    D --&gt; E["Verificar ratio tras el cambio"]
+    E --&gt; F["Actualizar token global de color (UD2 / UD5)"]
+</code></pre>
+<div class="admonition tip">
+<p class="admonition-title">Gestión por tokens de diseño</p>
+<p>Al solucionar una deficiencia de contraste, evita aplicar parches locales con estilos en línea. La práctica adecuada consiste en actualizar el <strong>token de diseño</strong> correspondiente en las variables globales CSS (<strong>UD2 / UD5</strong>), previniendo que la incidencia vuelva a aparecer en otros componentes.</p>
+</div>
+<hr />
+<h3 id="32-correccion-de-imagenes-sin-alternativa-textual-image-alt">3.2 Corrección de imágenes sin alternativa textual (<code>image-alt</code>)</h3>
+<table>
+<thead>
+<tr>
+<th>Contexto de la imagen</th>
+<th>Estrategia de solución</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Imagen informativa</strong> <em>(Fotografía de producto)</em></td>
+<td>Atributo <code>alt</code> descriptivo y contextualizado: <code>alt="Zapatillas de running rojas, vista lateral"</code>.</td>
+</tr>
+<tr>
+<td><strong>Imagen puramente decorativa</strong> <em>(Líneas, formas)</em></td>
+<td>Atributo explícitamente vacío: <code>alt=""</code> (permite omitirla en el árbol de accesibilidad).</td>
+</tr>
+<tr>
+<td><strong>Imagen descrita en el texto contiguo</strong></td>
+<td>Atributo vacío <code>alt=""</code> para evitar redundancias en la síntesis de voz.</td>
+</tr>
+<tr>
+<td><strong>Imagen dentro de un enlace/botón interactivo</strong></td>
+<td>El <code>alt</code> debe reflejar la <strong>función o destino</strong>: <code>alt="Ver carrito de compras"</code>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="33-orden-de-navegacion-por-teclado-inconsistente">3.3 Orden de navegación por teclado inconsistente</h3>
+<pre class="mermaid"><code>flowchart TD
+    A["Pérdida de orden lógico al tabular"] --&gt; B{"¿Causa técnica de la incidencia?"}
+    B --&gt;|"Estructura de maquetación"| C["Reordenar las etiquetas en el DOM HTML"]
+    B --&gt;|"Atributos tabindex positivos"| D["Eliminar tabindex &gt; 0 y sustituir por 0 o -1"]
+</code></pre>
+<hr />
+<h2 id="4-documentacion-del-proceso-de-auditoria">4. Documentación del proceso de auditoría <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 12h8v2H8zm2 8H6V4h7v5h5v3.1l2-2V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4zm-2-2h4.1l.9-.9V16H8zm12.2-5c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg></span></h2>
+<p>Una auditoría de accesibilidad profesional requiere la elaboración de un registro formal de trazabilidad que justifique las decisiones técnicas adaptadas al marco normativo:</p>
+<table>
+<thead>
+<tr>
+<th>Registro / Campo</th>
+<th>Descripción técnica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Criterio WCAG</strong></td>
+<td>Referencia exacta de la pauta <em>(Ej. 1.4.3 Contraste Mínimo - Nivel AA)</em>.</td>
+</tr>
+<tr>
+<td><strong>Origen</strong></td>
+<td>Herramienta utilizada <em>(Lighthouse, axe DevTools, WAVE o Inspección manual)</em>.</td>
+</tr>
+<tr>
+<td><strong>Severidad</strong></td>
+<td>Clasificación del impacto: <code>critical</code>, <code>serious</code>, <code>moderate</code>, <code>minor</code>.</td>
+</tr>
+<tr>
+<td><strong>Localización</strong></td>
+<td>Selector CSS o nodo del DOM afectado.</td>
+</tr>
+<tr>
+<td><strong>Estado</strong></td>
+<td><code>Pendiente</code></td>
+</tr>
+<tr>
+<td><strong>Reverificación</strong></td>
+<td>Fecha y herramienta utilizada para validar la corrección.</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart LR
+    A["Detección"] --&gt; B["Priorización"]
+    B --&gt; C["Remediación"]
+    C --&gt; D["Reverificación"]
+    D --&gt; E["Registro en Informe"]
+    E -.-&gt;|"En caso de regresión"| A
+</code></pre>
+<hr />
+<h2 id="5-ejercicio-practico-guiado">5. Ejercicio práctico guiado <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m10 17-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9m-6-6a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"/></svg></span></h2>
+<div class="admonition info">
+<p class="admonition-title">Actividad de consolidación (no evaluable)</p>
+<p><strong>Objetivo:</strong> Transformar el diagnóstico obtenido en las pruebas automáticas en un plan de corrección documentado y ejecutado.</p>
+</div>
+<p><strong>Pasos recomendados para practicar:</strong></p>
+<ol>
+<li><strong>Construcción de la matriz:</strong> Clasifica los errores obtenidos en la <strong>Sección 10.1</strong> dentro de la matriz de Prioridad (Impacto vs. Esfuerzo).</li>
+<li><strong>Remediación P1:</strong> Aplica los cambios en el código para resolver un mínimo de 5 incidencias clasificadas como críticas o de prioridad alta (🔴).</li>
+<li><strong>Trazabilidad:</strong> Completa la ficha de documentación registrando el estado del elemento antes y después del cambio.</li>
+<li><strong>Justificación técnica:</strong> Argumenta por escrito si algún error detectado se pospone o se considera una exención justificada.</li>
+<li><strong>Reverificación:</strong> Ejecuta nuevamente Lighthouse o axe DevTools y compara el progreso obtenido en las puntuaciones respecto al informe inicial.</li>
+</ol>
+<hr />
+<h2 id="6-cierre-del-bloque-ud10-y-conexion-posterior">6. Cierre del bloque UD10 y conexión posterior <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.98 2.98 0 0 0 0-4.24 2.98 2.98 0 0 0-4.24 0l-3.53 3.53a2.98 2.98 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.98 2.98 0 0 0 0 4.24 2.98 2.98 0 0 0 4.24 0l3.53-3.53a2.98 2.98 0 0 0 0-4.24.973.973 0 0 1 0-1.42"/></svg></span></h2>
+<ul>
+<li><strong>Detectar</strong> (10.1) mediante herramientas y <strong>corregir</strong> (10.2) con criterio formal representan los dos ejes del proceso de auditoría.</li>
+<li>La documentación detallada garantiza que la interfaz mantenga el cumplimiento normativo en futuras actualizaciones de código.</li>
+<li>Tras completar la accesibilidad (<strong>RA5</strong>), la <strong>UD11</strong> amplia el alcance hacia la <strong>Usabilidad y Experiencia de Usuario (UX)</strong>, aplicando las heurísticas de Nielsen.</li>
+</ul>
+<pre class="mermaid"><code>flowchart LR
+    UD10["&lt;b&gt;UD10&lt;/b&gt;&lt;br/&gt;Auditoría y remediación"] --&gt; UD11["&lt;b&gt;UD11&lt;/b&gt;&lt;br/&gt;Usabilidad y Heurísticas UX"]
+</code></pre>
+<hr />
+<h2 id="7-referencias-y-fuentes">7. Referencias y fuentes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg></span></h2>
+<ul>
+<li>W3C — <a href="https://www.w3.org/WAI/WCAG22/quickref/">How to Meet WCAG (Quick Reference Guide 2.2)</a>.</li>
+<li>Deque University — <a href="https://dequeuniversity.com/rules/axe/">axe-core Rule Descriptions and Remediation</a>.</li>
+<li>BOE — <a href="https://www.boe.es/eli/es/rd/2018/09/07/1112">Real Decreto 1112/2018 sobre accesibilidad de los sitios web</a>.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.instant", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>
