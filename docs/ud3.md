@@ -1,10 +1,10 @@
 # UD3 · HTML5 Semántico, Estructura Accesible y Formularios :material-language-html5:
 
-## 1. De Figma a HTML: primer paso al código :material-arrow-decision-outline:
+## 1. De Penpot a HTML: primer paso al código :material-arrow-decision-outline:
 
 ```mermaid
 flowchart TD
-    A["<b>Mockup en Figma</b><br/>(UD1 - UD2)"] --> B["<b>Estructura HTML</b><br/>(UD3)"]
+    A["<b>Mockup en Penpot</b><br/>(UD1 - UD2)"] --> B["<b>Estructura HTML</b><br/>(UD3)"]
     B --> C["<b>Estilos CSS</b><br/>(UD4 - UD5)"]
     C --> D["<b>Interactividad JS</b><br/>(UD7 - UD8)"]
 
@@ -150,7 +150,7 @@ flowchart TD
 ## 5. Ejercicio práctico guiado :material-clipboard-check:
 
 !!! info "Actividad de consolidación (no evaluable)"
-    **Objetivo:** Traducir a HTML5 semántico y accesible la estructura de interfaz diseñada previamente en Figma (UD1-UD2).
+    **Objetivo:** Traducir a HTML5 semántico y accesible la estructura de interfaz diseñada previamente en Penpot (UD1-UD2).
 
 
 **Pasos recomendados para practicar:**

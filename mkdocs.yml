@@ -74,9 +74,9 @@ nav:
   - Inicio: index.md
   - Planificación Docente: planificacion.md
   - 1.ª Evaluación (Bloque I - UI/UX, Design Systems, HTML5, CSS Moderno y Multimedia):
-      - "UD 1: Diseño de Interfaces, Comunicación Visual y Figma Base (RA1)": ud1.md
-      - "UD 2: Figma Avanzado, Design Systems y Design Tokens (RA1)": ud2.md
-      - "UD 3: HTML5 Semántico, Estructura Accesible y Formularios (RA2)": ud3.md
+      - "UD 1: Diseño de Interfaces, Comunicación Visual y Penpot Base": ud1.md
+      - "UD 2: Penpot Avanzado, Design Systems y Design Tokens": ud2.md
+      - "UD 3: HTML5 Semántico, Estructura Accesible y Formularios": ud3.md
       # - "UD 4: CSS3 Moderno, Layout (Flexbox/Grid), Container Queries y Responsive (RA2)": ud4.md
       # - "UD 5: Arquitectura CSS (BEM) y Utility-First con Tailwind CSS (RA2)": ud5.md
       # - "UD 6: Optimización Multimedia (WebP/AVIF), SVG e Introducción a Performance (RA3)": ud6.md
