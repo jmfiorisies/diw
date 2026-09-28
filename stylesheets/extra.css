@@ -1,11 +1,26 @@
-/* Estilo para las cabeceras de todas las tablas */
-.md-typeset table:not([class]) th {
-    background-color: #0d9488; /* Color Teal de acento */
-    color: #ffffff !important;   /* Texto blanco */
-    font-weight: 700;
+/* ============================================================
+   Color base de la asignatura (DIW) · común con el portal docente
+   ============================================================ */
+:root {
+  --asig: #fbbc04;
+  --stripe: linear-gradient(90deg, #4285f4 0 25%, #ea4335 25% 50%, #fbbc04 50% 75%, #34a853 75% 100%);
+  --md-primary-fg-color:        var(--asig);
+  --md-primary-fg-color--light: color-mix(in srgb, var(--asig) 80%, #fff);
+  --md-primary-fg-color--dark:  color-mix(in srgb, var(--asig) 80%, #000);
+  --md-primary-bg-color:        #202124;
+  --md-primary-bg-color--light: color-mix(in srgb, #202124 70%, transparent);
+  --md-accent-fg-color:         #b06000;
 }
+[data-md-color-scheme="default"] { --md-typeset-a-color: #b06000; }
+[data-md-color-scheme="slate"]   { --md-typeset-a-color: #fdd663; --md-accent-fg-color: #fdd663; }
 
-/* Efecto hover suave en las filas */
-.md-typeset table:not([class]) tr:hover {
-    background-color: rgba(13, 148, 136, 0.05);
+/* Franja con los colores de las 4 asignaturas bajo la cabecera */
+.md-header { box-shadow: 0 1px 4px rgba(0,0,0,.08); border-bottom: 4px solid transparent; border-image: var(--stripe) 1; }
+
+/* Cabecera de las tablas con el color de la asignatura */
+.md-typeset table:not([class]) th {
+  background-color: var(--asig) !important;
+  color: var(--md-primary-bg-color) !important;
+  font-weight: 700;
 }
+.md-typeset table:not([class]) tr:hover { background-color: color-mix(in srgb, var(--asig) 6%, transparent); }
