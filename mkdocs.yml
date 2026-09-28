@@ -74,40 +74,43 @@ nav:
   - Inicio: index.md
   - Planificación Docente: planificacion.md
   - 1.ª Evaluación (Bloque I - UI/UX, Design Systems, HTML5, CSS Moderno y Multimedia):
-      - "UD 1: Diseño de Interfaces, Comunicación Visual y Penpot Base": ud1.md
-      - "UD 2: Penpot Avanzado, Design Systems y Design Tokens": ud2.md
-      - "UD 3: HTML5 Semántico, Estructura Accesible y Formularios": ud3.md
-      # - "UD 4: CSS3 Moderno, Layout (Flexbox/Grid), Container Queries y Responsive (RA2)": ud4.md
-      # - "UD 5: Arquitectura CSS (BEM) y Utility-First con Tailwind CSS (RA2)": ud5.md
-      # - "UD 6: Optimización Multimedia (WebP/AVIF), SVG e Introducción a Performance (RA3)": ud6.md
+      - "UD 1: Diseño de Interfaces, Comunicación Visual y Penpot Base": unidades/ud01.md
+      - "UD 2: Penpot Avanzado, Design Systems y Design Tokens": unidades/ud02.md
+      - "UD 3: HTML5 Semántico, Estructura Accesible y Formularios": unidades/ud03.md
+      # - "UD 4: CSS3 Moderno, Layout (Flexbox/Grid), Container Queries y Responsive (RA2)": unidades/ud04.md
+      # - "UD 5: Arquitectura CSS (BEM) y Utility-First con Tailwind CSS (RA2)": unidades/ud05.md
+      # - "UD 6: Optimización Multimedia (WebP/AVIF), SVG e Introducción a Performance (RA3)": unidades/ud06.md
   # - 2.ª Evaluación (Bloque II - Componentes, Interactive UI, WCAG 2.2 y Audits):
   #     - "UD 7: Componentes UI, Atomic Design y Catálogo con Storybook (RA4)":
-  #         - "Visión General": ud7.md
-  #         - "7.1 Arquitectura de Componentes y Atomic Design": ud7-1-atomic-design.md
-  #         - "7.2 Desarrollo y Documentación Aislada con Storybook": ud7-2-storybook.md
+  #         - "Visión General": unidades/ud07.md
+  #         - "7.1 Arquitectura de Componentes y Atomic Design": unidades/ud07-1-atomic-design.md
+  #         - "7.2 Desarrollo y Documentación Aislada con Storybook": unidades/ud07-2-storybook.md
   #     - "UD 8: Interactividad UI, DOM, Validaciones y Testing Responsive (RA4)":
-  #         - "Visión General": ud8.md
-  #         - "8.1 Manipulación del DOM, Eventos e Interacción": ud8-1-interacciones-dom.md
-  #         - "8.2 DevTools, Testing Responsive y Compatibilidad Cross-Browser": ud8-2-cross-browser.md
+  #         - "Visión General": unidades/ud08.md
+  #         - "8.1 Manipulación del DOM, Eventos e Interacción": unidades/ud08-1-interacciones-dom.md
+  #         - "8.2 DevTools, Testing Responsive y Compatibilidad Cross-Browser": unidades/ud08-2-cross-browser.md
   #     - "UD 9: Fundamentos de Accesibilidad Web, WCAG 2.2 y WAI-ARIA (RA5)":
-  #         - "Visión General": ud9.md
-  #         - "9.1 Principios POUR, Niveles A/AA/AAA y Semántica ARIA": ud9-1-principios-wcag.md
-  #         - "9.2 Navegación por Teclado, Lectores de Pantalla y Contraste": ud9-2-a11y-practica.md
+  #         - "Visión General": unidades/ud09.md
+  #         - "9.1 Principios POUR, Niveles A/AA/AAA y Semántica ARIA": unidades/ud09-1-principios-wcag.md
+  #         - "9.2 Navegación por Teclado, Lectores de Pantalla y Contraste": unidades/ud09-2-a11y-practica.md
   #     - "UD 10: Auditorías de Accesibilidad Profesional (Lighthouse, axe, WAVE) (RA5)":
-  #         - "Visión General": ud10.md
-  #         - "10.1 Herramientas Automáticas de Diagnóstico": ud10-1-auditorias-a11y.md
-  #         - "10.2 Evaluación Manual y Corrección de Errores por Prioridad": ud10-2-test-conformidad.md
+  #         - "Visión General": unidades/ud10.md
+  #         - "10.1 Herramientas Automáticas de Diagnóstico": unidades/ud10-1-auditorias-a11y.md
+  #         - "10.2 Evaluación Manual y Corrección de Errores por Prioridad": unidades/ud10-2-test-conformidad.md
   #     - "UD 11: Usabilidad, UX, Heurísticas de Nielsen y Rediseño de Interfaces (RA5/RA6)":
-  #         - "Visión General": ud11.md
-  #         - "11.1 Análisis de Usabilidad y Metodología Antes/Después": ud11-1-analisis-usabilidad.md
-  #         - "11.2 Estándares, Carga Cognitiva y Patrones UX": ud11-2-patrones-ux.md
+  #         - "Visión General": unidades/ud11.md
+  #         - "11.1 Análisis de Usabilidad y Metodología Antes/Después": unidades/ud11-1-analisis-usabilidad.md
+  #         - "11.2 Estándares, Carga Cognitiva y Patrones UX": unidades/ud11-2-patrones-ux.md
   #     - "UD 12: Performance Web, Core Web Vitals y Pruebas Integrales en Aula (RA5)":
-  #         - "Visión General": ud12.md
-  #         - "12.1 Métricas de Rendimiento (LCP, INP, CLS) y Optimización": ud12-1-core-web-vitals.md
-  #         - "12.2 Proyecto Integrador: Auditoría Final de Interfaz, A11y y UX": ud12-2-pruebas-rendimiento-ux.md
+  #         - "Visión General": unidades/ud12.md
+  #         - "12.1 Métricas de Rendimiento (LCP, INP, CLS) y Optimización": unidades/ud12-1-core-web-vitals.md
+  #         - "12.2 Proyecto Integrador: Auditoría Final de Interfaz, A11y y UX": unidades/ud12-2-pruebas-rendimiento-ux.md
   # - Formación en Empresa (3.er Trimestre - 18,18% CEs):
   #     - "FP Dual: Verificación, Accesibilidad, Usabilidad y Rendimiento en Producción":
-  #         - "Visión General": empresa.md
-  #         - "E.1 Tests de Accesibilidad y Tecnologías Asistivas (RA5.f, RA5.g)": empresa-1-conformidad-accesibilidad.md
-  #         - "E.2 Evaluación de Usabilidad y Rediseño en Producción (RA6.a, RA6.b, RA6.c)": empresa-2-rediseno-usabilidad.md
-  #         - "E.3 Navegación por Periféricos, Pruebas Cross-Browser y Performance (RA6.d, RA6.e, RA6.f)": empresa-3-pruebas-crossbrowser.md
+  #         - "Visión General": empresa/index.md
+  #         - "E.1 Tests de Accesibilidad y Tecnologías Asistivas (RA5.f, RA5.g)": empresa/1-conformidad-accesibilidad.md
+  #         - "E.2 Evaluación de Usabilidad y Rediseño en Producción (RA6.a, RA6.b, RA6.c)": empresa/2-rediseno-usabilidad.md
+  #         - "E.3 Navegación por Periféricos, Pruebas Cross-Browser y Performance (RA6.d, RA6.e, RA6.f)": empresa/3-pruebas-crossbrowser.md
+  - Referencia Tecnológica:
+      - "Árbol tecnológico completo": https://jmfiorisies.github.io/tech/
+  - "🏠 Portal docente": https://jmfiorisies.github.io/
