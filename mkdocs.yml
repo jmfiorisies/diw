@@ -25,8 +25,8 @@ theme:
     # Opción 1: Modo Claro
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: teal
-      accent: cyan
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-7
         name: Pasar a modo oscuro
@@ -34,8 +34,8 @@ theme:
     # Opción 2: Modo Oscuro
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: teal
-      accent: cyan
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-4
         name: Pasar a modo claro
@@ -69,6 +69,11 @@ extra_css:
 
 plugins:
   - search
+  - redirects:
+      redirect_maps:
+        'ud1.md': 'unidades/ud01.md'
+        'ud2.md': 'unidades/ud02.md'
+        'ud3.md': 'unidades/ud03.md'
 
 nav:
   - Inicio: index.md
