@@ -74,6 +74,9 @@ plugins:
         'ud1.md': 'unidades/ud01.md'
         'ud2.md': 'unidades/ud02.md'
         'ud3.md': 'unidades/ud03.md'
+        'ud4.md': 'unidades/ud04.md'
+        'ud5.md': 'unidades/ud05.md'
+        'ud6.md': 'unidades/ud06.md'
 
 nav:
   - Inicio: index.md
@@ -82,9 +85,9 @@ nav:
       - "UD 1: Diseño de Interfaces, Comunicación Visual y Penpot Base": unidades/ud01.md
       - "UD 2: Penpot Avanzado, Design Systems y Design Tokens": unidades/ud02.md
       - "UD 3: HTML5 Semántico, Estructura Accesible y Formularios": unidades/ud03.md
-      # - "UD 4: CSS3 Moderno, Layout (Flexbox/Grid), Container Queries y Responsive (RA2)": unidades/ud04.md
-      # - "UD 5: Arquitectura CSS (BEM) y Utility-First con Tailwind CSS (RA2)": unidades/ud05.md
-      # - "UD 6: Optimización Multimedia (WebP/AVIF), SVG e Introducción a Performance (RA3)": unidades/ud06.md
+      - "UD 4: CSS3 Moderno, Layout (Flexbox/Grid), Container Queries y Responsive": unidades/ud04.md
+      - "UD 5: Arquitectura CSS (BEM) y Utility-First con Tailwind CSS (RA2)": unidades/ud05.md
+      - "UD 6: Optimización Multimedia (WebP/AVIF), SVG e Introducción a Performance (RA3)": unidades/ud06.md
   # - 2.ª Evaluación (Bloque II - Componentes, Interactive UI, WCAG 2.2 y Audits):
   #     - "UD 7: Componentes UI, Atomic Design y Catálogo con Storybook (RA4)":
   #         - "Visión General": unidades/ud07.md
