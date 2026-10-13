@@ -1,0 +1,3266 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ud04/">
+      
+      
+        <link rel="next" href="../ud06/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>UD 5: Arquitectura CSS (BEM) y Utility-First con Tailwind CSS (RA2) - APUNTES DIW - Diseño de Interfaces Web</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ud5-arquitectura-css-bem-y-utility-first-con-tailwind-css" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="APUNTES DIW - Diseño de Interfaces Web" class="md-header__button md-logo" aria-label="APUNTES DIW - Diseño de Interfaces Web" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m2.53 19.65 1.34.56v-9.03l-2.43 5.86c-.41 1.02.06 2.19 1.09 2.61m19.5-3.7L17.07 4a2 2 0 0 0-1.81-1.25c-.26 0-.53.04-.79.15L7.1 5.95a2.02 2.02 0 0 0-1.23 1.8c-.01.25.04.54.13.8l5 11.95c.29.78 1.03 1.24 1.81 1.25.26 0 .52-.05.77-.15l7.36-3.05a1.994 1.994 0 0 0 1.09-2.6M7.88 8.75a1 1 0 0 1-1-1 1 1 0 0 1 1-1c.55 0 1 .45 1 1s-.45 1-1 1m-2 11a2 2 0 0 0 2 2h1.45l-3.45-8.34z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            APUNTES DIW - Diseño de Interfaces Web
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              UD 5: Arquitectura CSS (BEM) y Utility-First con Tailwind CSS (RA2)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Pasar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Pasar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Pasar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Pasar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="APUNTES DIW - Diseño de Interfaces Web" class="md-nav__button md-logo" aria-label="APUNTES DIW - Diseño de Interfaces Web" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m2.53 19.65 1.34.56v-9.03l-2.43 5.86c-.41 1.02.06 2.19 1.09 2.61m19.5-3.7L17.07 4a2 2 0 0 0-1.81-1.25c-.26 0-.53.04-.79.15L7.1 5.95a2.02 2.02 0 0 0-1.23 1.8c-.01.25.04.54.13.8l5 11.95c.29.78 1.03 1.24 1.81 1.25.26 0 .52-.05.77-.15l7.36-3.05a1.994 1.994 0 0 0 1.09-2.6M7.88 8.75a1 1 0 0 1-1-1 1 1 0 0 1 1-1c.55 0 1 .45 1 1s-.45 1-1 1m-2 11a2 2 0 0 0 2 2h1.45l-3.45-8.34z"/></svg>
+
+    </a>
+    APUNTES DIW - Diseño de Interfaces Web
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../planificacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Planificación Docente
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.ª Evaluación (Bloque I - UI/UX, Design Systems, HTML5, CSS Moderno y Multimedia)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1.ª Evaluación (Bloque I - UI/UX, Design Systems, HTML5, CSS Moderno y Multimedia)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 1: Diseño de Interfaces, Comunicación Visual y Penpot Base
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 2: Penpot Avanzado, Design Systems y Design Tokens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 3: HTML5 Semántico, Estructura Accesible y Formularios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 4: CSS3 Moderno, Layout (Flexbox/Grid), Container Queries y Responsive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 5: Arquitectura CSS (BEM) y Utility-First con Tailwind CSS (RA2)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 5: Arquitectura CSS (BEM) y Utility-First con Tailwind CSS (RA2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resultado-de-aprendizaje-y-criterios-cubiertos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultado de aprendizaje y criterios cubiertos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-donde-estamos-auria-ya-tiene-piel-hoy-ordenamos-el-armario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Dónde estamos: AURIA ya tiene piel, hoy ordenamos el armario
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Dónde estamos: AURIA ya tiene piel, hoy ordenamos el armario">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-por-que-importa-en-el-mundo-real" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Por qué importa en el mundo real
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-el-problema-css-que-nadie-se-atreve-a-tocar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. El problema: CSS que nadie se atreve a tocar
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. El problema: CSS que nadie se atreve a tocar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-tres-sintomas-de-un-css-sin-convencion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Tres síntomas de un CSS sin convención
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-recuerda-la-ud4-la-especificidad-es-una-escalada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Recuerda la UD4: la especificidad es una escalada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-dos-respuestas-al-mismo-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Dos respuestas al mismo problema
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-bem-bloque-elemento-modificador-ra2g" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. BEM: Bloque, Elemento, Modificador (RA2.g)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. BEM: Bloque, Elemento, Modificador (RA2.g)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-las-tres-piezas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Las tres piezas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-la-sintaxis-dos-guiones-bajos-y-dos-guiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 La sintaxis: dos guiones bajos y dos guiones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-la-tarjeta-de-auria-con-nombres-bem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 La tarjeta de AURIA con nombres BEM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-bem-y-sass-encajan-el-de-la-ud3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 BEM y SASS encajan: el &amp; de la UD3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-especificidad-plana-todas-las-reglas-pesan-010" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Especificidad plana: todas las reglas pesan (0,1,0)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-cuatro-reglas-que-evitan-el-90-de-los-errores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 Cuatro reglas que evitan el 90 % de los errores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-bloque-o-elemento-una-pregunta-lo-decide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7 ¿Bloque o elemento? Una pregunta lo decide
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38-estados-modificador-pseudoclase-o-atributo-aria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8 Estados: modificador, pseudoclase o atributo ARIA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#39-ventajas-y-limites-de-bem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.9 Ventajas y límites de BEM
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-utility-first-con-tailwind-css-ra2g" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Utility-first con Tailwind CSS (RA2.g)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Utility-first con Tailwind CSS (RA2.g)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-cambio-de-paradigma-del-nombre-a-la-composicion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Cambio de paradigma: del nombre a la composición
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-la-misma-tarjeta-de-auria-en-tailwind" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 La misma tarjeta de AURIA, en Tailwind
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-las-clases-son-css-con-nombre-corto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Las clases son CSS con nombre corto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-variantes-estados-y-responsive-con-un-prefijo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Variantes: estados y responsive con un prefijo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-instalar-tailwind-css-v4-con-su-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 Instalar Tailwind CSS v4 con su CLI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-los-tokens-de-la-ud2-entran-por-theme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 Los tokens de la UD2 entran por @theme
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-solo-genera-las-clases-que-usas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 Solo genera las clases que usas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#48-salidas-de-emergencia-valores-arbitrarios-y-apply" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.8 Salidas de emergencia: valores arbitrarios y @apply
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#49-bem-o-tailwind-depende-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9 ¿BEM o Tailwind? Depende del proyecto
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-validar-herramientas-que-revisan-el-css-por-ti-ra2h" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Validar: herramientas que revisan el CSS por ti (RA2.h)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Validar: herramientas que revisan el CSS por ti (RA2.h)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-tres-herramientas-tres-preguntas-distintas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Tres herramientas, tres preguntas distintas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-stylelint-instalar-y-ensenarle-bem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Stylelint: instalar y enseñarle BEM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-leer-lo-que-dice-stylelint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Leer lo que dice Stylelint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-el-circuito-que-la-maquina-revise-antes-que-las-personas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 El circuito: que la máquina revise antes que las personas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-documentar-la-guia-de-estilo-viva-ra2i" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Documentar: la guía de estilo viva (RA2.i)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Documentar: la guía de estilo viva (RA2.i)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-de-penpot-al-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 De Penpot al código
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-que-contiene-una-guia-de-estilo-de-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Qué contiene una guía de estilo de código
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-caso-real-arquitecturas-css-en-produccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Caso real: arquitecturas CSS en producción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-errores-comunes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Errores comunes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Errores comunes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-trampas-de-bem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Trampas de BEM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-trampas-de-tailwind-y-herramientas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Trampas de Tailwind y herramientas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-ejercicio-practico-guiado-la-tarjeta-de-auria-con-dos-arquitecturas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Ejercicio práctico guiado: la tarjeta de AURIA, con dos arquitecturas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-comprueba-lo-aprendido" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Comprueba lo aprendido
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-glosario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Glosario
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Glosario">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arquitectura-css-y-bem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitectura CSS y BEM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tailwind-validacion-y-formato" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tailwind, validación y formato
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-resumen-y-conexion-con-la-siguiente-unidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Resumen y conexión con la siguiente unidad
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-referencias-y-fuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Referencias y fuentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 6: Optimización Multimedia (WebP/AVIF), SVG e Introducción a Performance (RA3)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referencia Tecnológica
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Referencia Tecnológica
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://jmfiorisies.github.io/tech/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Árbol tecnológico completo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://jmfiorisies.github.io/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏠 Portal docente
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resultado-de-aprendizaje-y-criterios-cubiertos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultado de aprendizaje y criterios cubiertos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-donde-estamos-auria-ya-tiene-piel-hoy-ordenamos-el-armario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Dónde estamos: AURIA ya tiene piel, hoy ordenamos el armario
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Dónde estamos: AURIA ya tiene piel, hoy ordenamos el armario">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-por-que-importa-en-el-mundo-real" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Por qué importa en el mundo real
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-el-problema-css-que-nadie-se-atreve-a-tocar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. El problema: CSS que nadie se atreve a tocar
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. El problema: CSS que nadie se atreve a tocar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-tres-sintomas-de-un-css-sin-convencion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Tres síntomas de un CSS sin convención
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-recuerda-la-ud4-la-especificidad-es-una-escalada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Recuerda la UD4: la especificidad es una escalada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-dos-respuestas-al-mismo-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Dos respuestas al mismo problema
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-bem-bloque-elemento-modificador-ra2g" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. BEM: Bloque, Elemento, Modificador (RA2.g)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. BEM: Bloque, Elemento, Modificador (RA2.g)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-las-tres-piezas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Las tres piezas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-la-sintaxis-dos-guiones-bajos-y-dos-guiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 La sintaxis: dos guiones bajos y dos guiones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-la-tarjeta-de-auria-con-nombres-bem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 La tarjeta de AURIA con nombres BEM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-bem-y-sass-encajan-el-de-la-ud3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 BEM y SASS encajan: el &amp; de la UD3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-especificidad-plana-todas-las-reglas-pesan-010" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Especificidad plana: todas las reglas pesan (0,1,0)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-cuatro-reglas-que-evitan-el-90-de-los-errores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 Cuatro reglas que evitan el 90 % de los errores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-bloque-o-elemento-una-pregunta-lo-decide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7 ¿Bloque o elemento? Una pregunta lo decide
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38-estados-modificador-pseudoclase-o-atributo-aria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8 Estados: modificador, pseudoclase o atributo ARIA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#39-ventajas-y-limites-de-bem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.9 Ventajas y límites de BEM
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-utility-first-con-tailwind-css-ra2g" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Utility-first con Tailwind CSS (RA2.g)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Utility-first con Tailwind CSS (RA2.g)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-cambio-de-paradigma-del-nombre-a-la-composicion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Cambio de paradigma: del nombre a la composición
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-la-misma-tarjeta-de-auria-en-tailwind" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 La misma tarjeta de AURIA, en Tailwind
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-las-clases-son-css-con-nombre-corto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Las clases son CSS con nombre corto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-variantes-estados-y-responsive-con-un-prefijo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Variantes: estados y responsive con un prefijo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-instalar-tailwind-css-v4-con-su-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 Instalar Tailwind CSS v4 con su CLI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-los-tokens-de-la-ud2-entran-por-theme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 Los tokens de la UD2 entran por @theme
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-solo-genera-las-clases-que-usas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 Solo genera las clases que usas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#48-salidas-de-emergencia-valores-arbitrarios-y-apply" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.8 Salidas de emergencia: valores arbitrarios y @apply
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#49-bem-o-tailwind-depende-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9 ¿BEM o Tailwind? Depende del proyecto
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-validar-herramientas-que-revisan-el-css-por-ti-ra2h" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Validar: herramientas que revisan el CSS por ti (RA2.h)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Validar: herramientas que revisan el CSS por ti (RA2.h)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-tres-herramientas-tres-preguntas-distintas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Tres herramientas, tres preguntas distintas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-stylelint-instalar-y-ensenarle-bem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Stylelint: instalar y enseñarle BEM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-leer-lo-que-dice-stylelint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Leer lo que dice Stylelint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-el-circuito-que-la-maquina-revise-antes-que-las-personas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 El circuito: que la máquina revise antes que las personas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-documentar-la-guia-de-estilo-viva-ra2i" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Documentar: la guía de estilo viva (RA2.i)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Documentar: la guía de estilo viva (RA2.i)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-de-penpot-al-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 De Penpot al código
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-que-contiene-una-guia-de-estilo-de-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Qué contiene una guía de estilo de código
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-caso-real-arquitecturas-css-en-produccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Caso real: arquitecturas CSS en producción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-errores-comunes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Errores comunes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Errores comunes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-trampas-de-bem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Trampas de BEM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-trampas-de-tailwind-y-herramientas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Trampas de Tailwind y herramientas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-ejercicio-practico-guiado-la-tarjeta-de-auria-con-dos-arquitecturas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Ejercicio práctico guiado: la tarjeta de AURIA, con dos arquitecturas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-comprueba-lo-aprendido" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Comprueba lo aprendido
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-glosario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Glosario
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Glosario">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arquitectura-css-y-bem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitectura CSS y BEM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tailwind-validacion-y-formato" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tailwind, validación y formato
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-resumen-y-conexion-con-la-siguiente-unidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Resumen y conexión con la siguiente unidad
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-referencias-y-fuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Referencias y fuentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ud5-arquitectura-css-bem-y-utility-first-con-tailwind-css">UD5 · Arquitectura CSS (BEM) y Utility-First con Tailwind CSS <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 16.5V1.127C0 .502.506 0 1.127 0h21.748C23.498 0 24 .505 24 1.126V15.95q-1.014-.62-2.372-.62-1.887 0-2.862.886-.974.886-.974 2.226 0 1.468 1.008 2.158.596.413 2.151.765l1.056.237q.926.202 1.36.466.432.27.432.765 0 .846-.872 1.157l-.024.008H20.68a1.53 1.53 0 0 1-.688-.462q-.278-.337-.372-1.021h-1.99q0 .839.325 1.483h-1.681q.294-.595.294-1.32 0-1.334-.892-2.037-.576-.453-1.705-.724l-1.719-.412q-.995-.237-1.299-.413a.86.86 0 0 1-.473-.799q0-.581.48-.906.481-.325 1.286-.325.723 0 1.21.25.732.38.785 1.28h2.003q-.054-1.59-1.167-2.426t-2.69-.836q-1.887 0-2.861.886t-.975 2.226q0 1.468 1.008 2.158.595.413 2.152.765l1.055.237q.927.202 1.36.466.433.27.433.765 0 .846-.873 1.157l-.025.008h-2.223a1.53 1.53 0 0 1-.688-.462q-.278-.337-.372-1.021h-1.99q0 .839.324 1.483H6.611a4.75 4.75 0 0 0 .667-1.801H5.215q-.21.771-.528 1.157-.391.489-1.026.644H2.42q-.675-.173-1.165-.762-.695-.835-.695-2.512t.656-2.595 1.793-.917q1.116 0 1.684.65.318.365.52 1.082H7.3q-.048-.933-.69-1.86-1.164-1.65-3.68-1.65-1.752 0-2.929 1.067zm24 3.654v-1.562h-.518q-.054-.9-.785-1.279-.487-.25-1.21-.25-.806 0-1.286.325-.48.324-.48.906 0 .535.473.799.304.176 1.299.413l1.718.412q.436.105.789.236"/></svg></span></h1>
+<div class="presentacion">
+<p><span class="twemoji presentacion__icono"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 3h8a2 2 0 0 1 2-2 2 2 0 0 1 2 2h8v2h-1v11h-5.75L17 22h-2l-1.75-6h-2.5L9 22H7l1.75-6H3V5H2zm3 2v9h14V5zm6.85 6.85a.5.5 0 0 1-.35.15.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5c.14 0 .26.06.35.15l1.4 1.39c.32.32.64.64.64.96s-.32.64-.64.96z"/></svg></span> <strong>Presentación de clase</strong> · 46 diapositivas para seguir la unidad</p>
+<p><a class="md-button md-button--primary" href="../../assets/presentaciones/DIW-UD5.pdf" target="_blank"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Abrir o descargar el PDF</a></p>
+</div>
+<h2 id="resultado-de-aprendizaje-y-criterios-cubiertos">Resultado de aprendizaje y criterios cubiertos <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg></span></h2>
+<p>Esta unidad cierra <strong>RA2 — Crea interfaces Web homogéneas definiendo y aplicando estilos</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Criterio</th>
+<th>Enunciado</th>
+<th>Cobertura</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RA2.g</strong></td>
+<td>Se han creado clases de estilos.</td>
+<td>✅ Completa (BEM y clases de utilidad)</td>
+</tr>
+<tr>
+<td><strong>RA2.h</strong></td>
+<td>Se han utilizado herramientas de validación de hojas de estilos.</td>
+<td>✅ Completa (W3C, Stylelint, Prettier)</td>
+</tr>
+<tr>
+<td><strong>RA2.i</strong></td>
+<td>Se ha utilizado y actualizado la guía de estilo.</td>
+<td>✅ Completa</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Cierre del Resultado de Aprendizaje 2</p>
+<p>Con esta unidad <strong>RA2 queda completado</strong>. En la UD6 empieza el <strong>RA3</strong>: recursos multimedia y rendimiento.</p>
+</div>
+<hr />
+<h2 id="1-donde-estamos-auria-ya-tiene-piel-hoy-ordenamos-el-armario">1. Dónde estamos: AURIA ya tiene piel, hoy ordenamos el armario <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 15a3 3 0 0 1 3 3 3 3 0 0 1-3 3 2.99 2.99 0 0 1-2.83-2H14v-2h1.17c.41-1.17 1.52-2 2.83-2m0 2a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1m0-9a1.43 1.43 0 0 0 1.43-1.43 1.43 1.43 0 1 0-2.86 0A1.43 1.43 0 0 0 18 8m0-5.43a4 4 0 0 1 4 4C22 9.56 18 14 18 14s-4-4.44-4-7.43a4 4 0 0 1 4-4M8.83 17H10v2H8.83A2.99 2.99 0 0 1 6 21a3 3 0 0 1-3-3c0-1.31.83-2.42 2-2.83V14h2v1.17c.85.3 1.53.98 1.83 1.83M6 17a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1M6 3a3 3 0 0 1 3 3c0 1.31-.83 2.42-2 2.83V10H5V8.83A2.99 2.99 0 0 1 3 6a3 3 0 0 1 3-3m0 2a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1m5 14v-2h2v2zm-4-6H5v-2h2z"/></svg></span></h2>
+<pre class="mermaid"><code>flowchart LR
+    A["&lt;b&gt;HTML + SASS&lt;/b&gt;&lt;br/&gt;UD3&lt;br/&gt;&lt;i&gt;Estructura y carpetas&lt;/i&gt;"] --&gt; B["&lt;b&gt;CSS3&lt;/b&gt;&lt;br/&gt;UD4&lt;br/&gt;&lt;i&gt;Cascada, layout, responsive&lt;/i&gt;"]
+    B --&gt; C["&lt;b&gt;Arquitectura&lt;/b&gt;&lt;br/&gt;UD5 · HOY&lt;br/&gt;&lt;i&gt;Nombres, utilidades, validación&lt;/i&gt;"]
+    C --&gt; D["&lt;b&gt;Multimedia&lt;/b&gt;&lt;br/&gt;UD6&lt;br/&gt;&lt;i&gt;Imágenes y rendimiento&lt;/i&gt;"]
+    style C fill:#FBBC04,stroke:#202124,color:#202124</code></pre>
+<p>En la UD4 la página de AURIA ganó colores, layout y responsive. En esta unidad <strong>casi no cambia cómo se ve</strong>: cambia <strong>cómo está escrito</strong> el CSS, para que se pueda mantener cuando crece y cuando lo toca más de una persona.</p>
+<div class="admonition question">
+<p class="admonition-title">La pregunta de la unidad</p>
+<p><strong>¿Cómo escribimos CSS que otra persona pueda tocar sin miedo dentro de seis meses?</strong> La contestamos en cuatro bloques:</p>
+<ol>
+<li><strong>El problema:</strong> qué pasa cuando no hay convención (sección 2).</li>
+<li><strong>BEM:</strong> nombres que explican la estructura del componente (sección 3).</li>
+<li><strong>Tailwind CSS:</strong> componer el aspecto con clases de utilidad (sección 4).</li>
+<li><strong>Validar y documentar:</strong> W3C, Stylelint, Prettier y la guía de estilo (secciones 5 y 6).</li>
+</ol>
+</div>
+<h3 id="11-por-que-importa-en-el-mundo-real">1.1 Por qué importa en el mundo real</h3>
+<p>El CSS de un proyecto real <strong>no deja de crecer</strong>: unas decenas de líneas el primer mes, miles al segundo año, y tocadas por muchas personas distintas.</p>
+<ul>
+<li><strong>Varias personas, un mismo CSS.</strong> Lo que escribes hoy lo modificará otra persona mañana.</li>
+<li><strong>Se lee más de lo que se escribe.</strong> Un nombre claro ahorra horas de buscar "qué hace esta clase".</li>
+<li><strong>Miedo a borrar.</strong> Sin convención nadie sabe si una regla se usa, así que nadie borra nada: el CSS solo crece.</li>
+<li><strong>Revisión automática.</strong> En las empresas el CSS pasa un <em>linter</em> antes de entrar al proyecto.</li>
+<li><strong>Diseño y código sincronizados.</strong> La guía de estilo es el contrato entre diseño y desarrollo.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Dato clave</p>
+<p>El problema del CSS no es escribirlo: es <strong>mantenerlo</strong> cuando crece y cuando lo toca más de una persona.</p>
+</div>
+<hr />
+<h2 id="2-el-problema-css-que-nadie-se-atreve-a-tocar">2. El problema: CSS que nadie se atreve a tocar <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.27 3 3 8.27v7.46L8.27 21h7.46C17.5 19.24 21 15.73 21 15.73V8.27L15.73 3M9.1 5h5.8L19 9.1v5.8L14.9 19H9.1L5 14.9V9.1m6 5.9h2v2h-2zm0-8h2v6h-2z"/></svg></span></h2>
+<h3 id="21-tres-sintomas-de-un-css-sin-convencion">2.1 Tres síntomas de un CSS sin convención</h3>
+<p>Este es el aspecto típico de un <code>styles.css</code> con dos años de vida:</p>
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">card</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">}</span>
+<span class="p">.</span><span class="nc">card2</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">}</span>
+<span class="p">.</span><span class="nc">btn-2</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">}</span>
+<span class="p">.</span><span class="nc">rojo</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">red</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">.</span><span class="nc">nuevo-btn-ok</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">}</span>
+
+<span class="p">#</span><span class="nn">main</span><span class="w"> </span><span class="p">.</span><span class="nc">card</span><span class="w"> </span><span class="p">.</span><span class="nc">btn</span><span class="p">:</span><span class="nd">hover</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">}</span>
+<span class="nt">div</span><span class="p">.</span><span class="nc">productos</span><span class="w"> </span><span class="nt">ul</span><span class="w"> </span><span class="nt">li</span><span class="w"> </span><span class="nt">a</span><span class="w"> </span><span class="nt">span</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">}</span>
+
+<span class="p">.</span><span class="nc">card</span><span class="w"> </span><span class="p">.</span><span class="nc">title</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">}</span>
+<span class="p">.</span><span class="nc">modal</span><span class="w"> </span><span class="p">.</span><span class="nc">title</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c">/* ¿cuál gana? */</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Síntoma</th>
+<th>Ejemplo</th>
+<th>Qué provoca</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nombres sin significado</strong></td>
+<td><code>.card2</code>, <code>.btn-2</code>, <code>.rojo</code></td>
+<td>Nadie sabe qué son ni dónde se usan. ¿Y si <code>.rojo</code> tiene que pasar a ser azul?</td>
+</tr>
+<tr>
+<td><strong>Especificidad que sube</strong></td>
+<td><code>#main .card .btn:hover</code></td>
+<td>Solo se pueden vencer con un selector aún más largo… o con <code>!important</code></td>
+</tr>
+<tr>
+<td><strong>Estilos que se pisan</strong></td>
+<td><code>.card .title</code> y <code>.modal .title</code></td>
+<td>El aspecto depende de <strong>dónde</strong> está el HTML: lo mueves y cambia</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition danger">
+<p class="admonition-title">Resultado</p>
+<p>Nadie se atreve a borrar nada: se añade otra regla "por si acaso" y el fichero solo crece. El CSS que ya no se usa pero sigue ahí se llama <strong>código muerto</strong>.</p>
+</div>
+<h3 id="22-recuerda-la-ud4-la-especificidad-es-una-escalada">2.2 Recuerda la UD4: la especificidad es una escalada</h3>
+<table>
+<thead>
+<tr>
+<th>Selector</th>
+<th>Especificidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.title</code></td>
+<td>(0,1,0)</td>
+</tr>
+<tr>
+<td><code>.card .title</code></td>
+<td>(0,2,0)</td>
+</tr>
+<tr>
+<td><code>#main .card .title</code></td>
+<td>(1,2,0)</td>
+</tr>
+<tr>
+<td><code>#main .card .title { … !important }</code></td>
+<td>fuera de la escala</td>
+</tr>
+</tbody>
+</table>
+<p>Cada vez que alguien "gana" subiendo el peso, el siguiente tiene que subirlo más. Es una escalada que nadie gana.</p>
+<div class="admonition info">
+<p class="admonition-title">La idea de toda la unidad</p>
+<p>Si <strong>todos</strong> los selectores pesan lo mismo, <strong>(0,1,0)</strong>, nadie tiene que pelear: si dos reglas chocan, decide el orden. Y lo que evita que choquen es el <strong>nombre</strong>.</p>
+</div>
+<h3 id="23-dos-respuestas-al-mismo-problema">2.3 Dos respuestas al mismo problema</h3>
+<pre class="mermaid"><code>flowchart TD
+    A["&lt;b&gt;CSS sin convención&lt;/b&gt;&lt;br/&gt;difícil de mantener"] --&gt; B["&lt;b&gt;BEM&lt;/b&gt;&lt;br/&gt;Semántica y estructura&lt;br/&gt;&lt;code&gt;.card__title&lt;/code&gt;"]
+    A --&gt; C["&lt;b&gt;Utility-first (Tailwind)&lt;/b&gt;&lt;br/&gt;Composición atómica&lt;br/&gt;&lt;code&gt;text-xl font-semibold&lt;/code&gt;"]
+    style B fill:#FBBC04,stroke:#202124,color:#202124
+    style C fill:#38BDF8,stroke:#202124,color:#202124</code></pre>
+<ul>
+<li><strong>BEM:</strong> nombras cada pieza según lo que <strong>es</strong> dentro de su componente y escribes su CSS una vez.</li>
+<li><strong>Utility-first:</strong> cada clase hace <strong>una sola cosa</strong> y el aspecto se monta combinándolas en el HTML.</li>
+</ul>
+<p>No son rivales que haya que elegir para siempre: son dos respuestas al mismo problema. Existen otras arquitecturas (OOCSS, SMACSS, ITCSS), pero BEM y Tailwind son las más extendidas.</p>
+<hr />
+<h2 id="3-bem-bloque-elemento-modificador-ra2g">3. BEM: Bloque, Elemento, Modificador (RA2.g) <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 13H7v5h5v2H5V10h2v1h5zM8 4v2H4V4zm2-2H2v6h8zm10 9v2h-4v-2zm2-2h-8v6h8zm-2 9v2h-4v-2zm2-2h-8v6h8z"/></svg></span></h2>
+<h3 id="31-las-tres-piezas">3.1 Las tres piezas</h3>
+<table>
+<thead>
+<tr>
+<th>Pieza</th>
+<th>Qué es</th>
+<th>Ejemplo en AURIA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bloque</strong></td>
+<td>Componente independiente con sentido propio. Se puede llevar a otra página y sigue teniendo sentido.</td>
+<td><code>.card</code></td>
+</tr>
+<tr>
+<td><strong>Elemento</strong></td>
+<td>Parte del bloque, sin sentido fuera de él.</td>
+<td><code>.card__image</code>, <code>.card__title</code>, <code>.card__price</code>, <code>.card__button</code></td>
+</tr>
+<tr>
+<td><strong>Modificador</strong></td>
+<td>Variante de aspecto o de estado del bloque o de un elemento.</td>
+<td><code>.card--destacada</code>, <code>.card__button--primary</code></td>
+</tr>
+</tbody>
+</table>
+<p>BEM lo creó <strong>Yandex</strong> (el buscador ruso) hacia 2009, para que equipos grandes pudieran compartir el mismo CSS sin pisarse.</p>
+<h3 id="32-la-sintaxis-dos-guiones-bajos-y-dos-guiones">3.2 La sintaxis: dos guiones bajos y dos guiones</h3>
+<div class="highlight"><pre><span></span><code>card__button--primary
+│   │       │
+│   │       └── --primary  → modificador
+│   └── __button          → elemento
+└── card                  → bloque
+</code></pre></div>
+<p>Se lee: <em>"el botón de la tarjeta, en su variante principal"</em>.</p>
+<table>
+<thead>
+<tr>
+<th>Patrón</th>
+<th>Ejemplo</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.bloque</code></td>
+<td><code>.card</code></td>
+<td>El componente</td>
+</tr>
+<tr>
+<td><code>.bloque__elemento</code></td>
+<td><code>.card__title</code></td>
+<td>Una parte del componente</td>
+</tr>
+<tr>
+<td><code>.bloque--modificador</code></td>
+<td><code>.card--destacada</code></td>
+<td>Variante del componente entero</td>
+</tr>
+<tr>
+<td><code>.bloque__elemento--modificador</code></td>
+<td><code>.card__button--primary</code></td>
+<td>Variante de una parte</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Nombres compuestos</p>
+<p>Todo en <strong>minúsculas</strong> y con <strong>guion simple</strong> dentro de cada palabra compuesta: <code>.product-card__add-button--disabled</code>. Los separadores son dobles precisamente para no confundirse con ese guion simple.</p>
+</div>
+<h3 id="33-la-tarjeta-de-auria-con-nombres-bem">3.3 La tarjeta de AURIA con nombres BEM</h3>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">article</span> <span class="na">class</span><span class="o">=</span><span class="s">"card card--destacada"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">img</span> <span class="na">class</span><span class="o">=</span><span class="s">"card__image"</span> <span class="na">src</span><span class="o">=</span><span class="s">"auria-pro.webp"</span>
+       <span class="na">alt</span><span class="o">=</span><span class="s">"Auriculares AURIA Pro"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h3</span> <span class="na">class</span><span class="o">=</span><span class="s">"card__title"</span><span class="p">&gt;</span>AURIA Pro<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"card__price"</span><span class="p">&gt;</span>199 €<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">"card__button card__button--primary"</span><span class="p">&gt;</span>
+    Añadir al carrito
+  <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+</code></pre></div>
+<ol>
+<li><strong>Modificador + base:</strong> <code>class="card card--destacada"</code>. El modificador <strong>siempre acompaña</strong> a la clase base: la base trae lo común y el modificador solo lo que cambia.</li>
+<li><strong>Se lee en el HTML:</strong> sin abrir el CSS ya sabes qué es cada pieza y a qué componente pertenece.</li>
+<li><strong>El HTML semántico sigue:</strong> <code>article</code>, <code>h3</code> y <code>button</code> son las etiquetas de la UD3. BEM ordena los nombres de las clases; no cambia qué etiqueta usas.</li>
+</ol>
+<h3 id="34-bem-y-sass-encajan-el-de-la-ud3">3.4 BEM y SASS encajan: el <code>&amp;</code> de la UD3</h3>
+<p>El <code>&amp;</code> de SASS se sustituye por el selector en el que estás, <strong>pegado</strong>. Con BEM, todo el componente queda en un fichero:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">components/_card.scss</label><label for="__tabbed_1_2">css/main.css (compilado)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nc">.card</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">display</span><span class="nd">:</span><span class="w"> </span><span class="nt">flex</span><span class="o">;</span>
+<span class="w">  </span><span class="nt">flex-direction</span><span class="nd">:</span><span class="w"> </span><span class="nt">column</span><span class="o">;</span>
+<span class="w">  </span><span class="nt">gap</span><span class="nd">:</span><span class="w"> </span><span class="nv">$space-md</span><span class="o">;</span>
+
+<span class="w">  </span><span class="k">&amp;</span><span class="nt">--destacada</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">border</span><span class="nd">:</span><span class="w"> </span><span class="nt">2px</span><span class="w"> </span><span class="nt">solid</span><span class="w"> </span><span class="nv">$color-brand-primary</span><span class="o">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">&amp;</span><span class="nt">__title</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">font-size</span><span class="nd">:</span><span class="w"> </span><span class="nt">1</span><span class="nc">.25rem</span><span class="o">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="k">&amp;</span><span class="nt">__button--primary</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">background</span><span class="nd">:</span><span class="w"> </span><span class="nv">$color-brand-primary</span><span class="o">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">card</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span><span class="w"> </span><span class="k">flex-direction</span><span class="p">:</span><span class="w"> </span><span class="kc">column</span><span class="p">;</span><span class="w"> </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">.</span><span class="nc">card--destacada</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#1E88E5</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">.</span><span class="nc">card__title</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mf">1.25</span><span class="kt">rem</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">.</span><span class="nc">card__button--primary</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="mh">#1E88E5</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">El <code>&amp;</code> tiene que ir pegado</p>
+<p><code>&amp;__title</code> genera <code>.card__title</code>: <strong>una</strong> clase, (0,1,0). Si escribes <code>.title</code> dentro de <code>.card</code> (sin <code>&amp;</code>), SASS genera <code>.card .title</code>: <strong>dos</strong> clases, (0,2,0), y vuelves al problema. Y si dejas un espacio (<code>&amp; __title</code>), sale <code>.card __title</code>, que no funciona.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">¿Y el anidamiento del CSS nativo?</p>
+<p>El CSS nativo ya admite anidamiento, pero su <code>&amp;</code> <strong>no pega texto</strong>: <code>&amp;__title</code> no funciona en CSS puro. Para escribir BEM con <code>&amp;</code>, SASS.</p>
+</div>
+<h3 id="35-especificidad-plana-todas-las-reglas-pesan-010">3.5 Especificidad plana: todas las reglas pesan (0,1,0)</h3>
+<table>
+<thead>
+<tr>
+<th>Sin convención</th>
+<th>Especificidad</th>
+<th>Con BEM</th>
+<th>Especificidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>#main .card .title</code></td>
+<td>(1,2,0)</td>
+<td><code>.card__title</code></td>
+<td>(0,1,0)</td>
+</tr>
+<tr>
+<td><code>.modal div .title</code></td>
+<td>(0,2,1)</td>
+<td><code>.modal__title</code></td>
+<td>(0,1,0)</td>
+</tr>
+<tr>
+<td><code>.card .title</code></td>
+<td>(0,2,0)</td>
+<td><code>.card__button</code></td>
+<td>(0,1,0)</td>
+</tr>
+<tr>
+<td><code>.title</code></td>
+<td>(0,1,0)</td>
+<td><code>.card--destacada</code></td>
+<td>(0,1,0)</td>
+</tr>
+</tbody>
+</table>
+<p>Con BEM todas las reglas pesan igual: si dos chocan, decide el orden. Y como cada componente tiene sus propios nombres, casi nunca chocan.</p>
+<div class="admonition tip">
+<p class="admonition-title">La alternativa al <code>!important</code> de la UD4</p>
+<p>No se gana subiendo el peso: se consigue que <strong>nadie tenga que ganar</strong>.</p>
+</div>
+<h3 id="36-cuatro-reglas-que-evitan-el-90-de-los-errores">3.6 Cuatro reglas que evitan el 90 % de los errores</h3>
+<table>
+<thead>
+<tr>
+<th>Regla</th>
+<th>❌ Incorrecto</th>
+<th>✅ Correcto</th>
+<th>Por qué</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sin nietos en el nombre</strong></td>
+<td><code>.card__body__title</code></td>
+<td><code>.card__title</code></td>
+<td>El nombre refleja el bloque, no el árbol del HTML</td>
+</tr>
+<tr>
+<td><strong>El modificador no va solo</strong></td>
+<td><code>class="card--destacada"</code></td>
+<td><code>class="card card--destacada"</code></td>
+<td>El modificador solo trae lo que cambia</td>
+</tr>
+<tr>
+<td><strong>Sin selectores de etiqueta</strong></td>
+<td><code>.card h3 { … }</code></td>
+<td><code>.card__title { … }</code></td>
+<td>Si cambias <code>h3</code> por <code>h2</code>, el estilo no se pierde</td>
+</tr>
+<tr>
+<td><strong>Bloque dentro de bloque</strong></td>
+<td><code>.card .btn { … }</code></td>
+<td><code>class="card__button btn btn--primary"</code></td>
+<td><strong>Mezcla</strong> (<em>mix</em>): el botón es pieza de la tarjeta <strong>y</strong> un bloque propio</td>
+</tr>
+</tbody>
+</table>
+<p>En una mezcla, la clase del elemento (<code>card__button</code>) aporta <strong>la colocación</strong> dentro del bloque (márgenes, posición) y la del otro bloque (<code>btn</code>) aporta <strong>el aspecto</strong>.</p>
+<h3 id="37-bloque-o-elemento-una-pregunta-lo-decide">3.7 ¿Bloque o elemento? Una pregunta lo decide</h3>
+<pre class="mermaid"><code>flowchart LR
+    Q1{"Si lo recorto y lo pego&lt;br/&gt;en otra parte de la web,&lt;br/&gt;¿tiene sentido solo?"} --&gt;|Sí| B["&lt;b&gt;Bloque&lt;/b&gt;&lt;br/&gt;.btn · .search · .card"]
+    Q1 --&gt;|No| Q2{"¿Es una parte que solo&lt;br/&gt;existe dentro de ese bloque?"}
+    Q2 --&gt;|Sí| E["&lt;b&gt;Elemento&lt;/b&gt;&lt;br/&gt;.card__price · .search__input"]
+    style B fill:#FBBC04,stroke:#202124,color:#202124
+    style E fill:#1E88E5,stroke:#202124,color:#ffffff</code></pre>
+<p>Ejemplos de AURIA:</p>
+<ul>
+<li><strong>Botón "Añadir":</strong> bloque <code>.btn</code> (hay botones iguales en toda la web).</li>
+<li><strong>Precio:</strong> elemento <code>.card__price</code>.</li>
+<li><strong>Valoración con estrellas:</strong> bloque <code>.rating</code> (aparece también en las reseñas).</li>
+<li><strong>Etiqueta "Oferta":</strong> elemento <code>.card__badge</code>, o bloque <code>.badge</code> si se reutiliza.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">No hay una respuesta única</p>
+<p>Lo importante es que el equipo lo decida <strong>y lo escriba en la guía de estilo</strong> (sección 6).</p>
+</div>
+<h3 id="38-estados-modificador-pseudoclase-o-atributo-aria">3.8 Estados: modificador, pseudoclase o atributo ARIA</h3>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Para qué</th>
+<th>Ejemplos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pseudoclases</strong></td>
+<td>Estados que <strong>el navegador ya conoce</strong></td>
+<td><code>&amp;:hover</code>, <code>&amp;:focus-visible</code>, <code>&amp;:disabled</code></td>
+</tr>
+<tr>
+<td><strong>Modificadores</strong></td>
+<td>Variantes que <strong>decides tú</strong></td>
+<td><code>.card--destacada</code>, <code>.btn--secondary</code>, <code>.alert--error</code></td>
+</tr>
+<tr>
+<td><strong>Atributos ARIA</strong></td>
+<td>Estados que <strong>también debe oír el lector de pantalla</strong> (UD9)</td>
+<td><code>[aria-expanded="true"]</code>, <code>[aria-current="page"]</code>, <code>[aria-invalid="true"]</code></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="nc">.menu</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">&amp;</span><span class="nt">__list</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">display</span><span class="nd">:</span><span class="w"> </span><span class="nt">none</span><span class="o">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// El estado lo marca el atributo ARIA del botón: CSS y lector de pantalla leen el mismo dato</span>
+<span class="w">  </span><span class="k">&amp;</span><span class="nt">__toggle</span><span class="o">[</span><span class="nt">aria-expanded</span><span class="o">=</span><span class="s2">"true"</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">&amp;</span><span class="nt">__list</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">display</span><span class="nd">:</span><span class="w"> </span><span class="nt">block</span><span class="o">;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Regla</p>
+<p>Si el estado ya existe en HTML o en ARIA, <strong>úsalo para el CSS</strong> en vez de inventar una clase. Así el aspecto y lo que oye el lector de pantalla no se desincronizan.</p>
+</div>
+<h3 id="39-ventajas-y-limites-de-bem">3.9 Ventajas y límites de BEM</h3>
+<table>
+<thead>
+<tr>
+<th>✅ Ventajas</th>
+<th>⚠️ Límites</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nombres que se explican solos en el HTML</td>
+<td>Nombres largos: <code>.card__button--primary</code></td>
+</tr>
+<tr>
+<td>Especificidad plana y predecible</td>
+<td>Exige disciplina: un solo <code>.card .title</code> y se rompe</td>
+</tr>
+<tr>
+<td>Un componente = un fichero SASS</td>
+<td>Hay que decidir qué es bloque y qué es elemento</td>
+</tr>
+<tr>
+<td>Se puede borrar un bloque entero sin miedo</td>
+<td>No guarda los valores: necesita los <strong>tokens</strong> de la UD2</td>
+</tr>
+<tr>
+<td>Encaja con los componentes de la UD7 (Atomic Design)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Clave</p>
+<p>Los nombres largos son el precio de la claridad: <strong>se escriben una vez y se leen cien</strong>.</p>
+</div>
+<hr />
+<h2 id="4-utility-first-con-tailwind-css-ra2g">4. Utility-first con Tailwind CSS (RA2.g) <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.001 4.8q-4.8 0-6 4.8 1.8-2.4 4.2-1.8c.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12q4.8 0 6-4.8-1.8 2.4-4.2 1.8c-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8m-6 7.2q-4.8 0-6 4.8 1.8-2.4 4.2-1.8c.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576q4.8 0 6-4.8-1.8 2.4-4.2 1.8c-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12"/></svg></span></h2>
+<h3 id="41-cambio-de-paradigma-del-nombre-a-la-composicion">4.1 Cambio de paradigma: del nombre a la composición</h3>
+<table>
+<thead>
+<tr>
+<th>BEM</th>
+<th>Utility-first</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Pones un nombre: <code>.card__button</code></td>
+<td>1. No escribes CSS nuevo</td>
+</tr>
+<tr>
+<td>2. Escribes su CSS en <code>_card.scss</code></td>
+<td>2. Combinas clases ya hechas: <code>bg-blue-600 text-white px-4 py-2</code></td>
+</tr>
+<tr>
+<td>3. Lo usas en el HTML</td>
+<td>3. El aspecto se lee en el HTML</td>
+</tr>
+<tr>
+<td><strong>HTML limpio · la lógica visual está en el CSS</strong></td>
+<td><strong>CSS mínimo · la lógica visual está en el HTML</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Una <strong>clase de utilidad</strong> es, básicamente, <strong>una declaración CSS con nombre corto</strong>: <code>flex</code> → <code>display: flex</code>; <code>p-4</code> → <code>padding: 1rem</code>.</p>
+<p>Tailwind CSS nació en 2017 (Adam Wathan). La versión actual, la <strong>4</strong> (2025), se configura <strong>desde el propio CSS</strong>.</p>
+<h3 id="42-la-misma-tarjeta-de-auria-en-tailwind">4.2 La misma tarjeta de AURIA, en Tailwind</h3>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">article</span> <span class="na">class</span><span class="o">=</span><span class="s">"flex flex-col gap-2 rounded-lg</span>
+<span class="s">                border-2 border-brand-primary p-4"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">img</span> <span class="na">class</span><span class="o">=</span><span class="s">"rounded-md"</span> <span class="na">src</span><span class="o">=</span><span class="s">"auria-pro.webp"</span>
+       <span class="na">alt</span><span class="o">=</span><span class="s">"Auriculares AURIA Pro"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h3</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-xl font-semibold"</span><span class="p">&gt;</span>AURIA Pro<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-gray-600"</span><span class="p">&gt;</span>199 €<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">"rounded-md bg-brand-primary px-4 py-2</span>
+<span class="s">                 text-white hover:bg-blue-700</span>
+<span class="s">                 focus-visible:outline-2"</span><span class="p">&gt;</span>
+    Añadir al carrito
+  <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Mismo resultado visual que la versión BEM, y <strong>ni una línea de CSS propio</strong>: todo el aspecto está en el atributo <code>class</code>. Si borras la tarjeta del HTML, su "CSS" desaparece con ella: no queda código muerto.</p>
+<div class="admonition question">
+<p class="admonition-title">¿No es lo mismo que el <code>style=\"\"</code> en línea?</p>
+<p>Se parece, pero hay tres diferencias importantes: las utilidades <strong>usan la escala de tokens</strong> (no cualquier valor), <strong>admiten estados y responsive</strong> (<code>hover:</code>, <code>md:</code>), que el atributo <code>style</code> no puede, y pesan lo que <strong>una clase</strong>, no la prioridad máxima del estilo en línea.</p>
+</div>
+<h3 id="43-las-clases-son-css-con-nombre-corto">4.3 Las clases son CSS con nombre corto</h3>
+<table>
+<thead>
+<tr>
+<th>CSS</th>
+<th>Tailwind</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>display: flex</code></td>
+<td><code>flex</code></td>
+</tr>
+<tr>
+<td><code>flex-direction: column</code></td>
+<td><code>flex-col</code></td>
+</tr>
+<tr>
+<td><code>justify-content: space-between</code></td>
+<td><code>justify-between</code></td>
+</tr>
+<tr>
+<td><code>gap: 0.5rem</code> (8 px)</td>
+<td><code>gap-2</code></td>
+</tr>
+<tr>
+<td><code>padding: 1rem</code> (16 px)</td>
+<td><code>p-4</code></td>
+</tr>
+<tr>
+<td><code>padding-inline: 1rem</code></td>
+<td><code>px-4</code></td>
+</tr>
+<tr>
+<td><code>border-radius: 0.5rem</code></td>
+<td><code>rounded-lg</code></td>
+</tr>
+<tr>
+<td><code>font-weight: 600</code></td>
+<td><code>font-semibold</code></td>
+</tr>
+<tr>
+<td><code>display: grid; grid-template-columns: repeat(3, minmax(0, 1fr))</code></td>
+<td><code>grid grid-cols-3</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>La escala de espaciado:</strong> cada número son <strong>0,25 rem (4 px)</strong>. <code>p-1</code> = 4 px, <code>p-2</code> = 8 px, <code>p-4</code> = 16 px, <code>p-6</code> = 24 px, <code>p-8</code> = 32 px. Igual que los tokens de espaciado de la UD2, te mueves por una escala en lugar de inventar valores. La <code>x</code> y la <code>y</code> indican el eje: <code>px-4</code> (izquierda y derecha), <code>py-2</code> (arriba y abajo).</p>
+<div class="admonition tip">
+<p class="admonition-title">No hay que memorizarlas</p>
+<p>La extensión <strong>Tailwind CSS IntelliSense</strong> de VS Code autocompleta las clases y, al pasar el ratón por encima, enseña el CSS que genera cada una.</p>
+</div>
+<h3 id="44-variantes-estados-y-responsive-con-un-prefijo">4.4 Variantes: estados y responsive con un prefijo</h3>
+<table>
+<thead>
+<tr>
+<th>Prefijo</th>
+<th>Ejemplo</th>
+<th>Equivale a</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hover:</code></td>
+<td><code>hover:bg-blue-700</code></td>
+<td><code>&amp;:hover</code> de SASS</td>
+</tr>
+<tr>
+<td><code>focus-visible:</code></td>
+<td><code>focus-visible:outline-2</code></td>
+<td><code>&amp;:focus-visible</code></td>
+</tr>
+<tr>
+<td><code>md:</code></td>
+<td><code>md:flex-row</code></td>
+<td><code>@media (min-width: 48rem)</code></td>
+</tr>
+<tr>
+<td><code>lg:</code></td>
+<td><code>lg:grid-cols-3</code></td>
+<td><code>@media (min-width: 64rem)</code></td>
+</tr>
+<tr>
+<td><code>dark:</code></td>
+<td><code>dark:bg-gray-900</code></td>
+<td><code>@media (prefers-color-scheme: dark)</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mobile-first, como en la UD4:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"flex flex-col md:flex-row"</span><span class="p">&gt;</span>…<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+<ul>
+<li>Sin prefijo se aplica <strong>siempre</strong> (la base, el móvil).</li>
+<li><code>md:</code> <strong>añade</strong> a partir de 768 px.</li>
+<li>Se combinan: <code>md:hover:bg-blue-700</code>.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Breakpoint</th>
+<th><code>sm</code></th>
+<th><code>md</code></th>
+<th><code>lg</code></th>
+<th><code>xl</code></th>
+<th><code>2xl</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Desde</td>
+<td>640 px</td>
+<td>768 px</td>
+<td>1024 px</td>
+<td>1280 px</td>
+<td>1536 px</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title"><code>md:</code> no significa «solo en tablet»</p>
+<p>Significa <strong>«a partir de md»</strong>. Es exactamente el <code>min-width</code> de la UD4. Para algo que solo se vea en móvil, se pone en la base y se deshace en el breakpoint: <code>block md:hidden</code>.</p>
+</div>
+<h3 id="45-instalar-tailwind-css-v4-con-su-cli">4.5 Instalar Tailwind CSS v4 con su CLI</h3>
+<p>Igual que Dart Sass en la UD3: con <code>npm</code>, dentro del proyecto.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Instalar</span>
+npm<span class="w"> </span>install<span class="w"> </span>tailwindcss<span class="w"> </span>@tailwindcss/cli
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c">/* 2. Importar: src/input.css */</span>
+<span class="p">@</span><span class="k">import</span><span class="w"> </span><span class="s2">"tailwindcss"</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># 3. Compilar en modo vigilancia</span>
+npx<span class="w"> </span>@tailwindcss/cli<span class="w"> </span>-i<span class="w"> </span>./src/input.css<span class="w"> </span>-o<span class="w"> </span>./src/output.css<span class="w"> </span>--watch
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- 4. Enlazar el CSS generado --&gt;</span>
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">href</span><span class="o">=</span><span class="s">"output.css"</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Tailwind lee tu HTML, busca las clases que usas y genera <code>output.css</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">Para prototipos</p>
+<p>Existe un <code>&lt;script&gt;</code> que compila en el navegador sin instalar nada (<code>@tailwindcss/browser</code>). Sirve para probar algo en cinco minutos, <strong>no para producción</strong>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Tailwind y SASS, por separado</p>
+<p>Tailwind v4 ya hace el papel del preprocesador (variables, anidamiento, importaciones) y su documentación no recomienda combinarlo con SASS. Por eso en el ejercicio la versión Tailwind va en una <strong>carpeta aparte</strong>.</p>
+</div>
+<h3 id="46-los-tokens-de-la-ud2-entran-por-theme">4.6 Los tokens de la UD2 entran por <code>@theme</code></h3>
+<div class="highlight"><pre><span></span><code><span class="c">/* src/input.css */</span>
+<span class="p">@</span><span class="k">import</span><span class="w"> </span><span class="s2">"tailwindcss"</span><span class="p">;</span>
+
+<span class="p">@</span><span class="k">theme</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">--color-brand-primary</span><span class="o">:</span><span class="w"> </span><span class="p">#</span><span class="nn">1e88e5</span><span class="o">;</span>
+<span class="w">  </span><span class="nt">--color-brand-dark</span><span class="o">:</span><span class="w"> </span><span class="p">#</span><span class="nn">1565c0</span><span class="o">;</span>
+<span class="w">  </span><span class="nt">--spacing-md</span><span class="o">:</span><span class="w"> </span><span class="nt">1rem</span><span class="o">;</span>
+<span class="w">  </span><span class="nt">--font-display</span><span class="o">:</span><span class="w"> </span><span class="s2">"Inter"</span><span class="o">,</span><span class="w"> </span><span class="nt">sans-serif</span><span class="o">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Variable en <code>@theme</code></th>
+<th>Clases que crea</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--color-brand-primary</code></td>
+<td><code>bg-brand-primary</code> · <code>text-brand-primary</code> · <code>border-brand-primary</code></td>
+</tr>
+<tr>
+<td><code>--spacing-md</code></td>
+<td><code>p-md</code> · <code>m-md</code> · <code>gap-md</code></td>
+</tr>
+<tr>
+<td><code>--font-display</code></td>
+<td><code>font-display</code></td>
+</tr>
+</tbody>
+</table>
+<p>El <strong>prefijo de la variable</strong> (<code>--color-</code>, <code>--spacing-</code>, <code>--font-</code>, <code>--text-</code>, <code>--radius-</code>, <code>--breakpoint-</code>) decide qué clases se crean.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tailwind no sustituye a los tokens: los implementa</p>
+<p>El nombre semántico de la UD2 (<code>color-brand-primary</code>) pasa a ser una clase. Si mañana cambia el azul de AURIA, se cambia <strong>en un solo sitio</strong>. Además, queda disponible como variable CSS normal: <code>var(--color-brand-primary)</code>.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Si ves <code>tailwind.config.js</code> en un tutorial</p>
+<p>Es <strong>Tailwind 3</strong>: la configuración se hacía en un fichero JavaScript. La idea es la misma; en la v4 se escribe en el CSS con <code>@theme</code>.</p>
+</div>
+<h3 id="47-solo-genera-las-clases-que-usas">4.7 Solo genera las clases que usas</h3>
+<pre class="mermaid"><code>flowchart LR
+    A["&lt;b&gt;Tus ficheros&lt;/b&gt;&lt;br/&gt;index.html, *.js…"] --&gt; B["&lt;b&gt;Tailwind los lee&lt;/b&gt;&lt;br/&gt;busca nombres de clases"] --&gt; C["&lt;b&gt;output.css&lt;/b&gt;&lt;br/&gt;solo lo que aparece"]
+    style C fill:#FBBC04,stroke:#202124,color:#202124</code></pre>
+<p>Tailwind tiene miles de clases posibles, pero el CSS final solo trae las que encuentra en tu código: suele quedar en pocos KB.</p>
+<div class="admonition danger">
+<p class="admonition-title">La trampa: Tailwind busca texto, no ejecuta tu código</p>
+<p>Una clase montada a trozos <strong>no existe</strong> para Tailwind:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// ❌ Tailwind nunca ve "bg-red-600" escrito entero</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">clase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`bg-</span><span class="si">${</span><span class="nx">color</span><span class="si">}</span><span class="sb">-600`</span><span class="p">;</span>
+
+<span class="c1">// ✅ Nombres completos</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">clase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">color</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">"rojo"</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s2">"bg-red-600"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"bg-blue-600"</span><span class="p">;</span>
+</code></pre></div>
+<p>Si una clase "no hace nada", lo primero: <strong>¿aparece escrita entera en algún fichero que Tailwind lee?</strong> (Y después: ¿está corriendo el <code>--watch</code>? ¿Enlazas <code>output.css</code> y no <code>input.css</code>?)</p>
+</div>
+<h3 id="48-salidas-de-emergencia-valores-arbitrarios-y-apply">4.8 Salidas de emergencia: valores arbitrarios y <code>@apply</code></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Valores arbitrarios</label><label for="__tabbed_2_2">@apply</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"w-[327px] top-[13px] bg-[#ff5a1f]"</span><span class="p">&gt;</span>…<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Escriben un valor exacto entre corchetes. Útiles para un caso puntual… y peligrosos: son los <strong>valores mágicos</strong> de la UD2 otra vez. <strong>Si lo repites, crea un token en <code>@theme</code>.</strong></p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">btn</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="err">@apply</span><span class="w"> </span><span class="err">rounded-md</span><span class="w"> </span><span class="err">bg-brand-primary</span><span class="w"> </span><span class="err">px-4</span><span class="w"> </span><span class="err">py-2</span><span class="w"> </span><span class="err">text-white</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Junta varias utilidades en una clase propia. Sirve cuando no tienes componentes y el mismo HTML se repite a mano. <strong>Con moderación:</strong> si todo es <code>@apply</code>, vuelves a escribir CSS de siempre con otra sintaxis.</p>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Clave</p>
+<p>Si en tu HTML hay muchos corchetes, no estás usando el sistema de diseño: <strong>te lo estás saltando</strong>.</p>
+</div>
+<h3 id="49-bem-o-tailwind-depende-del-proyecto">4.9 ¿BEM o Tailwind? Depende del proyecto</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>BEM + SASS</th>
+<th>Tailwind CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dónde está el aspecto</strong></td>
+<td>En el <code>.scss</code></td>
+<td>En el HTML</td>
+</tr>
+<tr>
+<td><strong>HTML</strong></td>
+<td>Limpio, nombres con significado</td>
+<td>Largo, muchas clases</td>
+</tr>
+<tr>
+<td><strong>Velocidad para maquetar</strong></td>
+<td>Media</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td><strong>Tamaño del CSS</strong></td>
+<td>Crece con cada componente</td>
+<td>Pequeño y estable</td>
+</tr>
+<tr>
+<td><strong>Tokens</strong></td>
+<td>Variables SASS / custom properties</td>
+<td><code>@theme</code></td>
+</tr>
+<tr>
+<td><strong>Encaja mejor con</strong></td>
+<td>Webs con HTML escrito a mano, CMS</td>
+<td>Proyectos con componentes (React, Vue…)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Y se pueden mezclar.</strong> Muchos equipos usan BEM (o componentes) para la estructura y unas pocas utilidades para ajustes puntuales: márgenes entre piezas, ocultar algo en móvil… Lo que <strong>no</strong> funciona es no decidir: medio proyecto con cada sistema y sin norma.</p>
+<div class="admonition tip">
+<p class="admonition-title">Clave</p>
+<p>No hay un ganador: hay una <strong>decisión de equipo</strong>, escrita en la guía de estilo y vigilada por las herramientas.</p>
+</div>
+<hr />
+<h2 id="5-validar-herramientas-que-revisan-el-css-por-ti-ra2h">5. Validar: herramientas que revisan el CSS por ti (RA2.h) <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m23 12-2.4-2.8.3-3.7-3.6-.8-1.9-3.2L12 3 8.6 1.5 6.7 4.7l-3.6.8.3 3.7L1 12l2.4 2.8-.3 3.7 3.6.8 1.9 3.2L12 21l3.4 1.5 1.9-3.2 3.6-.8-.3-3.7zm-4.3 4.9-2.7.6-1.4 2.4-2.6-1.1-2.6 1.1L8 17.5l-2.7-.6.2-2.8L3.7 12l1.8-2.1-.2-2.8L8 6.5l1.4-2.4L12 5.2l2.6-1.1L16 6.5l2.7.6-.2 2.8 1.8 2.1-1.8 2.1zm-2.1-9.3L18 9l-8 8-4-4 1.4-1.4 2.6 2.6z"/></svg></span></h2>
+<h3 id="51-tres-herramientas-tres-preguntas-distintas">5.1 Tres herramientas, tres preguntas distintas</h3>
+<table>
+<thead>
+<tr>
+<th>Herramienta</th>
+<th>Pregunta que contesta</th>
+<th>Qué detecta</th>
+<th>Cuándo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Validador W3C</strong></td>
+<td>¿Es CSS válido según el estándar?</td>
+<td>Propiedades que no existen, valores mal escritos, llaves sin cerrar</td>
+<td>A mano: <a href="https://jigsaw.w3.org/css-validator/">jigsaw.w3.org/css-validator</a></td>
+</tr>
+<tr>
+<td><strong>Stylelint</strong></td>
+<td>¿Cumple las normas del equipo?</td>
+<td>Nombres que no son BEM, colores repetidos, selectores duplicados o demasiado específicos</td>
+<td>En el editor y antes de cada commit</td>
+</tr>
+<tr>
+<td><strong>Prettier</strong></td>
+<td>¿Está bien formateado?</td>
+<td>Sangría, espacios, comillas, una declaración por línea (lo corrige solo)</td>
+<td>Automático al guardar</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">El validador W3C entiende CSS, no SCSS</p>
+<p>Si le pegas un <code>.scss</code> con <code>$variables</code> y <code>&amp;</code>, se llena de errores. Se le pasa el <strong><code>css/main.css</code> compilado</strong>. Stylelint, en cambio, sí sabe leer el <code>.scss</code>. Los <em>avisos</em> (warnings) del W3C no son errores: a veces el validador va por detrás de las novedades de CSS.</p>
+</div>
+<h3 id="52-stylelint-instalar-y-ensenarle-bem">5.2 Stylelint: instalar y enseñarle BEM</h3>
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>--save-dev<span class="w"> </span>stylelint<span class="w"> </span>stylelint-config-standard-scss
+</code></pre></div>
+<p>Fichero <code>.stylelintrc.json</code> en la raíz del proyecto:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"extends"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stylelint-config-standard-scss"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"rules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"selector-class-pattern"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">"^[a-z][a-z0-9-]*(__[a-z0-9-]+)?(--[a-z0-9-]+)?$"</span><span class="p">,</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"resolveNestedSelectors"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Usa BEM: bloque__elemento--mod"</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Parte</th>
+<th>Qué hace</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>extends</code></td>
+<td>Parte de un conjunto de reglas ya hecho: el estándar, en su versión para SCSS</td>
+</tr>
+<tr>
+<td><code>selector-class-pattern</code></td>
+<td>Expresión regular que deben cumplir <strong>todos</strong> los nombres de clase</td>
+</tr>
+<tr>
+<td>La regex, en castellano</td>
+<td>Minúsculas (con guiones), y opcionalmente un <code>__elemento</code> y un <code>--modificador</code>. Los "nietos" (<code>card__body__title</code>) y las mayúsculas (<code>cardTitle</code>) no pasan</td>
+</tr>
+<tr>
+<td><code>resolveNestedSelectors</code></td>
+<td>Revisa también los nombres que se forman con <code>&amp;__</code> y <code>&amp;--</code> en SASS. Sin esta opción, un <code>&amp;_title</code> mal escrito se escaparía</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td>El mensaje que se muestra cuando falla</td>
+</tr>
+</tbody>
+</table>
+<p>Para pasarlo a todos los ficheros SCSS:</p>
+<div class="highlight"><pre><span></span><code>npx<span class="w"> </span>stylelint<span class="w"> </span><span class="s2">"scss/**/*.scss"</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Clave</p>
+<p>La convención ya no depende de que alguien <strong>se acuerde</strong>: la máquina la revisa en cada fichero.</p>
+</div>
+<h3 id="53-leer-lo-que-dice-stylelint">5.3 Leer lo que dice Stylelint</h3>
+<div class="highlight"><pre><span></span><code>scss/components/_card.scss
+  12:3  ✖  Expected ".cardTitle" to match pattern          selector-class-pattern
+  18:5  ✖  Unexpected duplicate selector ".card__price"    no-duplicate-selectors
+  24:14 ✖  Expected "#ffffff" to be "#fff"                 color-hex-length
+
+✖ 3 problems (3 errors, 0 warnings)
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Parte</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>12:3</code></td>
+<td>Línea y columna: dónde está el problema (en VS Code, Ctrl+G)</td>
+</tr>
+<tr>
+<td><code>✖ Expected…</code></td>
+<td>Qué ha encontrado, en inglés</td>
+</tr>
+<tr>
+<td><code>selector-class-pattern</code></td>
+<td>El nombre de la regla: búscalo en <a href="https://stylelint.io/user-guide/rules">stylelint.io</a> para saber por qué existe</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>npx<span class="w"> </span>stylelint<span class="w"> </span><span class="s2">"scss/**/*.scss"</span><span class="w"> </span>--fix
+</code></pre></div>
+<p><code>--fix</code> arregla lo automático (por ejemplo, <code>#ffffff</code> → <code>#fff</code>). Los <strong>nombres</strong> los cambias tú, porque también hay que tocar el HTML.</p>
+<div class="admonition tip">
+<p class="admonition-title">Truco</p>
+<p>Con la extensión <strong>Stylelint</strong> de VS Code, los errores aparecen subrayados mientras escribes, como las faltas de ortografía.</p>
+</div>
+<h3 id="54-el-circuito-que-la-maquina-revise-antes-que-las-personas">5.4 El circuito: que la máquina revise antes que las personas</h3>
+<pre class="mermaid"><code>flowchart LR
+    A["&lt;b&gt;Escribes&lt;/b&gt;&lt;br/&gt;en VS Code"] --&gt; B["&lt;b&gt;Prettier&lt;/b&gt;&lt;br/&gt;formatea al guardar"] --&gt; C["&lt;b&gt;Stylelint&lt;/b&gt;&lt;br/&gt;subraya en el editor"] --&gt; D["&lt;b&gt;Commit&lt;/b&gt;&lt;br/&gt;se revisa antes de guardar en git"] --&gt; E["&lt;b&gt;CI&lt;/b&gt;&lt;br/&gt;el servidor lo vuelve a pasar"]
+    style C fill:#FBBC04,stroke:#202124,color:#202124</code></pre>
+<p>En una revisión de código nadie debería perder tiempo discutiendo sangrías o nombres mal escritos. Las herramientas se encargan de lo mecánico y las personas revisan lo que importa: <strong>si el componente está bien pensado</strong>.</p>
+<div class="admonition info">
+<p class="admonition-title">En clase</p>
+<p>Nos quedamos en el editor (Prettier + Stylelint). La revisión en el commit (<em>hooks</em> de git) y la integración continua (CI) las veréis en los proyectos.</p>
+</div>
+<hr />
+<h2 id="6-documentar-la-guia-de-estilo-viva-ra2i">6. Documentar: la guía de estilo viva (RA2.i) <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 20h5v2H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v6.3c-.22.12-.43.26-.61.44L18 12.13V4h-5v8l-2.5-2.25L8 12V4H6zm16.85-6.53-1.32-1.32c-.2-.2-.53-.2-.72 0l-.98.98 2.04 2.04.98-.98c.2-.19.2-.52 0-.72M13 19.96V22h2.04l6.13-6.12-2.04-2.05z"/></svg></span></h2>
+<h3 id="61-de-penpot-al-codigo">6.1 De Penpot al código</h3>
+<p>La guía de estilo que creaste en la UD2 con Penpot no se queda en el diseño: cada parte tiene su sitio en el código.</p>
+<table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>En el diseño (UD2)</th>
+<th>En el código (UD4 – UD5)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Colores</strong></td>
+<td>Tokens de color en Penpot</td>
+<td><code>$color-brand-primary</code> · <code>--color-brand-primary</code> en <code>@theme</code></td>
+</tr>
+<tr>
+<td><strong>Tipografía</strong></td>
+<td>Escala de estilos de texto</td>
+<td>Variables de tamaño · <code>clamp()</code> (UD4) · <code>text-xl</code></td>
+</tr>
+<tr>
+<td><strong>Espaciado</strong></td>
+<td>Tokens de espaciado</td>
+<td><code>$space-md</code> · <code>--spacing-md</code></td>
+</tr>
+<tr>
+<td><strong>Componentes</strong></td>
+<td>Componentes de la librería</td>
+<td>Bloques BEM (<code>_card.scss</code>) · catálogo en Storybook (UD7)</td>
+</tr>
+<tr>
+<td><strong>Convenciones</strong></td>
+<td>—</td>
+<td>BEM, Stylelint y cuándo usar utilidades</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">RA2.i pide UTILIZAR y ACTUALIZAR la guía</p>
+<p>Si el código cambia y la guía no, <strong>la guía miente</strong>. Un token que cambia en Penpot y no llega al código (o al revés) es justo la divergencia que hay que evitar. Quien hace el cambio actualiza la guía en ese mismo cambio.</p>
+</div>
+<h3 id="62-que-contiene-una-guia-de-estilo-de-codigo">6.2 Qué contiene una guía de estilo de código</h3>
+<table>
+<thead>
+<tr>
+<th>Apartado</th>
+<th>Qué recoge</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tokens</strong></td>
+<td>Colores, tipografía, espaciado y radios, con su nombre en código</td>
+</tr>
+<tr>
+<td><strong>Componentes</strong></td>
+<td>Cada bloque: para qué sirve, sus elementos y sus modificadores</td>
+</tr>
+<tr>
+<td><strong>Convención de nombres</strong></td>
+<td>BEM, prefijos, idioma (inglés o castellano, pero uno)</td>
+</tr>
+<tr>
+<td><strong>Hacer / no hacer</strong></td>
+<td>Ejemplos correctos e incorrectos, como en Material Design o GOV.UK</td>
+</tr>
+<tr>
+<td><strong>Herramientas</strong></td>
+<td>Cómo compilar, qué linter se usa y con qué reglas</td>
+</tr>
+<tr>
+<td><strong>Cambios</strong></td>
+<td>Qué se ha modificado y cuándo, para que nadie se pierda</td>
+</tr>
+</tbody>
+</table>
+<p>Un esqueleto mínimo de <code>README.md</code> para AURIA:</p>
+<div class="highlight"><pre><span></span><code><span class="gh"># Guía de estilo · AURIA</span>
+
+<span class="gu">## Tokens</span>
+| Token | SASS | Tailwind (@theme) | Valor |
+| --- | --- | --- | --- |
+| Color de marca | $color-brand-primary | --color-brand-primary | <span class="ni">#1e88e5</span> |
+| Espaciado medio | $space-md | --spacing-md | 1rem |
+
+<span class="gu">## Componentes</span>
+<span class="gu">### card</span>
+Tarjeta de producto. Elementos: <span class="gs">__image, __</span>title, <span class="gs">__price, __</span>button.
+Modificadores: --destacada (borde de marca).
+
+<span class="gu">## Convenciones</span>
+<span class="k">-</span><span class="w"> </span>Nombres BEM en kebab-case. Stylelint: selector-class-pattern.
+<span class="k">-</span><span class="w"> </span>Utilidades solo para ajustes puntuales de espaciado.
+
+<span class="gu">## Herramientas</span>
+<span class="k">-</span><span class="w"> </span>Compilar: sass --watch scss:css
+<span class="k">-</span><span class="w"> </span>Revisar: npx stylelint "scss/**/*.scss"
+
+<span class="gu">## Cambios</span>
+<span class="k">-</span><span class="w"> </span>2026-10-28 · Añadido card--destacada.
+</code></pre></div>
+<p>En la <strong>UD7</strong> esta guía se convierte en un catálogo navegable de componentes con <strong>Storybook</strong>.</p>
+<hr />
+<h2 id="7-caso-real-arquitecturas-css-en-produccion">7. Caso real: arquitecturas CSS en producción <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 15h-2v2h2m0-6h-2v2h2m2 6h-8v-2h2v-2h-2v-2h2v-2h-2V9h8M10 7H8V5h2m0 6H8V9h2m0 6H8v-2h2m0 6H8v-2h2M6 7H4V5h2m0 6H4V9h2m0 6H4v-2h2m0 6H4v-2h2m6-10V3H2v18h20V7z"/></svg></span></h2>
+<table>
+<thead>
+<tr>
+<th>Caso</th>
+<th>Qué hacen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GOV.UK Frontend</strong></td>
+<td>El sistema de diseño del gobierno británico usa BEM con prefijo: <code>.govuk-button--secondary</code></td>
+</tr>
+<tr>
+<td><strong>Tailwind en componentes</strong></td>
+<td>Librerías como shadcn/ui o Tailwind Plus reparten componentes hechos solo con utilidades</td>
+</tr>
+<tr>
+<td><strong>Linter obligatorio</strong></td>
+<td>Los proyectos serios rechazan un cambio si no pasa Stylelint en la integración continua</td>
+</tr>
+<tr>
+<td><strong>Tokens como fuente única</strong></td>
+<td>Los mismos tokens alimentan la herramienta de diseño, el CSS y las apps móviles</td>
+</tr>
+<tr>
+<td><strong>Guías públicas</strong></td>
+<td>Material Design, GOV.UK o Atlassian publican sus guías con ejemplos de hacer / no hacer</td>
+</tr>
+<tr>
+<td><strong>Borrar sin miedo</strong></td>
+<td>Con componentes aislados se puede eliminar código muerto sabiendo que no rompe nada</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example">
+<p class="admonition-title">Pruébalo</p>
+<p>Abre <a href="https://www.gov.uk">gov.uk</a>, pulsa F12 y mira las clases de cualquier botón o del buscador: es BEM de libro.</p>
+</div>
+<hr />
+<h2 id="8-errores-comunes">8. Errores comunes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 15h2v2h-2zm0-8h2v6h-2zm1-5C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 18a8 8 0 0 1-8-8 8 8 0 0 1 8-8 8 8 0 0 1 8 8 8 8 0 0 1-8 8"/></svg></span></h2>
+<h3 id="81-trampas-de-bem">8.1 Trampas de BEM</h3>
+<table>
+<thead>
+<tr>
+<th>Error</th>
+<th>Qué pasa</th>
+<th>❌ Incorrecto</th>
+<th>✅ Correcto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nietos en el nombre</td>
+<td>Copias el árbol del HTML en la clase</td>
+<td><code>.card__body__footer__button</code></td>
+<td><code>.card__button</code></td>
+</tr>
+<tr>
+<td>Modificador sin base</td>
+<td>Se pierden los estilos comunes</td>
+<td><code>&lt;div class="card--destacada"&gt;</code></td>
+<td><code>&lt;div class="card card--destacada"&gt;</code></td>
+</tr>
+<tr>
+<td>Volver a anidar</td>
+<td>La especificidad sube otra vez</td>
+<td><code>.card .card__title { … }</code></td>
+<td><code>.card__title { … }</code></td>
+</tr>
+<tr>
+<td>Estilar por etiqueta</td>
+<td>Cambias <code>h3</code> por <code>h2</code> y se rompe</td>
+<td><code>.card h3 { … }</code></td>
+<td><code>.card__title { … }</code></td>
+</tr>
+<tr>
+<td><code>&amp;</code> separado en SASS</td>
+<td>Sale un selector descendiente que no funciona</td>
+<td><code>&amp; __title { … }</code></td>
+<td><code>&amp;__title { … }</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="82-trampas-de-tailwind-y-herramientas">8.2 Trampas de Tailwind y herramientas</h3>
+<table>
+<thead>
+<tr>
+<th>Error</th>
+<th>Qué pasa</th>
+<th>❌ Incorrecto</th>
+<th>✅ Correcto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clases montadas a trozos</td>
+<td>Tailwind no las encuentra y no las genera</td>
+<td><code>`text-${tono}-600`</code></td>
+<td><code>tono === "ok" ? "text-green-600" : …</code></td>
+</tr>
+<tr>
+<td>Corchetes por todas partes</td>
+<td>Valores mágicos otra vez</td>
+<td><code>p-[13px] text-[#1e88e5]</code></td>
+<td><code>p-md text-brand-primary</code> (<code>@theme</code>)</td>
+</tr>
+<tr>
+<td>Token sin prefijo en <code>@theme</code></td>
+<td>No se crean las clases</td>
+<td><code>--brand-primary: #1e88e5;</code></td>
+<td><code>--color-brand-primary: #1e88e5;</code></td>
+</tr>
+<tr>
+<td>Validar el <code>.scss</code> en el W3C</td>
+<td>El validador no entiende SASS</td>
+<td>Pegar <code>_card.scss</code> en el validador</td>
+<td>Validar <code>css/main.css</code> (el compilado)</td>
+</tr>
+<tr>
+<td>Desactivar la regla que molesta</td>
+<td>El linter deja de proteger</td>
+<td><code>"selector-class-pattern": null</code></td>
+<td>Renombrar la clase según BEM</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9-ejercicio-practico-guiado-la-tarjeta-de-auria-con-dos-arquitecturas">9. Ejercicio práctico guiado: la tarjeta de AURIA, con dos arquitecturas <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m10 17-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9m-6-6a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"/></svg></span></h2>
+<div class="admonition info">
+<p class="admonition-title">Actividad de consolidación (no evaluable)</p>
+<p><strong>Objetivo:</strong> aplicar las dos arquitecturas a la <strong>tarjeta de producto de la UD4</strong>. La versión BEM se hace en tu proyecto (<code>scss/</code>); la versión Tailwind, en una carpeta aparte (<code>auria-tailwind/</code>) para comparar las dos sin mezclarlas.</p>
+</div>
+<p><strong>Pasos, en este orden:</strong></p>
+<ol>
+<li><strong>Refactor a BEM:</strong> renombra la tarjeta con <code>card</code>, <code>card__image</code>, <code>card__title</code>, <code>card__price</code> y <code>card__button</code> (y un modificador <code>card--destacada</code>). Cambia el HTML y el SCSS.</li>
+<li><strong>BEM en SASS:</strong> todo el CSS de la tarjeta en <code>components/_card.scss</code>, con <code>&amp;__</code> y <code>&amp;--</code>. Comprueba en <code>css/main.css</code> que <strong>todas las reglas son de una sola clase</strong>, (0,1,0).</li>
+<li><strong>Versión Tailwind:</strong> en <code>auria-tailwind/</code>, instala Tailwind v4 con su CLI y rehaz <strong>la misma tarjeta</strong> solo con utilidades.</li>
+<li><strong>Tokens en <code>@theme</code>:</strong> al menos <strong>4 colores y 3 espaciados</strong> de tu guía de la UD2, y úsalos en la tarjeta (<code>bg-brand-primary</code>, <code>p-md</code>…).</li>
+<li><strong>Stylelint:</strong> en el proyecto BEM, con la configuración de la sección 5.2, hasta <strong>0 errores</strong>.</li>
+<li><strong>Guía de estilo:</strong> un <code>README.md</code> con los tokens, el bloque <code>card</code> documentado (elementos y modificadores) y cuándo usarías BEM y cuándo Tailwind.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Criterio de éxito</p>
+<p>Las dos tarjetas <strong>se ven igual</strong>, Stylelint no da errores y <strong>cambiar el azul de marca es tocar una sola línea</strong> en cada versión (<code>_tokens.scss</code> y <code>@theme</code>).</p>
+</div>
+<hr />
+<h2 id="10-comprueba-lo-aprendido">10. Comprueba lo aprendido <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3c3.88 0 7 3.14 7 7 0 2.8-1.63 5.19-4 6.31V21H9v-3H8c-1.11 0-2-.89-2-2v-3H4.5c-.42 0-.66-.5-.42-.81L6 9.66A7.003 7.003 0 0 1 13 3m-2.68 4.39h1.93c.01-.3.1-.53.28-.69a1 1 0 0 1 .66-.23c.31 0 .57.1.75.28.18.19.26.45.26.75 0 .32-.07.59-.23.82-.14.23-.35.43-.61.59-.51.34-.86.64-1.05.91-.2.26-.31.68-.31 1.18h2c0-.31.04-.56.13-.74.09-.19.26-.36.51-.52.45-.24.82-.53 1.11-.93s.44-.81.44-1.31c0-.76-.27-1.37-.81-1.82-.53-.45-1.26-.68-2.19-.68-.87 0-1.57.2-2.11.59-.52.41-.78.98-.77 1.77zM12 14h2v-2h-2zm1-13C8.41 1 4.61 4.42 4.06 8.9L2.5 11h-.03l-.02.03c-.55.76-.62 1.76-.19 2.59.36.69 1 1.17 1.74 1.32V16c0 1.85 1.28 3.42 3 3.87V23h11v-5.5c2.5-1.67 4-4.44 4-7.5 0-4.97-4.04-9-9-9"/></svg></span></h2>
+<details class="question">
+<summary>1. ¿Qué es bloque, qué es elemento y qué es modificador en <code>.card__button--primary</code>?</summary>
+<p>Bloque <code>card</code> (la tarjeta), elemento <code>button</code> (el botón de la tarjeta) y modificador <code>primary</code> (su variante principal).</p>
+</details>
+<details class="question">
+<summary>2. ¿Por qué con BEM no hace falta <code>!important</code>? Explícalo con la especificidad de la UD4.</summary>
+<p>Porque todos los selectores son de una sola clase, (0,1,0): ninguna regla pesa más que otra y no hay que "ganar" a nadie. Además, como cada componente tiene sus propios nombres, casi nunca chocan; si chocan, decide el orden.</p>
+</details>
+<details class="question">
+<summary>3. ¿Qué diferencia hay entre escribir <code>&amp;__title</code> dentro de <code>.card</code> en SASS y escribir <code>.card .title</code>?</summary>
+<p><code>&amp;__title</code> genera <code>.card__title</code>: una clase, (0,1,0), que no depende de dónde esté el elemento. <code>.card .title</code> es un selector descendiente de dos clases, (0,2,0), que solo funciona si <code>.title</code> está dentro de <code>.card</code>.</p>
+</details>
+<details class="question">
+<summary>4. En Tailwind, ¿qué significa <code>md:flex-row</code> y a qué media query de la UD4 equivale?</summary>
+<p><code>flex-direction: row</code> <strong>a partir</strong> del breakpoint <code>md</code> (768 px). Equivale a <code>@media (min-width: 48rem) { … }</code>. No significa "solo en tablet".</p>
+</details>
+<details class="question">
+<summary>5. ¿Qué revisa el validador W3C, qué revisa Stylelint y qué hace Prettier?</summary>
+<p>El W3C comprueba que el CSS cumple el estándar. Stylelint comprueba que cumple las normas del equipo (nombres BEM, duplicados, colores…). Prettier no comprueba: <strong>reescribe</strong> el código con un formato uniforme.</p>
+</details>
+<div class="admonition example">
+<p class="admonition-title">Mini-reto (20 min, en parejas): detectives de arquitecturas</p>
+<ol>
+<li><strong>Detectives:</strong> encontrad 3 webs: una con BEM, una con Tailwind y una sin convención.</li>
+<li><strong>BEM:</strong> renombrad en BEM un componente de la que no tiene convención.</li>
+<li><strong>Tailwind:</strong> rehaced ese componente solo con utilidades.</li>
+<li><strong>Stylelint:</strong> pasad vuestro BEM por Stylelint: 0 errores.</li>
+<li><strong>Veredicto:</strong> ¿cuál elegiríais para ese proyecto y por qué?</li>
+</ol>
+<p><strong>Pistas para reconocerlas</strong> (F12 → Elements → atributos <code>class</code>): dobles guiones bajos y dobles guiones → BEM; <code>flex px-4 md:…</code> → Tailwind; clases tipo <code>.box2</code> o ids con estilo → sin convención.</p>
+<p><strong>Éxito:</strong> la otra pareja entiende vuestro componente BEM sin abrir el CSS y vuestra elección está justificada.</p>
+</div>
+<hr />
+<h2 id="11-glosario">11. Glosario <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.81 2C4.83 2.09 4 3 4 4v16c0 1.05.95 2 2 2h12c1.05 0 2-.95 2-2V4a2 2 0 0 0-2-2h-6v7L9.5 7.5 7 9V2H5.81M12 13h1a1 1 0 0 1 1 1v4h-1v-2h-1v2h-1v-4a1 1 0 0 1 1-1m0 1v1h1v-1zm3 1h3v1l-2 3h2v1h-3v-1l2-3h-2z"/></svg></span></h2>
+<h3 id="arquitectura-css-y-bem">Arquitectura CSS y BEM</h3>
+<table>
+<thead>
+<tr>
+<th>Término</th>
+<th>Definición</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Arquitectura CSS</strong></td>
+<td>Normas para organizar y nombrar el CSS de un proyecto.</td>
+</tr>
+<tr>
+<td><strong>Convención</strong></td>
+<td>Acuerdo de equipo sobre cómo se escribe el código.</td>
+</tr>
+<tr>
+<td><strong>BEM</strong></td>
+<td><em>Block, Element, Modifier</em>: convención de nombres de clases.</td>
+</tr>
+<tr>
+<td><strong>Bloque</strong></td>
+<td>Componente independiente con sentido propio: <code>.card</code>.</td>
+</tr>
+<tr>
+<td><strong>Elemento</strong></td>
+<td>Parte de un bloque, sin sentido fuera de él: <code>.card__title</code>.</td>
+</tr>
+<tr>
+<td><strong>Modificador</strong></td>
+<td>Variante de un bloque o elemento: <code>.card--destacada</code>.</td>
+</tr>
+<tr>
+<td><strong>Mezcla (mix)</strong></td>
+<td>Un nodo con clases de dos bloques: <code>card__button btn</code>.</td>
+</tr>
+<tr>
+<td><strong>Especificidad plana</strong></td>
+<td>Todas las reglas con una sola clase: (0,1,0).</td>
+</tr>
+<tr>
+<td><strong><code>&amp;</code></strong></td>
+<td>En SASS, el selector actual: <code>&amp;__title</code> → <code>.card__title</code>.</td>
+</tr>
+<tr>
+<td><strong>OOCSS · SMACSS · ITCSS</strong></td>
+<td>Otras arquitecturas CSS conocidas.</td>
+</tr>
+<tr>
+<td><strong>Código muerto</strong></td>
+<td>CSS que ya no se usa y nadie se atreve a borrar.</td>
+</tr>
+<tr>
+<td><strong>Guía de estilo</strong></td>
+<td>Documento vivo con tokens, componentes y normas.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tailwind-validacion-y-formato">Tailwind, validación y formato</h3>
+<table>
+<thead>
+<tr>
+<th>Término</th>
+<th>Definición</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Utility-first</strong></td>
+<td>Componer el aspecto con clases de una sola función.</td>
+</tr>
+<tr>
+<td><strong>Clase de utilidad</strong></td>
+<td>Clase que aplica una sola declaración: <code>p-4</code>.</td>
+</tr>
+<tr>
+<td><strong>Tailwind CSS</strong></td>
+<td>Framework utility-first; la v4 se configura desde el CSS.</td>
+</tr>
+<tr>
+<td><strong>Variante</strong></td>
+<td>Prefijo que condiciona una utilidad: <code>hover:</code>, <code>md:</code>, <code>dark:</code>.</td>
+</tr>
+<tr>
+<td><strong><code>@theme</code></strong></td>
+<td>Bloque de Tailwind v4 donde se definen los tokens.</td>
+</tr>
+<tr>
+<td><strong>Valor arbitrario</strong></td>
+<td>Valor exacto entre corchetes: <code>w-[327px]</code>.</td>
+</tr>
+<tr>
+<td><strong><code>@apply</code></strong></td>
+<td>Junta utilidades dentro de una clase propia.</td>
+</tr>
+<tr>
+<td><strong>Linter</strong></td>
+<td>Herramienta que revisa reglas y errores del código.</td>
+</tr>
+<tr>
+<td><strong>Stylelint</strong></td>
+<td>Linter de CSS y SCSS configurable por reglas.</td>
+</tr>
+<tr>
+<td><strong>Prettier</strong></td>
+<td>Formateador automático de código.</td>
+</tr>
+<tr>
+<td><strong>Validador W3C</strong></td>
+<td>Comprueba que el CSS cumple el estándar.</td>
+</tr>
+<tr>
+<td><strong>CI</strong></td>
+<td>Integración continua: revisión automática en el servidor.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="12-resumen-y-conexion-con-la-siguiente-unidad">12. Resumen y conexión con la siguiente unidad <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.98 2.98 0 0 0 0-4.24 2.98 2.98 0 0 0-4.24 0l-3.53 3.53a2.98 2.98 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.98 2.98 0 0 0 0 4.24 2.98 2.98 0 0 0 4.24 0l3.53-3.53a2.98 2.98 0 0 0 0-4.24.973.973 0 0 1 0-1.42"/></svg></span></h2>
+<p><strong>Dentro de seis meses, ¿quién va a leer tu CSS?</strong> Probablemente tú, y no te vas a acordar de por qué pusiste <code>.btn-2</code>. Escribe el CSS para esa persona:</p>
+<ol>
+<li><strong>Nombres:</strong> BEM o utilidades, que cada clase diga lo que es.</li>
+<li><strong>Tokens:</strong> los valores salen de la guía de estilo, no de la cabeza.</li>
+<li><strong>Herramientas:</strong> Stylelint y Prettier revisan lo mecánico.</li>
+</ol>
+<p>Igual que con los tokens de la UD2: el ahorro no se ve el día que lo escribes, se ve el día que hay que cambiarlo.</p>
+<ul>
+<li>Sin convención, el CSS crece, la especificidad sube y nadie se atreve a borrar.</li>
+<li><strong>BEM:</strong> <code>.bloque__elemento--modificador</code>, todo con una sola clase (0,1,0).</li>
+<li>En <strong>SASS</strong>, <code>&amp;__</code> y <code>&amp;--</code> generan nombres BEM sin anidar selectores.</li>
+<li><strong>Tailwind</strong> compone con utilidades; los tokens entran por <code>@theme</code>.</li>
+<li><strong>W3C</strong> valida el estándar, <strong>Stylelint</strong> las normas del equipo, <strong>Prettier</strong> el formato.</li>
+<li>La <strong>guía de estilo</strong> se usa y se actualiza: si el código cambia y ella no, miente.</li>
+</ul>
+<p>Con la UD5 <strong>se cierra el RA2</strong>. En la <strong>UD6</strong> empieza el <strong>RA3</strong>: licencias y derechos de autor, formatos WebP, AVIF y SVG, imágenes adaptables con <code>picture</code>, <code>srcset</code> y <code>sizes</code>, y audio y vídeo que pesen poco y carguen rápido.</p>
+<pre class="mermaid"><code>flowchart LR
+    UD5["UD5&lt;br/&gt;BEM +&lt;br/&gt;Tailwind CSS"] --&gt; UD6["UD6&lt;br/&gt;Multimedia&lt;br/&gt;WebP · AVIF · SVG"]</code></pre>
+<hr />
+<h2 id="13-referencias-y-fuentes">13. Referencias y fuentes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg></span></h2>
+<ul>
+<li>BEM — <a href="https://en.bem.info/methodology/">Metodología oficial (en.bem.info)</a> y <a href="https://getbem.com/">getbem.com</a>.</li>
+<li>Tailwind CSS — <a href="https://tailwindcss.com/docs">Documentación oficial</a>, <a href="https://tailwindcss.com/docs/installation/tailwind-cli">Instalación con la CLI</a> y <a href="https://tailwindcss.com/docs/theme">Variables de tema (<code>@theme</code>)</a>.</li>
+<li>Stylelint — <a href="https://stylelint.io/user-guide/rules">Guía de uso y reglas</a> y <a href="https://stylelint.io/user-guide/rules/selector-class-pattern"><code>selector-class-pattern</code></a>.</li>
+<li>Prettier — <a href="https://prettier.io/">prettier.io</a>.</li>
+<li>W3C — <a href="https://jigsaw.w3.org/css-validator/">Servicio de validación CSS</a>.</li>
+<li>GOV.UK Design System — <a href="https://design-system.service.gov.uk/">design-system.service.gov.uk</a>.</li>
+<li>MDN Web Docs — <a href="https://developer.mozilla.org/es/docs/Learn/CSS/Building_blocks/Organizing">Organizar el CSS</a>.</li>
+<li>Ruiz, M. — <em>Diseño de Interfaces Web</em>.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.instant", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

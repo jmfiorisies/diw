@@ -12,6 +12,8 @@
         <link rel="prev" href="../ud02/">
       
       
+        <link rel="next" href="../ud04/">
+      
       
         
       
@@ -291,6 +293,12 @@
   
     
     
+      
+        
+      
+        
+      
+        
       
         
       
@@ -611,10 +619,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#62-instalar-y-compilar" class="md-nav__link">
+  <a href="#62-instalar-y-compilar-vite-sass-en-docker" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.2 Instalar y compilar
+        6.2 Instalar y compilar: Vite + Sass en Docker
       
     </span>
   </a>
@@ -740,6 +748,90 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 4: CSS3 Moderno, Layout (Flexbox/Grid), Container Queries y Responsive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 5: Arquitectura CSS (BEM) y Utility-First con Tailwind CSS (RA2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD 6: Optimización Multimedia (WebP/AVIF), SVG e Introducción a Performance (RA3)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1044,10 +1136,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#62-instalar-y-compilar" class="md-nav__link">
+  <a href="#62-instalar-y-compilar-vite-sass-en-docker" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.2 Instalar y compilar
+        6.2 Instalar y compilar: Vite + Sass en Docker
       
     </span>
   </a>
@@ -1496,25 +1588,62 @@
 <h2 id="6-preparando-los-estilos-introduccion-a-sass">6. Preparando los estilos: introducción a SASS <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0M9.615 15.998c.175.645.156 1.248-.024 1.792l-.065.18q-.037.092-.078.176-.21.435-.555.81c-.698.759-1.672 1.047-2.09.805-.45-.262-.226-1.335.584-2.19.871-.918 2.12-1.509 2.12-1.509v-.003zm9.911-10.861c-.542-2.133-4.077-2.834-7.422-1.645-1.989.707-4.144 1.818-5.693 3.267C4.568 8.48 4.275 9.98 4.396 10.607c.427 2.211 3.457 3.657 4.703 4.73v.006c-.367.18-3.056 1.529-3.686 2.925-.675 1.47.105 2.521.615 2.655 1.575.436 3.195-.36 4.065-1.649.84-1.261.766-2.881.404-3.676.496-.135 1.08-.195 1.83-.104 2.101.24 2.521 1.56 2.43 2.1-.09.539-.523.854-.674.944-.15.091-.195.12-.181.181.015.09.091.09.21.075.165-.03 1.096-.45 1.141-1.471.045-1.29-1.186-2.729-3.375-2.7-.9.016-1.471.091-1.875.256a.4.4 0 0 0-.105-.105c-1.35-1.455-3.855-2.475-3.75-4.41.03-.705.285-2.564 4.8-4.814 3.705-1.846 6.661-1.335 7.171-.21.733 1.604-1.576 4.59-5.431 5.024-1.47.165-2.235-.404-2.431-.615-.209-.225-.239-.24-.314-.194-.12.06-.045.255 0 .375.12.3.585.825 1.396 1.095.704.225 2.43.359 4.5-.45 2.324-.899 4.139-3.405 3.614-5.505z"/></svg></span></h2>
 <p>Con la estructura HTML terminada, el siguiente paso es darle estilo. Antes de escribir CSS en la UD4 vamos a preparar <strong>dónde y cómo</strong> lo vamos a escribir, porque un proyecto real no tiene un único <code>styles.css</code> de 2.000 líneas: tiene los estilos organizados en piezas pequeñas, con nombres y valores reutilizables. Para eso usamos <strong>SASS</strong>.</p>
 <h3 id="61-que-es-sass-y-por-que-existe">6.1 ¿Qué es SASS y por qué existe?</h3>
-<p>SASS es un <strong>preprocesador de CSS</strong>: un lenguaje que se parece muchísimo a CSS, pero con herramientas extra (variables, anidamiento, mixins, módulos). El navegador <strong>no entiende SASS</strong>. Lo que escribes en ficheros <code>.scss</code> pasa por un <strong>compilador</strong> que lo convierte en un <code>.css</code> normal, y es ese <code>.css</code> el que enlazas en el HTML.</p>
+<p>SASS es un <strong>preprocesador de CSS</strong>: un lenguaje que se parece muchísimo a CSS, pero con herramientas extra (variables, anidamiento, mixins, módulos). El navegador <strong>no entiende SASS</strong>. Lo que escribes en ficheros <code>.scss</code> pasa por un <strong>compilador</strong> que lo convierte en un <code>.css</code> normal, y es ese <code>.css</code> el que recibe el navegador. En nuestros proyectos ese trabajo lo hace <strong>Vite</strong>, que lleva dentro el compilador oficial (Dart Sass) y se ejecuta en un contenedor <strong>Docker</strong>.</p>
 <pre class="mermaid"><code>flowchart LR
-    A["&lt;b&gt;Ficheros .scss&lt;/b&gt;&lt;br/&gt;(lo que escribes tú)"] --&gt;|"compilador&lt;br/&gt;(Dart Sass)"| B["&lt;b&gt;main.css&lt;/b&gt;&lt;br/&gt;(lo que lee el navegador)"]
-    B --&gt; C["&lt;b&gt;index.html&lt;/b&gt;&lt;br/&gt;&amp;lt;link href='css/main.css'&amp;gt;"]</code></pre>
+    A["&lt;b&gt;Ficheros .scss&lt;/b&gt;&lt;br/&gt;(lo que escribes tú)"] --&gt;|"compila&lt;br/&gt;(Vite + Dart Sass)"| B["&lt;b&gt;CSS&lt;/b&gt;&lt;br/&gt;(lo que lee el navegador)"]
+    B --&gt; C["&lt;b&gt;Navegador&lt;/b&gt;&lt;br/&gt;http://localhost:5173"]</code></pre>
 <div class="admonition tip">
 <p class="admonition-title">Analogía: la receta y el plato</p>
-<p>El <code>.scss</code> es tu <strong>receta</strong>, escrita con abreviaturas que solo entiendes tú en la cocina ("salsa base ×2"). El <code>.css</code> es el <strong>plato servido</strong>: el cliente (el navegador) nunca ve la receta, solo el resultado. Por eso <strong>nunca se edita el <code>.css</code> a mano</strong>: la próxima vez que cocines (compiles), se sobrescribe y pierdes el cambio.</p>
+<p>El <code>.scss</code> es tu <strong>receta</strong>, escrita con abreviaturas que solo entiendes tú en la cocina ("salsa base ×2"). El CSS es el <strong>plato servido</strong>: el cliente (el navegador) nunca ve la receta, solo el resultado. Por eso <strong>nunca se edita el CSS generado a mano</strong> (el de la carpeta <code>dist/</code>): la próxima vez que cocines (compiles), se sobrescribe y pierdes el cambio.</p>
 </div>
 <p>SASS tiene dos sintaxis. Usaremos <strong>SCSS</strong> (extensión <code>.scss</code>), que es CSS válido con extras: cualquier CSS que ya sepas escribir funciona tal cual dentro de un <code>.scss</code>.</p>
-<h3 id="62-instalar-y-compilar">6.2 Instalar y compilar</h3>
-<p>La implementación oficial y actual es <strong>Dart Sass</strong> (el antiguo <em>Node Sass</em> está abandonado). Con Node.js instalado, en la carpeta del proyecto:</p>
-<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>init<span class="w"> </span>-y<span class="w">                 </span><span class="c1"># crea package.json (solo la primera vez)</span>
-npm<span class="w"> </span>install<span class="w"> </span>-D<span class="w"> </span>sass<span class="w">         </span><span class="c1"># instala Dart Sass en el proyecto</span>
-npx<span class="w"> </span>sass<span class="w"> </span>--watch<span class="w"> </span>scss/main.scss<span class="w"> </span>css/main.css
+<h3 id="62-instalar-y-compilar-vite-sass-en-docker">6.2 Instalar y compilar: Vite + Sass en Docker</h3>
+<p>La implementación oficial y actual de SASS es <strong>Dart Sass</strong> (el antiguo <em>Node Sass</em> está abandonado). No la usamos sola: la usamos a través de <strong>Vite</strong>, un servidor de desarrollo que compila el <code>.scss</code> cada vez que guardas y actualiza el navegador sin recargar. Y todo eso corre en un <strong>contenedor Docker</strong>: <strong>no hace falta instalar Node.js en tu equipo</strong>, solo Docker.</p>
+<p><strong>1. El entorno: <code>compose.yaml</code></strong> en la raíz del proyecto.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># compose.yaml · el entorno de trabajo (Node, npm, Vite y Sass viven aquí dentro)</span>
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">web</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node:22-alpine</span><span class="w">     </span><span class="c1"># imagen oficial de Node.js 22</span>
+<span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node</span><span class="w">                </span><span class="c1"># los ficheros que cree el contenedor serán tuyos, no de root</span>
+<span class="w">    </span><span class="nt">working_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/app</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.:/app</span><span class="w">                </span><span class="c1"># tu carpeta del proyecto, dentro del contenedor</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"5173:5173"</span><span class="w">           </span><span class="c1"># http://localhost:5173 → Vite</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npx vite --host 0.0.0.0</span>
 </code></pre></div>
-<p>La opción <code>--watch</code> deja el compilador vigilando: cada vez que guardas un <code>.scss</code>, regenera <code>css/main.css</code> automáticamente. Por defecto también genera un <strong>source map</strong> (<code>main.css.map</code>), gracias al cual DevTools te muestra en qué línea de <strong>qué <code>.scss</code></strong> está cada regla, en vez de en el CSS compilado.</p>
+<p><strong>2. Instalar y arrancar</strong>, desde la carpeta del proyecto:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Ficha del proyecto (solo la primera vez)</span>
+docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>web<span class="w"> </span>npm<span class="w"> </span>init<span class="w"> </span>-y
+<span class="c1"># 2. Vite y Dart Sass como herramientas de desarrollo</span>
+docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>web<span class="w"> </span>npm<span class="w"> </span>install<span class="w"> </span>-D<span class="w"> </span>vite<span class="w"> </span>sass
+<span class="c1"># 3. Arrancar Vite y dejarlo vigilando</span>
+docker<span class="w"> </span>compose<span class="w"> </span>up
+</code></pre></div>
+<p><code>docker compose run --rm web …</code> ejecuta <strong>un comando suelto</strong> dentro del contenedor y lo borra al terminar (<code>--rm</code>). Los ficheros que crea (<code>package.json</code>, <code>node_modules/</code>) aparecen en tu carpeta gracias al volumen. <code>docker compose up</code> arranca el servicio con su <code>command</code>: Vite. Para pararlo, <code>Ctrl+C</code> (o <code>docker compose down</code>).</p>
+<p><strong>3. Enlazar el <code>.scss</code> en el HTML.</strong> Con Vite se enlaza <strong>directamente el <code>.scss</code></strong>: Vite lo compila al servirlo.</p>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- index.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">href</span><span class="o">=</span><span class="s">"/scss/main.scss"</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Abre <strong>http://localhost:5173</strong>. Cada vez que guardas un <code>.scss</code>, Vite lo recompila y el navegador aplica el CSS nuevo <strong>sin recargar la página</strong> (<em>HMR</em>). Si hay un error de SASS, aparece en la terminal de <code>docker compose up</code> y en el propio navegador, con fichero y línea.</p>
+<p><strong>4. Source maps.</strong> Para que DevTools te diga en qué línea de <strong>qué <code>.scss</code></strong> está cada regla (y no en el CSS compilado), actívalos en <code>vite.config.mjs</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// vite.config.mjs</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">defineConfig</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'vite'</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">defineConfig</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">css</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">devSourcemap</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">   </span><span class="c1">// F12 muestra el .scss y la línea de cada regla</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="c1">// server: { watch: { usePolling: true } },  // solo si al guardar no se actualiza (Docker Desktop en Windows)</span>
+<span class="p">});</span>
+</code></pre></div>
+<p><strong>5. La versión final: <code>build</code>.</strong> Cuando quieras la web lista para publicar:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>web<span class="w"> </span>npx<span class="w"> </span>vite<span class="w"> </span>build
+</code></pre></div>
+<p>Genera la carpeta <code>dist/</code> con el HTML y <strong>un único CSS compilado y comprimido</strong> (<code>dist/assets/index-….css</code>). Ese es el CSS "de verdad" que se publica, y <strong>no se edita a mano</strong>: se vuelve a generar en cada <code>build</code>.</p>
 <div class="admonition note">
-<p class="admonition-title">Alternativa sin terminal</p>
-<p>La extensión de VS Code <strong>Live Sass Compiler</strong> hace lo mismo con un botón ("Watch Sass" en la barra inferior). Sirve para empezar, pero en un proyecto real se usa el compilador de <code>npm</code>, porque es lo que usan los equipos y los sistemas de despliegue.</p>
+<p class="admonition-title">¿Y si solo quiero compilar, sin Vite?</p>
+<p>El mismo contenedor sirve para usar el compilador de Sass a pelo: <code>docker compose run --rm web npx sass --watch scss/main.scss css/main.css</code> genera <code>css/main.css</code> cada vez que guardas, y entonces en el HTML se enlaza ese <code>.css</code>. Es útil para entender qué hace Vite por dentro, pero en clase trabajamos con Vite.</p>
 </div>
 <h3 id="63-variables-los-tokens-de-la-ud2-en-codigo">6.3 Variables: los tokens de la UD2, en código</h3>
 <p>En la UD2 definisteis los <strong>tokens</strong> de AURIA en Penpot. En SASS, un token global es una variable que empieza por <code>$</code>:</p>
@@ -1606,9 +1735,12 @@ npx<span class="w"> </span>sass<span class="w"> </span>--watch<span class="w"> <
 <h3 id="65-parciales-y-modulos-un-fichero-por-pieza">6.5 Parciales y módulos: un fichero por pieza</h3>
 <p>Un <strong>parcial</strong> es un fichero <code>.scss</code> cuyo nombre empieza por <code>_</code> (por ejemplo <code>_tokens.scss</code>). El guion bajo le dice al compilador "este fichero no se compila solo; es una pieza de otro". Las piezas se cargan con <strong><code>@use</code></strong>:</p>
 <div class="highlight"><pre><span></span><code>proyecto/
-├── index.html
-├── css/
-│   └── main.css          ← generado, NO se toca
+├── compose.yaml          ← el entorno Docker
+├── package.json          ← creado con npm init (dependencias: vite, sass)
+├── vite.config.mjs       ← source maps
+├── index.html            ← &lt;link rel="stylesheet" href="/scss/main.scss"&gt;
+├── node_modules/         ← generado por npm install, NO se toca
+├── dist/                 ← generado por vite build, NO se toca
 └── scss/
     ├── _tokens.scss      ← colores, espacios, radios (UD2)
     ├── _mixins.scss      ← mixins reutilizables
@@ -1637,16 +1769,16 @@ npx<span class="w"> </span>sass<span class="w"> </span>--watch<span class="w"> <
 <h3 id="66-mixins-bloques-de-estilo-reutilizables">6.6 Mixins: bloques de estilo reutilizables</h3>
 <p>Un <strong>mixin</strong> es un bloque de declaraciones con nombre que puedes "pegar" donde quieras con <code>@include</code>. Puede recibir parámetros, como una función:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// _mixins.scss</span>
-<span class="k">@mixin</span><span class="nf"> flex-center</span><span class="p">(</span><span class="nv">$gap</span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="k">@use</span><span class="w"> </span><span class="s1">'tokens'</span><span class="w"> </span><span class="nt">as</span><span class="w"> </span><span class="o">*;</span><span class="w">   </span><span class="o">//</span><span class="w"> </span><span class="nt">los</span><span class="w"> </span><span class="o">@</span><span class="nt">use</span><span class="w"> </span><span class="nt">siempre</span><span class="w"> </span><span class="nt">van</span><span class="w"> </span><span class="nt">al</span><span class="w"> </span><span class="nt">principio</span><span class="w"> </span><span class="nt">del</span><span class="w"> </span><span class="nt">fichero</span>
+
+<span class="o">@</span><span class="nt">mixin</span><span class="w"> </span><span class="nt">flex-center</span><span class="o">(</span><span class="nv">$gap</span><span class="nd">:</span><span class="w"> </span><span class="nt">0</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nt">display</span><span class="nd">:</span><span class="w"> </span><span class="nt">flex</span><span class="o">;</span>
 <span class="w">  </span><span class="nt">justify-content</span><span class="nd">:</span><span class="w"> </span><span class="nt">center</span><span class="o">;</span>
 <span class="w">  </span><span class="nt">align-items</span><span class="nd">:</span><span class="w"> </span><span class="nt">center</span><span class="o">;</span>
 <span class="w">  </span><span class="nt">gap</span><span class="nd">:</span><span class="w"> </span><span class="nv">$gap</span><span class="o">;</span>
 <span class="p">}</span>
 
-<span class="k">@use</span><span class="w"> </span><span class="s1">'tokens'</span><span class="w"> </span><span class="nt">as</span><span class="w"> </span><span class="o">*;</span>
-
-<span class="o">@</span><span class="nt">mixin</span><span class="w"> </span><span class="nt">focus-visible</span><span class="w"> </span><span class="p">{</span>
+<span class="k">@mixin</span><span class="nf"> focus-visible</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">&amp;</span><span class="nd">:focus-visible</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">outline</span><span class="nd">:</span><span class="w"> </span><span class="nt">3px</span><span class="w"> </span><span class="nt">solid</span><span class="w"> </span><span class="nv">$color-brand-primary</span><span class="o">;</span>
 <span class="w">    </span><span class="nt">outline-offset</span><span class="nd">:</span><span class="w"> </span><span class="nt">2px</span><span class="o">;</span>
@@ -1695,14 +1827,14 @@ npx<span class="w"> </span>sass<span class="w"> </span>--watch<span class="w"> <
 </thead>
 <tbody>
 <tr>
-<td>Editar <code>main.css</code> a mano</td>
-<td>Se pierde en la siguiente compilación</td>
+<td>Editar el CSS generado (<code>dist/</code>) a mano</td>
+<td>Se pierde en el siguiente <code>build</code></td>
 <td>Edita siempre el <code>.scss</code></td>
 </tr>
 <tr>
-<td>Enlazar el <code>.scss</code> en el HTML</td>
-<td>El navegador no lo entiende: la página sale sin estilos</td>
-<td><code>&lt;link rel="stylesheet" href="css/main.css"&gt;</code></td>
+<td>Abrir <code>index.html</code> con doble clic (o con Live Server)</td>
+<td>Nadie compila el <code>.scss</code>: la página sale sin estilos</td>
+<td>Abre <strong>http://localhost:5173</strong>, la dirección de Vite</td>
 </tr>
 <tr>
 <td>Anidar 5 o 6 niveles</td>
@@ -1720,9 +1852,14 @@ npx<span class="w"> </span>sass<span class="w"> </span>--watch<span class="w"> <
 <td><code>@use</code></td>
 </tr>
 <tr>
-<td>No dejar <code>--watch</code> en marcha</td>
+<td>Contenedor parado</td>
 <td>"He cambiado el <code>.scss</code> y no se ve nada"</td>
-<td>Compila (o deja <code>--watch</code> abierto)</td>
+<td><code>docker compose up</code> y deja esa terminal abierta: los errores salen ahí</td>
+</tr>
+<tr>
+<td>Puerto 5173 ocupado</td>
+<td><code>docker compose up</code> falla con <em>port is already allocated</em></td>
+<td>Para el otro proyecto (<code>docker compose down</code> en su carpeta)</td>
 </tr>
 </tbody>
 </table>
@@ -1732,10 +1869,10 @@ npx<span class="w"> </span>sass<span class="w"> </span>--watch<span class="w"> <
 <p><strong>Objetivo:</strong> dejar lista la estructura SASS sobre la que escribiremos los estilos de la ficha de AURIA en la UD4.</p>
 </div>
 <ol>
-<li>En la carpeta de la ficha de AURIA (la del ejercicio de la sección 5), instala Dart Sass y crea la estructura de carpetas <code>scss/</code> de la sección 6.5.</li>
+<li>En la carpeta de la ficha de AURIA (la del ejercicio de la sección 5), crea el <code>compose.yaml</code> y el <code>vite.config.mjs</code> de la sección 6.2, instala Vite y Dart Sass con <code>docker compose run</code>, y crea la estructura de carpetas <code>scss/</code> de la sección 6.5.</li>
 <li>En <code>_tokens.scss</code>, pasa a variables SASS los tokens de color y espaciado que definiste en Penpot en la UD2, respetando los niveles global y semántico.</li>
 <li>Crea un mixin <code>flex-center</code> y un componente <code>_button.scss</code> que lo use, con un <em>hover</em> calculado con <code>color.adjust</code>.</li>
-<li>Compila con <code>npx sass --watch scss/main.scss css/main.css</code> y enlaza <code>css/main.css</code> en el HTML.</li>
+<li>Enlaza <code>/scss/main.scss</code> en el HTML, arranca con <code>docker compose up</code> y abre http://localhost:5173.</li>
 <li>Comprueba que, al cambiar <strong>solo</strong> <code>$blue-500</code> en <code>_tokens.scss</code>, cambian el botón, su <em>hover</em> y el contorno de foco.</li>
 </ol>
 <hr />
@@ -1836,8 +1973,16 @@ npx<span class="w"> </span>sass<span class="w"> </span>--watch<span class="w"> <
 <td>Compilador oficial (paquete <code>sass</code> de npm). Node Sass está abandonado.</td>
 </tr>
 <tr>
-<td><strong><code>--watch</code></strong></td>
-<td>Recompila automáticamente cada vez que guardas.</td>
+<td><strong>Vite</strong></td>
+<td>Servidor de desarrollo: compila el <code>.scss</code> al guardar y actualiza el navegador sin recargar (<strong>HMR</strong>). <code>vite build</code> genera la versión final en <code>dist/</code>.</td>
+</tr>
+<tr>
+<td><strong>Docker / contenedor</strong></td>
+<td>Entorno aislado con todo lo necesario (Node, npm, Vite, Sass) sin instalarlo en tu equipo. Se describe en <code>compose.yaml</code> y se arranca con <code>docker compose up</code>.</td>
+</tr>
+<tr>
+<td><strong>Volumen</strong></td>
+<td>Carpeta de tu equipo montada dentro del contenedor (<code>.:/app</code>): lo que guardas en VS Code lo ve Vite al instante.</td>
 </tr>
 <tr>
 <td><strong>Source map</strong></td>
