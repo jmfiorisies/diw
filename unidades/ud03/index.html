@@ -1768,8 +1768,8 @@ docker<span class="w"> </span>compose<span class="w"> </span>up
 </div>
 <h3 id="66-mixins-bloques-de-estilo-reutilizables">6.6 Mixins: bloques de estilo reutilizables</h3>
 <p>Un <strong>mixin</strong> es un bloque de declaraciones con nombre que puedes "pegar" donde quieras con <code>@include</code>. Puede recibir parámetros, como una función:</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// _mixins.scss</span>
-<span class="k">@use</span><span class="w"> </span><span class="s1">'tokens'</span><span class="w"> </span><span class="nt">as</span><span class="w"> </span><span class="o">*;</span><span class="w">   </span><span class="o">//</span><span class="w"> </span><span class="nt">los</span><span class="w"> </span><span class="o">@</span><span class="nt">use</span><span class="w"> </span><span class="nt">siempre</span><span class="w"> </span><span class="nt">van</span><span class="w"> </span><span class="nt">al</span><span class="w"> </span><span class="nt">principio</span><span class="w"> </span><span class="nt">del</span><span class="w"> </span><span class="nt">fichero</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// _mixins.scss · los @use siempre van al principio del fichero</span>
+<span class="k">@use</span><span class="w"> </span><span class="s1">'tokens'</span><span class="w"> </span><span class="nt">as</span><span class="w"> </span><span class="o">*;</span>
 
 <span class="o">@</span><span class="nt">mixin</span><span class="w"> </span><span class="nt">flex-center</span><span class="o">(</span><span class="nv">$gap</span><span class="nd">:</span><span class="w"> </span><span class="nt">0</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nt">display</span><span class="nd">:</span><span class="w"> </span><span class="nt">flex</span><span class="o">;</span>
