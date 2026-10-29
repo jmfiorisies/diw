@@ -5,4 +5,8 @@ site/
 # Ignorar de la UD 4 en adelante y Formación en Empresa
 docs/unidades/ud0[4-9]*
 docs/unidades/ud1[0-9]*
+# Excepción: UD4-6 ya se dan (apuntes + baterías); UD7+ siguen ocultas
+!docs/unidades/ud04*
+!docs/unidades/ud05*
+!docs/unidades/ud06*
 docs/empresa/

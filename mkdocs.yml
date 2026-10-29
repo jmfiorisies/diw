@@ -88,6 +88,13 @@ nav:
       - "UD 4: CSS3 Moderno, Layout (Flexbox/Grid), Container Queries y Responsive": unidades/ud04.md
       - "UD 5: Arquitectura CSS (BEM) y Utility-First con Tailwind CSS (RA2)": unidades/ud05.md
       - "UD 6: Optimización Multimedia (WebP/AVIF), SVG e Introducción a Performance (RA3)": unidades/ud06.md
+  - 🏋️ Practicar (con contraseña):
+      - Baterías de ejercicios:
+          - "UD4 · Layout responsive": unidades/ud04-1-bateria/
+          - "UD5 · BEM, Tailwind y Stylelint": unidades/ud05-1-bateria/
+          - "UD6 · Multimedia": unidades/ud06-1-bateria/
+      - Prácticas:
+          - "P2 · RAÍZ, vivero online": practicas/p2-raiz/
   # - 2.ª Evaluación (Bloque II - Componentes, Interactive UI, WCAG 2.2 y Audits):
   #     - "UD 7: Componentes UI, Atomic Design y Catálogo con Storybook (RA4)":
   #         - "Visión General": unidades/ud07.md
