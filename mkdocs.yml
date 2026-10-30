@@ -11,8 +11,6 @@ theme:
 
   # Características visuales y de navegación
   features:
-    - navigation.sections      # Secciones estructuradas en el menú lateral
-    - navigation.expand        # Mantiene las secciones abiertas para ver todo de un vistazo
     - navigation.indexes       # Permite que las páginas principales actúen como directorio
     - navigation.top           # Botón flotante para volver arriba
     - navigation.instant       # Carga instantánea tipo SPA
@@ -81,7 +79,7 @@ plugins:
 nav:
   - Inicio: index.md
   - Planificación Docente: planificacion.md
-  - 1.ª Evaluación (Bloque I - UI/UX, Design Systems, HTML5, CSS Moderno y Multimedia):
+  - "1.ª Evaluación":
       - "UD 1: Diseño de Interfaces, Comunicación Visual y Penpot Base": unidades/ud01.md
       - "UD 2: Penpot Avanzado, Design Systems y Design Tokens": unidades/ud02.md
       - "UD 3: HTML5 Semántico, Estructura Accesible y Formularios": unidades/ud03.md
