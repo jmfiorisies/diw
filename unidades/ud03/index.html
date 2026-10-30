@@ -309,27 +309,22 @@
     
     
     
-      
-        
-        
-      
     
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
     
   
-    1.ª Evaluación (Bloque I - UI/UX, Design Systems, HTML5, CSS Moderno y Multimedia)
+    1.ª Evaluación
   
 
     
@@ -345,7 +340,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    1.ª Evaluación (Bloque I - UI/UX, Design Systems, HTML5, CSS Moderno y Multimedia)
+    1.ª Evaluación
   
 
           </label>
@@ -860,22 +855,15 @@
     
     
     
-      
-        
-        
-      
     
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -922,16 +910,12 @@
     
     
     
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
         
           
           <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
@@ -1069,16 +1053,12 @@
     
     
     
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
         
           
           <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
@@ -1167,22 +1147,15 @@
     
     
     
-      
-        
-        
-      
     
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   
@@ -1918,7 +1891,7 @@
 <span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.:/app</span><span class="w">                </span><span class="c1"># tu carpeta del proyecto, dentro del contenedor</span>
 <span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;5173:5173&quot;</span><span class="w">           </span><span class="c1"># http://localhost:5173 → Vite</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"5173:5173"</span><span class="w">           </span><span class="c1"># http://localhost:5173 → Vite</span>
 <span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npx vite --host 0.0.0.0</span>
 </code></pre></div>
 <p><strong>2. Instalar y arrancar</strong>, desde la carpeta del proyecto:</p>
@@ -1932,12 +1905,12 @@ docker<span class="w"> </span>compose<span class="w"> </span>up
 <p><code>docker compose run --rm web …</code> ejecuta <strong>un comando suelto</strong> dentro del contenedor y lo borra al terminar (<code>--rm</code>). Los ficheros que crea (<code>package.json</code>, <code>node_modules/</code>) aparecen en tu carpeta gracias al volumen. <code>docker compose up</code> arranca el servicio con su <code>command</code>: Vite. Para pararlo, <code>Ctrl+C</code> (o <code>docker compose down</code>).</p>
 <p><strong>3. Enlazar el <code>.scss</code> en el HTML.</strong> Con Vite se enlaza <strong>directamente el <code>.scss</code></strong>: Vite lo compila al servirlo.</p>
 <div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- index.html --&gt;</span>
-<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/scss/main.scss&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">href</span><span class="o">=</span><span class="s">"/scss/main.scss"</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>Abre <strong>http://localhost:5173</strong>. Cada vez que guardas un <code>.scss</code>, Vite lo recompila y el navegador aplica el CSS nuevo <strong>sin recargar la página</strong> (<em>HMR</em>). Si hay un error de SASS, aparece en la terminal de <code>docker compose up</code> y en el propio navegador, con fichero y línea.</p>
 <p><strong>4. Source maps.</strong> Para que DevTools te diga en qué línea de <strong>qué <code>.scss</code></strong> está cada regla (y no en el CSS compilado), actívalos en <code>vite.config.mjs</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// vite.config.mjs</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">defineConfig</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vite&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">defineConfig</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'vite'</span><span class="p">;</span>
 
 <span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">defineConfig</span><span class="p">({</span>
 <span class="w">  </span><span class="nx">css</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
@@ -1995,7 +1968,7 @@ docker<span class="w"> </span>compose<span class="w"> </span>up
 </table>
 <p>Una práctica muy habitual es combinarlas: los valores en SASS y los tokens semánticos publicados como custom properties.</p>
 <div class="highlight"><pre><span></span><code><span class="nd">:root</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nt">--color-brand-primary</span><span class="nd">:</span><span class="w"> </span><span class="nn">#</span><span class="p">{</span><span class="err">$</span><span class="nt">blue-500</span><span class="p">}</span><span class="o">;</span>
+<span class="w">  </span><span class="nt">--color-brand-primary</span><span class="nd">:</span><span class="w"> </span><span class="nn">#</span><span class="p">{</span><span class="nv">$blue-500</span><span class="p">}</span><span class="o">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>
@@ -2005,8 +1978,8 @@ docker<span class="w"> </span>compose<span class="w"> </span>up
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nc">.card</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nt">padding</span><span class="nd">:</span><span class="w"> </span><span class="err">$</span><span class="nt">space-md</span><span class="o">;</span>
-<span class="w">  </span><span class="nt">border-radius</span><span class="nd">:</span><span class="w"> </span><span class="err">$</span><span class="nt">radius-md</span><span class="o">;</span>
+<span class="w">  </span><span class="nt">padding</span><span class="nd">:</span><span class="w"> </span><span class="nv">$space-md</span><span class="o">;</span>
+<span class="w">  </span><span class="nt">border-radius</span><span class="nd">:</span><span class="w"> </span><span class="nv">$radius-md</span><span class="o">;</span>
 
 <span class="w">  </span><span class="k">&amp;</span><span class="nd">:hover</span><span class="w"> </span><span class="p">{</span><span class="w">                 </span><span class="c1">// → .card:hover</span>
 <span class="w">    </span><span class="nt">box-shadow</span><span class="nd">:</span><span class="w"> </span><span class="nt">0</span><span class="w"> </span><span class="nt">2px</span><span class="w"> </span><span class="nt">8px</span><span class="w"> </span><span class="nt">rgb</span><span class="o">(</span><span class="nt">0</span><span class="w"> </span><span class="nt">0</span><span class="w"> </span><span class="nt">0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nt">0</span><span class="nc">.2</span><span class="o">);</span>
@@ -2047,7 +2020,7 @@ docker<span class="w"> </span>compose<span class="w"> </span>up
 ├── compose.yaml          ← el entorno Docker
 ├── package.json          ← creado con npm init (dependencias: vite, sass)
 ├── vite.config.mjs       ← source maps
-├── index.html            ← &lt;link rel=&quot;stylesheet&quot; href=&quot;/scss/main.scss&quot;&gt;
+├── index.html            ← &lt;link rel="stylesheet" href="/scss/main.scss"&gt;
 ├── node_modules/         ← generado por npm install, NO se toca
 ├── dist/                 ← generado por vite build, NO se toca
 └── scss/
@@ -2060,15 +2033,15 @@ docker<span class="w"> </span>compose<span class="w"> </span>up
     └── main.scss         ← solo importa las piezas
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1">// main.scss — el índice: no lleva estilos propios</span>
-<span class="k">@use</span><span class="w"> </span><span class="s1">&#39;base&#39;</span><span class="o">;</span>
-<span class="o">@</span><span class="nt">use</span><span class="w"> </span><span class="s1">&#39;components/button&#39;</span><span class="o">;</span>
-<span class="o">@</span><span class="nt">use</span><span class="w"> </span><span class="s1">&#39;components/card&#39;</span><span class="o">;</span>
+<span class="k">@use</span><span class="w"> </span><span class="s1">'base'</span><span class="o">;</span>
+<span class="o">@</span><span class="nt">use</span><span class="w"> </span><span class="s1">'components/button'</span><span class="o">;</span>
+<span class="o">@</span><span class="nt">use</span><span class="w"> </span><span class="s1">'components/card'</span><span class="o">;</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1">// components/_card.scss — cada pieza carga lo que necesita</span>
-<span class="k">@use</span><span class="w"> </span><span class="s1">&#39;../tokens&#39;</span><span class="w"> </span><span class="nt">as</span><span class="w"> </span><span class="o">*;</span>
+<span class="k">@use</span><span class="w"> </span><span class="s1">'../tokens'</span><span class="w"> </span><span class="nt">as</span><span class="w"> </span><span class="o">*;</span>
 
 <span class="nc">.card</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nt">padding</span><span class="nd">:</span><span class="w"> </span><span class="err">$</span><span class="nt">space-md</span><span class="o">;</span>
+<span class="w">  </span><span class="nt">padding</span><span class="nd">:</span><span class="w"> </span><span class="nv">$space-md</span><span class="o">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <div class="admonition info">
@@ -2078,25 +2051,25 @@ docker<span class="w"> </span>compose<span class="w"> </span>up
 <h3 id="66-mixins-bloques-de-estilo-reutilizables">6.6 Mixins: bloques de estilo reutilizables</h3>
 <p>Un <strong>mixin</strong> es un bloque de declaraciones con nombre que puedes "pegar" donde quieras con <code>@include</code>. Puede recibir parámetros, como una función:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// _mixins.scss · los @use siempre van al principio del fichero</span>
-<span class="k">@use</span><span class="w"> </span><span class="s1">&#39;tokens&#39;</span><span class="w"> </span><span class="nt">as</span><span class="w"> </span><span class="o">*;</span>
+<span class="k">@use</span><span class="w"> </span><span class="s1">'tokens'</span><span class="w"> </span><span class="nt">as</span><span class="w"> </span><span class="o">*;</span>
 
-<span class="o">@</span><span class="nt">mixin</span><span class="w"> </span><span class="nt">flex-center</span><span class="o">(</span><span class="err">$</span><span class="nt">gap</span><span class="nd">:</span><span class="w"> </span><span class="nt">0</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+<span class="o">@</span><span class="nt">mixin</span><span class="w"> </span><span class="nt">flex-center</span><span class="o">(</span><span class="nv">$gap</span><span class="nd">:</span><span class="w"> </span><span class="nt">0</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nt">display</span><span class="nd">:</span><span class="w"> </span><span class="nt">flex</span><span class="o">;</span>
 <span class="w">  </span><span class="nt">justify-content</span><span class="nd">:</span><span class="w"> </span><span class="nt">center</span><span class="o">;</span>
 <span class="w">  </span><span class="nt">align-items</span><span class="nd">:</span><span class="w"> </span><span class="nt">center</span><span class="o">;</span>
-<span class="w">  </span><span class="nt">gap</span><span class="nd">:</span><span class="w"> </span><span class="err">$</span><span class="nt">gap</span><span class="o">;</span>
+<span class="w">  </span><span class="nt">gap</span><span class="nd">:</span><span class="w"> </span><span class="nv">$gap</span><span class="o">;</span>
 <span class="p">}</span>
 
 <span class="k">@mixin</span><span class="nf"> focus-visible</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">&amp;</span><span class="nd">:focus-visible</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">outline</span><span class="nd">:</span><span class="w"> </span><span class="nt">3px</span><span class="w"> </span><span class="nt">solid</span><span class="w"> </span><span class="err">$</span><span class="nt">color-brand-primary</span><span class="o">;</span>
+<span class="w">    </span><span class="nt">outline</span><span class="nd">:</span><span class="w"> </span><span class="nt">3px</span><span class="w"> </span><span class="nt">solid</span><span class="w"> </span><span class="nv">$color-brand-primary</span><span class="o">;</span>
 <span class="w">    </span><span class="nt">outline-offset</span><span class="nd">:</span><span class="w"> </span><span class="nt">2px</span><span class="o">;</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1">// components/_button.scss</span>
-<span class="k">@use</span><span class="w"> </span><span class="s1">&#39;../mixins&#39;</span><span class="w"> </span><span class="nt">as</span><span class="w"> </span><span class="o">*;</span>
-<span class="o">@</span><span class="nt">use</span><span class="w"> </span><span class="s1">&#39;../tokens&#39;</span><span class="w"> </span><span class="nt">as</span><span class="w"> </span><span class="o">*;</span>
+<span class="k">@use</span><span class="w"> </span><span class="s1">'../mixins'</span><span class="w"> </span><span class="nt">as</span><span class="w"> </span><span class="o">*;</span>
+<span class="o">@</span><span class="nt">use</span><span class="w"> </span><span class="s1">'../tokens'</span><span class="w"> </span><span class="nt">as</span><span class="w"> </span><span class="o">*;</span>
 
 <span class="nc">.button</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">@include</span><span class="nd"> flex-center</span><span class="p">(</span><span class="nv">$space-md</span><span class="p">);</span>
@@ -2113,14 +2086,14 @@ docker<span class="w"> </span>compose<span class="w"> </span>up
 </div>
 <h3 id="67-funciones-calcular-en-lugar-de-copiar">6.7 Funciones: calcular en lugar de copiar</h3>
 <p>SASS trae módulos de funciones listos para usar. El más útil al principio es <code>sass:color</code>, para obtener variantes de un color sin inventarse otro código hexadecimal:</p>
-<div class="highlight"><pre><span></span><code><span class="k">@use</span><span class="w"> </span><span class="s1">&#39;sass:color&#39;</span><span class="o">;</span>
-<span class="o">@</span><span class="nt">use</span><span class="w"> </span><span class="s1">&#39;../tokens&#39;</span><span class="w"> </span><span class="nt">as</span><span class="w"> </span><span class="o">*;</span>
+<div class="highlight"><pre><span></span><code><span class="k">@use</span><span class="w"> </span><span class="s1">'sass:color'</span><span class="o">;</span>
+<span class="o">@</span><span class="nt">use</span><span class="w"> </span><span class="s1">'../tokens'</span><span class="w"> </span><span class="nt">as</span><span class="w"> </span><span class="o">*;</span>
 
 <span class="nc">.button</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nt">background</span><span class="nd">:</span><span class="w"> </span><span class="err">$</span><span class="nt">color-brand-primary</span><span class="o">;</span>
+<span class="w">  </span><span class="nt">background</span><span class="nd">:</span><span class="w"> </span><span class="nv">$color-brand-primary</span><span class="o">;</span>
 
 <span class="w">  </span><span class="k">&amp;</span><span class="nd">:hover</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">background</span><span class="nd">:</span><span class="w"> </span><span class="nt">color</span><span class="nc">.adjust</span><span class="o">(</span><span class="err">$</span><span class="nt">color-brand-primary</span><span class="o">,</span><span class="w"> </span><span class="err">$</span><span class="nt">lightness</span><span class="nd">:</span><span class="w"> </span><span class="nt">-10</span><span class="err">%</span><span class="o">);</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="nt">10</span><span class="w"> </span><span class="err">%</span><span class="w"> </span><span class="nt">más</span><span class="w"> </span><span class="nt">oscuro</span>
+<span class="w">    </span><span class="nt">background</span><span class="nd">:</span><span class="w"> </span><span class="nt">color</span><span class="nc">.adjust</span><span class="o">(</span><span class="nv">$color-brand-primary</span><span class="o">,</span><span class="w"> </span><span class="nv">$lightness</span><span class="nd">:</span><span class="w"> </span><span class="nt">-10</span><span class="err">%</span><span class="o">);</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="nt">10</span><span class="w"> </span><span class="err">%</span><span class="w"> </span><span class="nt">más</span><span class="w"> </span><span class="nt">oscuro</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -2408,7 +2381,7 @@ docker<span class="w"> </span>compose<span class="w"> </span>up
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.instant", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.top", "navigation.instant", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
