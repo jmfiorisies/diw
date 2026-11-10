@@ -61,9 +61,11 @@ extra_javascript:
   - javascripts/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
   - https://unpkg.com/mermaid@10/dist/mermaid.min.js
+  - javascripts/mapas-diw.js        # visor ampliable de los mapas SVG (Organizacion/docs/diw/mapas/insertar.py)
 
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/mapas-diw.css
 
 plugins:
   - search
