@@ -1,0 +1,90 @@
+/* Dibujos de la UD6 en línea (SVG sencillos y el sprite sheet vivo). Mismo sistema que la UD6 de DWEC. */
+
+/* Fichas de color de los dibujos: claro y oscuro */
+:root {
+  --g-tinta: #202124; --g-tinta2: #5f6368; --g-linea: #dadce0; --g-papel: #ffffff; --g-suave: #f8f9fa;
+  --g-rojo: #c5221f; --g-rojo-f: #fdecea;
+  --g-verde: #188038; --g-verde-f: #e6f4ea;
+  --g-ambar: #b06000; --g-ambar-f: #fef7e0;
+  --g-azul: #1a73e8; --g-azul-f: #e8f0fe;
+  --g-morado: #8430ce; --g-morado-f: #f3e8fd;
+  --g-serie: #c5221f; --g-par: #1a73e8;
+}
+[data-md-color-scheme="slate"] {
+  --g-tinta: #e8eaed; --g-tinta2: #a8adb3; --g-linea: #4a4e57; --g-papel: #1f2129; --g-suave: #272a31;
+  --g-rojo: #f28b82; --g-rojo-f: #3a2324;
+  --g-verde: #81c995; --g-verde-f: #1d2c23;
+  --g-ambar: #fdb863; --g-ambar-f: #2f2a1d;
+  --g-azul: #8ab4f8; --g-azul-f: #1f2738;
+  --g-morado: #d7aefb; --g-morado-f: #2c2338;
+  --g-serie: #e94235; --g-par: #4285f4;
+}
+
+/* Lienzo de cada ejemplo */
+.md-typeset .lienzo { margin: .4em 0 1em; padding: 1em; border: 1px solid var(--g-linea); border-radius: 10px; background: var(--g-papel); }
+.md-typeset .lienzo svg { display: block; width: 100%; height: auto; }
+.md-typeset .lienzo .pie { margin: .5em 0 0; font-size: .68rem; color: var(--g-tinta2); text-align: center; }
+@media (max-width: 600px) { .md-typeset .lienzo { padding: .5em .3em; } }
+
+/* Dibujos SVG en línea: todo con las fichas de color */
+.gsvg text { font-family: var(--md-text-font-family, Roboto), "Segoe UI", sans-serif; fill: var(--g-tinta); }
+.gsvg .t2 { fill: var(--g-tinta2); }
+.gsvg .mono { font-family: var(--md-code-font-family, "Roboto Mono"), monospace; }
+.gsvg .linea { stroke: var(--g-linea); fill: none; }
+.gsvg .flecha { stroke: var(--g-tinta2); stroke-width: 2; fill: none; }
+.gsvg .punta { fill: var(--g-tinta2); }
+.gsvg .c-ambar  { fill: var(--g-ambar-f); stroke: var(--g-ambar); stroke-width: 2; }
+.gsvg .c-verde  { fill: var(--g-verde-f); stroke: var(--g-verde); stroke-width: 2; }
+.gsvg .c-rojo   { fill: var(--g-rojo-f); stroke: var(--g-rojo); stroke-width: 2; }
+.gsvg .c-azul   { fill: var(--g-azul-f); stroke: var(--g-azul); stroke-width: 2; }
+.gsvg .c-morado { fill: var(--g-morado-f); stroke: var(--g-morado); stroke-width: 2; }
+.gsvg .c-gris   { fill: var(--g-suave); stroke: var(--g-linea); stroke-width: 2; }
+.gsvg .tx-ambar { fill: var(--g-ambar); } .gsvg .tx-verde { fill: var(--g-verde); }
+.gsvg .tx-rojo { fill: var(--g-rojo); } .gsvg .tx-azul { fill: var(--g-azul); } .gsvg .tx-morado { fill: var(--g-morado); }
+.gsvg text.tx-fija { fill: #202124; }
+.gsvg .s-verde { stroke: var(--g-verde); } .gsvg .s-rojo { stroke: var(--g-rojo); } .gsvg .s-azul { stroke: var(--g-azul); }
+.gsvg .s-tinta { stroke: var(--g-tinta); }
+.gsvg .f-verde { fill: var(--g-verde); } .gsvg .f-rojo { fill: var(--g-rojo); } .gsvg .f-azul { fill: var(--g-azul); }
+.gsvg .f-ambar { fill: var(--g-ambar); } .gsvg .f-ambar-f { fill: var(--g-ambar-f); }
+.gsvg .f-suave { fill: var(--g-suave); } .gsvg .f-linea { fill: var(--g-linea); }
+.gsvg .pantalla { fill: var(--g-papel); stroke: var(--g-tinta2); stroke-width: 2; }
+.gsvg .pixeles rect { stroke: var(--g-papel); stroke-width: 1; }
+.gsvg .pixeles.chico rect { stroke-width: .3; }
+.gsvg .borde { opacity: .45; }
+
+/* Gráfica de datos */
+.grafica .eje { stroke: var(--g-linea); }
+.grafica .rejilla { stroke: var(--g-linea); stroke-dasharray: 3 4; opacity: .7; }
+.grafica .punto { cursor: help; }
+.grafica .punto:hover rect { opacity: .8; }
+
+/* 7.3 · Sprite sheet vivo: solo CSS, @keyframes + steps() */
+.md-typeset .sprite-vivo .mandos { display: flex; flex-wrap: wrap; justify-content: center; gap: .4em 1.4em; font-size: .75rem; }
+.md-typeset .sprite-vivo .mandos label { margin-left: .3em; cursor: pointer; }
+.md-typeset .sprite-vivo .escena { display: flex; flex-wrap: wrap; justify-content: center; gap: 1em 3em; margin: 1em 0; }
+.md-typeset .sprite-vivo .caso { text-align: center; }
+.md-typeset .sprite-vivo .caso p { margin: .4em 0 0; font-size: .7rem; color: var(--g-tinta2); }
+.md-typeset .sprite-vivo .marco { zoom: 2; width: 64px; margin: 0 auto; }
+.sprite-vivo .mascota {
+  width: 64px;
+  height: 64px;
+  background: url("../assets/img/ud06/pasos.svg") 0 0;
+  animation: andar .8s steps(8) infinite;
+}
+.sprite-vivo .mascota.deslizar { animation-timing-function: linear; }
+@keyframes andar { to { background-position: -512px 0; } }
+.md-typeset .sprite-vivo .tira-viva { position: relative; max-width: 512px; aspect-ratio: 8 / 1; margin: 0 auto; background: url("../assets/img/ud06/pasos.svg") 0 0 / 100% 100%; }
+.sprite-vivo .ventana { position: absolute; top: -4px; bottom: -4px; left: 0; width: 12.5%; box-sizing: border-box; border: 4px solid var(--g-rojo); border-radius: 6px; animation: ventana-sprite .8s steps(8) infinite; }
+@keyframes ventana-sprite { to { transform: translateX(800%); } }
+.sprite-vivo:has(#sv-lento:checked) .anima { animation-duration: 6.4s; }
+.sprite-vivo:has(#sv-pausa:checked, .escena:hover, .tira-viva:hover) .anima { animation-play-state: paused; }
+.md-typeset .sprite-vivo .sin-movimiento { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .sprite-vivo .anima { animation: none; }
+  .md-typeset .sprite-vivo .mandos { display: none; }
+  .md-typeset .sprite-vivo .sin-movimiento { display: block; }
+}
+@media print {
+  .sprite-vivo .anima { animation: none; }
+  .md-typeset .sprite-vivo .mandos { display: none; }
+}
