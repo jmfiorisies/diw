@@ -96,8 +96,6 @@ nav:
           - "UD6 · Multimedia": unidades/ud06-1-bateria/
       - Prácticas:
           - "P2 · RAÍZ, vivero online": practicas/p2-raiz/
-      - Defensa:
-          - "P2 · RAÍZ": defensa/p2-raiz/
   # - 2.ª Evaluación (Bloque II - Componentes, Interactive UI, WCAG 2.2 y Audits):
   #     - "UD 7: Componentes UI, Atomic Design y Catálogo con Storybook (RA4)":
   #         - "Visión General": unidades/ud07.md
